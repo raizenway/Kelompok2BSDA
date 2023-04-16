@@ -7,7 +7,7 @@
 
 typedef struct subset1 *alamatsub1;
 typedef struct subset1{
-    char nama_sb1[10]
+    char nama_sb1[10];
     char member_sb1[20];
     char id_sb1[10];
     alamatsub1 next_sb1;
@@ -15,7 +15,7 @@ typedef struct subset1{
 
 typedef struct subset2 *alamatsub2;
 typedef struct subset2{
-    char nama_sb2[10]
+    char nama_sb2[10];
     char member_sb2[20];
     char id_sb2[10];
     alamatsub2 next_sb2;
@@ -23,7 +23,7 @@ typedef struct subset2{
 
 typedef struct superset* alamatsuper;
 typedef struct superset{
-    char nama_super[10]
+    char nama_super[10];
     char member_sp[20];
     char id_member[10];
     alamatsuper next_sp;
