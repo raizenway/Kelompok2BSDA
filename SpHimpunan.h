@@ -1,10 +1,14 @@
-/*  AUTHOR      : Banteng Harisantoso
-    NAMA        : SpHimpunan.h;
+/*  AUTHOR      : Kelompok 2
+    NAMA        : SpHimpunan.h
     DESKRIPSI   : Header untuk struktur data himpunan
+    TANGGAL     : 16 APRIL 2023
 =======================================================================================================================*/
+#ifndef SPHIMPUNAN_H
+#define SPHIMPUNAN_H
 #include <stdio.h>
 #include <stdbool.h>
 
+/*============================ STRUKTUR DATA ============================*/
 typedef struct subset1 *alamatsub1;
 typedef struct subset1{
     char nama_sb1[10];
@@ -43,5 +47,18 @@ typedef struct {
     alamatsuper first_sub2;
 }subset2_list;
 
-bool isExist(superset_list S, char nama, char id);
+/*============================ METHOD ============================*/
+bool IsExistSuper(superset_list S, char nama, char id);
 void add_membersuper(superset_list *S, char nama, char id);
+void Seleksi_MemberSuper(superset_list *S);
+void create_super (superset_list *S);
+void CreateSub1 (subset1_list *H1);
+void Createsub2 (subset2_list *H2);
+bool IsSuperEmpty (superset_list S);
+bool IsSubAEmpty (subset1_list H1);
+bool IsSubBEmpty (subset2_list H2);
+bool IsExistSuper(superset_list S, char nama_mhs[], char NIM[]);
+bool IsSuperFull();
+
+
+#endif /* SPHIMPUNAN_H */
