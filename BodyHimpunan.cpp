@@ -58,7 +58,7 @@ bool IsExistSuper(superset_list S, char nama_mhs[], char NIM[]) {
 }
 
 //mengecek apakah proses alokasi berhasil atau gagal karena memori yang kurang
-bool IsSuperFull() {
+bool IsFull() {
     alamatsuper bantu;
 
     bantu = (alamatsuper) malloc (sizeof(elmtsuper));
@@ -79,7 +79,7 @@ void add_membersuper(superset_list *S, char nama_mhs[], char NIM[]) {
     P->next_sp = NULL;
 
     //Mengecek apakah memori penuh
-    if(IsSuperFull()){
+    if(IsFull()){
         printf("Memori penuh!\n");
     }
     else{

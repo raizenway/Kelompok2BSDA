@@ -48,9 +48,6 @@ typedef struct {
 }subset2_list;
 
 /*============================ METHOD ============================*/
-bool IsExistSuper(superset_list S, char nama, char id);
-void add_membersuper(superset_list *S, char nama, char id);
-void Seleksi_MemberSuper(superset_list *S);
 void create_super (superset_list *S);
 void CreateSub1 (subset1_list *H1);
 void Createsub2 (subset2_list *H2);
@@ -58,7 +55,33 @@ bool IsSuperEmpty (superset_list S);
 bool IsSubAEmpty (subset1_list H1);
 bool IsSubBEmpty (subset2_list H2);
 bool IsExistSuper(superset_list S, char nama_mhs[], char NIM[]);
-bool IsSuperFull();
+bool IsExistSub1(subset1_list H1, char nama_mhs[], char NIM[]);
+bool IsExistSub1(subset1_list H1, char nama_mhs[], char NIM[]);
+bool IsSuperEmpty(superset_list S);
+bool IsSubAEmpty(subset1_list H1);
+bool IsSubBEmpty(subset2_list H2);
+bool IsFull();
+bool IsExistSuper(superset_list S, char nama, char id);
+void add_membersuper(superset_list *S, char nama_mhs[], char NIM[]);
+void add_memberSubA(subset1_list *H1, char nama_mhs[], char NIM[]);
+void add_memberSubB(subset2_list *H2, char nama_mhs[], char NIM[]);
+void Seleksi_MemberSuper(superset_list *S);
+void del_membersuper(superset_list *S, char nama_mhs[], char NIM[]);
+void del_memberSubA(subset1_list *H1, char nama_mhs[], char NIM[]);
+void del_memberSubB(subset2_list *H2, char nama_mhs[], char NIM[]);
+void Penghentian_Studi(superset_list *S);
+void irisan(superset_list S, subset1_list H1, subset2_list H2);
+void gabungan(superset_list S, subset1_list H1, subset2_list H2); 
+void komplemen(superset_list S, subset1_list H1, subset2_list H2);
+void selisih(superset_list S, subset1_list H1, subset2_list H2);
+void append_history(superset_list S, subset1_list H1, subset2_list H2);
+void write_cur(superset_list S, subset1_list H1, subset2_list H2);
+void write_guide();
+void display_cur();
+void display_menu();
+void display_search(superset_list S, subset1_list H1, subset2_list H2, char nama_mhs[], char NIM[]);
+void display_guide();
+void display_histori();
 
 
 #endif /* SPHIMPUNAN_H */
