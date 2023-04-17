@@ -102,6 +102,14 @@ void add_membersuper(superset_list *S, char nama_mhs[], char NIM[]) {
     }
     
 }
+/* Menambah member subset*/
+void add_membersub(subset_list *H1, char nama_mhs[], char NIM[]){
+    alamatsub P;
+    P = (alamatsub) malloc(sizeof(elmtsubset));
+    strcpy(P->nama_sb, nama_mhs);
+    strcpy(P->id_sb, NIM);
+
+}
 
 void Seleksi_MemberSuper(superset_list *S)
 /*  AUTHOR      : Banteng Harisantoso

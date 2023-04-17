@@ -10,10 +10,10 @@
 /*============================ STRUKTUR DATA ============================*/
 typedef struct subset *alamatsub;
 typedef struct subset{
-    char nama_sb1[10];
-    char member_sb1[20];
-    char id_sb1[10];
-    alamatsub next_sb1;
+    char nama_sub[10];
+    char member_sub[20];
+    char id_sub[10];
+    alamatsub next_sub;
 }elmtsubset;
 
 typedef struct superset* alamatsuper;
