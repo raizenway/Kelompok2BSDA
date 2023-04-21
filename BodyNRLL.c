@@ -12,7 +12,7 @@ void create_super (superset_list *S){
 }
 
 //pembentukan list subset-1
-void CreateSub1 (subset1_list *H1){
+void CreateSub1 (subset_list *H1){
     H1->first_sub1 = NULL;
 }
 
@@ -27,7 +27,7 @@ bool IsSuperEmpty (superset_list S){
 }
 
 //mengecek apakah subset-1 kosong
-bool IsSubAEmpty (subset1_list H1){
+bool IsSubAEmpty (subset_list H1){
     return (H1.first_sub1 == NULL);
 }
 

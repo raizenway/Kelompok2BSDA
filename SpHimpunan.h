@@ -61,5 +61,6 @@ void display_search(superset_list S, subset_list H1, char nama_mhs[], char NIM[]
 void display_guide();
 void display_histori();
 void menu_addsub(subset_list *H1);
+int PilihUKM();
 
 #endif /* SPHIMPUNAN_H */

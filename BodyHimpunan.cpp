@@ -20,13 +20,8 @@ void create_super (superset_list *S){
 }
 
 //pembentukan list subset-1
-void CreateSub1 (subset1_list *H1){
+void CreateSub (subset_list *H1){
     H1->first_sub1 = NULL;
-}
-
-//pembentukan list subset-2
-void Createsub2 (subset2_list *H2){
-    H2->first_sub2 = NULL;
 }
 
 //mengecek apakah superset kosong
@@ -35,13 +30,8 @@ bool IsSuperEmpty (superset_list S){
 }
 
 //mengecek apakah subset-1 kosong
-bool IsSubAEmpty (subset1_list H1){
+bool IsSubEmpty (subset_list H1){
     return (H1.first_sub1 == NULL);
-}
-
-//mengecek apakah subset-2 kosong
-bool IsSubBEmpty (subset2_list H2){
-    return (H2.first_sub2 == NULL);
 }
 
 // Memeriksa apakah mahasiswa dengan nama dan NIM yang diberikan sudah terdaftar dalam list super
@@ -84,7 +74,7 @@ void add_membersuper(superset_list *S, char nama_mhs[], char NIM[]) {
     }
     else{
     // Mengecek apakah daftar kosong
-    if (IsSuperEmpty(*S)) {
+    if (IsSuperEmpty(S)) {
         // Jika daftar kosong, maka node baru akan menjadi head
         S->first_super = P;
         S->first_super->next_sp = NULL;
@@ -107,14 +97,62 @@ void add_membersub(subset_list *H1, char nama_mhs[], char NIM[]){
     alamatsub P;
     P = (alamatsub) malloc(sizeof(elmtsubset));
     strcpy(P->nama_sb, nama_mhs);
-    strcpy(P->id_sb, NIM);
+    strcpy(P->id_sb, NIM); 
+    P->next_sub = NULL;
+    //Mengecek apakah memori penuh
+    if(IsFull()){
+        printf("Memori penuh!\n");
+    }
+    else{
+    // Mengecek apakah daftar kosong
+    if (IsSubEmpty(H1)) {
+        // Jika daftar kosong, maka node baru akan menjadi head
+        H1->first_sub = P;
+        H1->first_sub->next_sub = NULL;
+    }
+    else {
+        // Menambahkan node baru ke akhir list
+        alamatsub last;
+		last = H1->first_sub;
+        while (last->next_sub != NULL) {
+            last = last->next_sub;
+        }
+        last->next_sub = P;
+        last->next_sub->next_sub = NULL;
+    }
+    }
+    
+}
 
+int PilihUKM(){
+    int opsi;
+    while((opsi<1)&&(opsi>10)){
+    printf("Pilih salah satu UKM di bawah!\n
+            1. DKM\n
+            2. MUSKING\n
+            3. BADMINTON\n
+            4. BASKET\n
+            5. VOLI\n
+            6. POLBAN CHESS\n
+            7. JFP\n
+            8. ROBOTIK\n
+            9. FELLAS\n
+            10. FUTSAL\n");
+    scanf("%d", opsi);
+    if((opsi<1)&&(opsi>10)){
+        printf("Opsi tidak valid!");
+        system("pause");
+        system("cls");
+    }
+    }
+    
+    return opsi;
 }
 
 void Seleksi_MemberSuper(superset_list *S)
 /*  AUTHOR      : Banteng Harisantoso
     IS          : Sudah terbentuk list superset
-    FS          : Menampilkan pesan berhasil atau gagal menambahkan mahasiswa ke dalam himpunan
+    FS          : Menampilkan pesan berhasil atau gagal menambahkan mahasiswa ke dalam list POLBAN
     DESKRIPSI   : Prosedur untuk masuk ke menu penambahan mahasiswa dengan syarat-syarat POLBAN,
                   pengguna akan diarahkan ke switch, jika memilih 1 berturut-turut maka calon mahasiswa dapat menjadi mahasiswa
                   POLBAN. Namun, jika mahasiswa tidak lolos salah satu persyaratan maka calon mahasiswa belum bisa menjadi
@@ -224,6 +262,26 @@ void Seleksi_MemberSuper(superset_list *S)
 
 }
 
+void menu_addsub(subset_list *H1);
+/*  AUTHOR      : Banteng Harisantoso
+    IS          : Sudah terbentuk list subset
+    FS          : Menampilkan pesan berhasil atau gagal menambahkan mahasiswa ke dalam himp
+    DESKRIPSI   : Prosedur untuk masuk ke menu penambahan mahasiswa ke pilihan UKM
+=======================================================================================================================*/
+{
+    printf("============================ Menu Pendataan UKM Mahasiswa ===================================");
+    PilihUKM();
+    switch (PilihUKM())
+    {
+    case 1:
+        a
+        break;
+    
+    default:
+        break;
+    }
+
+}
 
 void display_menu() {
     	printf("=========================================\n");
