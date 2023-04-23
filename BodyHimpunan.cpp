@@ -283,6 +283,117 @@ void menu_addsub(subset_list *H1);
 
 }
 
+void Penghentian_Studi(superset_list *S, char nama_mhs[], char NIM[]){
+    char nama_mhs[20];
+    int jumlah;
+    char jawaban[5]; // variabel untuk menyimpan jawaban
+
+    printf("Berapa banyak mahasiswa yang ingin dihapus?\n");
+    scanf("%d", &jumlah);
+    while((jumlah == 0)||(jumlah<0)){
+        printf("Jumlah tidak valid! Silahkan masukkan jumlah yang valid.\n");
+        scanf("%d", &jumlah);
+    }
+
+    for(int i=0;i<jumlah;i++){
+        system("cls");
+        printf("Silahkan masukkan nama mahasiswa yang ingin dihapus.\n");
+        scanf("%s", &nama_mhs);
+
+        printf("Silahkan masukkan NIM mahasiswa tersebut!\n");
+        printf("NIM\t:");
+        scanf("%s", &NIM);
+        if(IsExistSuper(*S, nama_mhs, NIM)){
+            printf("JSilakan jawab dengan ya atau tidak.\n");
+            // pertanyaan 1
+            printf("Apakah mahasiswa dua semester berturut-turut lulus percobaan sampai dengan semester IV untuk mahasiswa Program Diploma III dan semester VI untuk mahasiswa Program Diploma IV?\n");
+            scanf("%s", jawaban);
+            if (strcmp(jawaban, "ya") == 0) {
+                del_membersuper(S, nama_mhs, NIM);
+                printf("Mahasiswa %s", nama_mhs, "telah dihapus dari daftar anggota POLBAN.\n");
+                return;
+            }
+
+            // pertanyaan 2
+            printf("Apakah Indeks Prestasi (IP) mahasiswa berada di antara 1,70 dan 2,00 dan jumlah SKS nilai D lebih dari 7 SKS?\n");
+            scanf("%s", jawaban);
+            if (strcmp(jawaban, "ya") == 0) {
+                del_membersuper(S, nama_mhs, NIM);
+                printf("Mahasiswa %s", nama_mhs, "telah dihapus dari daftar anggota POLBAN.\n");
+                return;
+            }
+
+            // pertanyaan 3
+            printf("Apakah nilai IP mahasiswa di bawah 1,70?\n");
+            scanf("%s", jawaban);
+            if (strcmp(jawaban, "ya") == 0) {
+                del_membersuper(S, nama_mhs, NIM);
+                printf("Mahasiswa %s", nama_mhs, "telah dihapus dari daftar anggota POLBAN.\n");
+                return;
+            }
+
+            // pertanyaan 4
+            printf("Apakah mahasiswa tidak memenuhi syarat kelulusan pada semester VI untuk mahasiswa Program Diploma III dan pada semester VIII untuk mahasiswa Program Diploma IV, setelah diberi kesempatan mengulang satu kali?\n");
+            scanf("%s", jawaban);
+            if (strcmp(jawaban, "ya") == 0) {
+                del_membersuper(S, nama_mhs, NIM);
+                printf("Mahasiswa %s", nama_mhs, "telah dihapus dari daftar anggota POLBAN.\n");
+                return;
+            }
+
+            // pertanyaan 5
+            printf("Apakah mahasiswa mempunyai nilai E pada semester I sampai dengan IV untuk mahasiswa Program Diploma III dan semester I sampai IV?\n");
+            scanf("%s", jawaban);
+            if (strcmp(jawaban, "ya") == 0) {
+                del_membersuper(S, nama_mhs, NIM);
+                printf("Mahasiswa %s", nama_mhs, "telah dihapus dari daftar anggota POLBAN.\n");
+                return;
+            }
+
+            // pertanyaan 6
+            printf("Apakah mahasiswa melewati batas studi yang telah ditetapkan dalam Pasal 18 Ayat 1 dan 2?\n");
+            scanf("%s", jawaban);
+            if (strcmp(jawaban, "ya") == 0) {
+                del_membersuper(S, nama_mhs, NIM);
+                printf("Mahasiswa %s", nama_mhs, "telah dihapus dari daftar anggota POLBAN.\n");
+                return;
+            }
+
+            // pertanyaan 7
+            printf("Apakah mahasiswa memiliki status ketidakhadiran yang tidak diperbolehkan, sebagaimana diatur dalam Pasal 22?\n");
+            scanf("%s", jawaban);
+            if (strcmp(jawaban, "ya") == 0) {
+                del_membersuper(S, nama_mhs, NIM);
+                printf("Mahasiswa %s", nama_mhs, "telah dihapus dari daftar anggota POLBAN.\n");
+                return;
+            } 
+
+            // pertanyaan 8
+            printf("Apakah mahasiswa terlibat dalam perbuatan kriminal yang dinyatakan oleh pihak berwajib?\n");
+            scanf("%s", jawaban);
+            if (strcmp(jawaban, "ya") == 0) {
+                del_membersuper(S, nama_mhs, NIM);
+                printf("Mahasiswa %s", nama_mhs, "telah dihapus dari daftar anggota POLBAN.\n");
+                return;
+            }
+            
+            else if (strcmp(jawaban, "tidak") == 0) {
+                // jawaban tidak, lanjut ke pertanyaan berikutnya
+            } else {
+                printf("Jawaban tidak valid, silakan jawab dengan ya atau tidak.\n");
+                return;
+            }
+
+
+        }
+
+    }
+}
+
+void irisan(superset_list S, subset_list H1 ){
+    
+}
+
 void display_menu() {
     	printf("=========================================\n");
         printf("|    Kalkulator Himpunan UKM POLBAN     |\n");

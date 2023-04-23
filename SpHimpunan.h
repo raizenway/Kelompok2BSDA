@@ -34,7 +34,7 @@ typedef struct {
 
 /*============================ METHOD ============================*/
 void create_super (superset_list *S);
-void create_sub (subset_list *H1);
+void CreateSub (subset_list *H1);
 bool IsSuperEmpty (superset_list S);
 bool IsSubEmpty (subset_list H1);
 bool IsExistSuper(superset_list S, char nama_mhs[], char NIM[]);
@@ -47,7 +47,7 @@ void add_membersub(subset_list *H1, char nama_mhs[], char NIM[]);
 void Seleksi_MemberSuper(superset_list *S);
 void del_membersuper(superset_list *S, char nama_mhs[], char NIM[]);
 void del_membersub(subset_list *H1, char nama_mhs[], char NIM[]);
-void Penghentian_Studi(superset_list *S);
+void Penghentian_Studi(superset_list *S, char nama_mhs[], char NIM[]);
 void irisan(superset_list S, subset_list H1 );
 void gabungan(superset_list S, subset_list H1 ); 
 void komplemen(superset_list S, subset_list H1 );

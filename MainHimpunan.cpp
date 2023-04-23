@@ -14,6 +14,7 @@
 int main() {
 	superset_list S;
 	create_super (&S);
+    CreateSub (&H1);
     int choice, opsi, operasi;
     char nama_mhs[20]; 
 	char NIM[9];
@@ -42,25 +43,25 @@ int main() {
                 break;
             case 2:
             	printf("| [2] Operasi Himpunan |");
-                // printf("1. Operasi Irisan");
-                // printf("2. Operasi Gabungan");
-                // printf("3. Operasi Selisih");
-                // printf("4. Operasi Komplemen");
-                // scanf("%d", &operasi);
-                // switch (operasi){
-                //     case 1:
-                //        irisan();
-                //         break;
-                //     case 2:
-                //        gabungan();
-                //         break;
-                //     case 3:
-                //        selisih();
-                //         break;
-                //     case 4:
-                //        komplemen();
-                //         break;
-                // }
+                printf("1. Operasi Irisan");
+                printf("2. Operasi Gabungan");
+                printf("3. Operasi Selisih");
+                printf("4. Operasi Komplemen");
+                scanf("%d", &operasi);
+                switch (operasi){
+                    case 1:
+                       irisan(&S, &H1);
+                        break;
+                    case 2:
+                       gabungan();
+                        break;
+                    case 3:
+                       selisih();
+                        break;
+                    case 4:
+                       komplemen();
+                        break;
+                }
                 break;
             case 3:
             	printf("| [3] Edit Daftar Himpunan |");
