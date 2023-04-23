@@ -80,7 +80,9 @@ int main() {
 //                        add_membersubset2(&S, nama_mhs, NIM);
                         break;
                 }
-
+            case 4 : menu_addsub();
+            case 5 : subset_list DKM;
+                        create_sub(&DKM);
             default:
                 printf("Pilihan tidak valid. Silahkan masukkan angka 1-7.\n");
         }

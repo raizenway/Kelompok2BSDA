@@ -29,7 +29,7 @@ typedef struct{
 }superset_list;
 
 typedef struct {
-    alamatsuper first_sub1;
+    alamatsub first_sub;
 }subset_list;
 
 /*============================ METHOD ============================*/
@@ -60,7 +60,9 @@ void display_menu();
 void display_search(superset_list S, subset_list H1, char nama_mhs[], char NIM[]);
 void display_guide();
 void display_histori();
-void menu_addsub(subset_list *H1);
+void menu_addsub();
 int PilihUKM();
+void addnama(char* nama_mhs);
+void addnim(char* NIM);
 
 #endif /* SPHIMPUNAN_H */
