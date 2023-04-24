@@ -12,10 +12,22 @@
 #include <windows.h>
 
 int main() {
-	superset_list S;
-	create_super (&S);
+	superset_list POLBAN;
+    subset_list DKM, MUSKING, BADMINTON, BASKET, VOLI;
+    subset_list POLBAN_CHESS, JFP, ROBOTIK, FELLAS, FUTSAL;
+    create_super(&POLBAN);
+    create_sub(&DKM);
+    create_sub(&MUSKING);
+    create_sub(&BADMINTON);
+    create_sub(&BASKET);
+    create_sub(&VOLI);
+    create_sub(&POLBAN_CHESS);
+    create_sub(&JFP);
+    create_sub(&ROBOTIK);
+    create_sub(&FELLAS);
+    create_sub(&FUTSAL);
     int choice, opsi, operasi;
-    char nama_mhs[20]; 
+    char nama_mhs[61]; 
 	char NIM[9];
 
     do {
@@ -32,11 +44,11 @@ int main() {
                 scanf("%d", &opsi);
                 switch (opsi){
                     case 1:
-                        Seleksi_MemberSuper(&S);
+                        Seleksi_MemberSuper(&POLBAN);
                         break;
-                    case 2:
+                    case 2: menu_addsub(&DKM, &MUSKING, &BADMINTON, &BASKET, &VOLI, &POLBAN_CHESS, &JFP, &ROBOTIK, &FELLAS, &FUTSAL);
                         break;
-                    case 3:
+                    case 3: menu_addsub(&DKM, &MUSKING, &BADMINTON, &BASKET, &VOLI, &POLBAN_CHESS, &JFP, &ROBOTIK, &FELLAS, &FUTSAL);
                         break;
                 }
                 break;
@@ -79,11 +91,8 @@ int main() {
 //                        add_membersubset2(&S, nama_mhs, NIM);
                         break;
                 }
-            case 4 : menu_addsub();
-            case 5 : subset_list DKM;
-                        create_sub(&DKM);
-            default:
-                printf("Pilihan tidak valid. Silahkan masukkan angka 1-7.\n");
+            case 4 : break;
+            case 5 : break;
         }
 
         printf("\n");
