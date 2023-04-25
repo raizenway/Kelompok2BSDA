@@ -45,7 +45,6 @@ bool IsExistSuper(superset_list S, char nama_mhs[], char NIM[]) {
         P = P->next_sp;
     }
     return false;
-}
 
 bool IsExistSub(subset_list H1, char nama_mhs[], char NIM[]){
     alamatsub P;

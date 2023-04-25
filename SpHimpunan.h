@@ -1,34 +1,27 @@
-/*  AUTHOR      : Banteng Harisantoso
-    NAMA        : SpHimpunan.h;
+/*  AUTHOR      : Kelompok 2
+    NAMA        : SpHimpunan.h
     DESKRIPSI   : Header untuk struktur data himpunan
+    TANGGAL     : 16 APRIL 2023
 =======================================================================================================================*/
+#ifndef SPHIMPUNAN_H
+#define SPHIMPUNAN_H
 #include <stdio.h>
 #include <stdbool.h>
-
-typedef struct subset1 *alamatsub1;
-typedef struct subset1{
-    char nama_sb1[10];
-    char member_sb1[20];
-    char id_sb1[10];
-    alamatsub1 next_sb1;
-}elmtsubset1;
-
-typedef struct subset2 *alamatsub2;
-typedef struct subset2{
-    char nama_sb2[10];
-    char member_sb2[20];
-    char id_sb2[10];
-    alamatsub2 next_sb2;
-}elmtsubset2;
+/*============================ STRUKTUR DATA ============================*/
+typedef struct subset *alamatsub;
+typedef struct subset{
+    char nama_sub[10];
+    char member_sub[61];
+    char id_sub[10];
+    alamatsub next_sub;
+}elmtsubset;
 
 typedef struct superset* alamatsuper;
 typedef struct superset{
     char nama_super[10];
-    char member_sp[20];
+    char member_sp[61];
     char id_member[10];
     alamatsuper next_sp;
-    alamatsub1 super_sub1;
-    alamatsub2 super_sub2;
 }elmtsuper;
 
 typedef struct{
@@ -36,12 +29,42 @@ typedef struct{
 }superset_list;
 
 typedef struct {
-    alamatsuper first_sub1;
-}subset1_list;
+    alamatsub first_sub;
+}subset_list;
 
-typedef struct {
-    alamatsuper first_sub2;
-}subset2_list;
+/*============================ METHOD ============================*/
+void create_super (superset_list *S);
+void create_sub (subset_list *H1);
+bool IsSuperEmpty (superset_list S);
+bool IsSubEmpty (subset_list H1);
+bool IsExistSuper(superset_list S, char nama_mhs[], char NIM[]);
+bool IsExistSub(subset_list H1, char nama_mhs[], char NIM[]);
+bool IsSuperEmpty(superset_list S);
+bool IsSubEmpty(subset_list H1);
+bool IsFull();
+void add_membersuper(superset_list *S, char nama_mhs[], char NIM[]);
+void add_membersub(subset_list *H1, char nama_mhs[], char NIM[]);
+void Seleksi_MemberSuper(superset_list *S);
+void del_membersuper(superset_list *S, char nama_mhs[], char NIM[]);
+void del_membersub(subset_list *H1, char nama_mhs[], char NIM[]);
+void Penghentian_Studi(superset_list *S, char nama_mhs[], char NIM[]);
+void irisan(superset_list S, subset_list H1 );
+void gabungan(superset_list S, subset_list H1 ); 
+void komplemen(superset_list S, subset_list H1 );
+void selisih(superset_list S, subset_list H1 );
+void append_history(superset_list S, subset_list H1 );
+void write_cur(superset_list S, subset_list H1);
+void write_guide();
+void display_cur();
+void display_menu();
+void display_search(superset_list S, subset_list H1, char nama_mhs[], char NIM[]);
+void display_guide();
+void display_histori();
+void menu_addsub(subset_list* DKM, subset_list* MUSKING, subset_list* BADMINTON, subset_list* BASKET, subset_list* VOLI, subset_list* POLBAN_CHESS, subset_list* JFP, subset_list* ROBOTIK, subset_list* FELLAS, subset_list* FUTSAL);
+int ListUKM();
+int OpsiUKM();
+void addnama(char* nama_mhs);
+void addnim(char* NIM);
+void ekstraklist(subset_list* H, subset_list DKM, subset_list MUSKING, subset_list BADMINTON, subset_list BASKET, subset_list VOLI, subset_list POLBAN_CHESS, subset_list JFP, subset_list ROBOTIK, subset_list FELLAS, subset_list FUTSAL);
 
-bool isExist(superset_list S, char nama, char id);
-void add_membersuper(superset_list *S, char nama, char id);
+#endif /* SPHIMPUNAN_H */
