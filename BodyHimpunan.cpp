@@ -103,12 +103,13 @@ void add_membersuper(superset_list *S, char nama_mhs[], char NIM[]) {
     
 }
 /* Menambah member subset*/
-void add_membersub(subset_list *H1, char nama_mhs[], char NIM[]){
+void add_membersub(subset_list *H1, char nama_mhs[], char NIM[], char UKM[]){
     
     alamatsub P;
     P = (alamatsub) malloc(sizeof(elmtsubset));
     strcpy(P->member_sub, nama_mhs);
     strcpy(P->id_sub, NIM); 
+    strcpy(P->nama_sub, UKM);
     P->next_sub = NULL;
     //Mengecek apakah memori penuh
     if(IsFull()){
@@ -135,20 +136,6 @@ void add_membersub(subset_list *H1, char nama_mhs[], char NIM[]){
     
 }
 
-//void ListUKM(){
-//        printf("Pilih salah satu UKM di bawah!\n"
-//               "1. DKM\n"
-//               "2. KEWIRAUSAHAAN\n"
-//               "3. BADMINTON\n"
-//               "4. BASKET\n"
-//               "5. VOLI\n"
-//               "6. POLBAN CHESS\n"
-//               "7. JFP\n"
-//               "8. ROBOTIK\n"
-//               "9. FELLAS\n"
-//               "10. FUTSAL\n");
-//}   
-
 int ListUKM(){
         printf("Pilih salah satu UKM di bawah!\n"
                "1. DKM\n"
@@ -160,21 +147,37 @@ int ListUKM(){
                "7. JFP\n"
                "8. ROBOTIK\n"
                "9. FELLAS\n"
-               "10. FUTSAL\n");
-        int opsi = 0;
-        do
+               "10. USF\n");
+        
+        int opsi;
+        printf("Opsi: ");
+        scanf("%d", &opsi);
+        while ((opsi < 1)||(opsi > 10))
         {   
+            printf("\nOpsi tidak valid\n");
             printf("Opsi: ");
             scanf("%d", &opsi);
-            if((opsi < 1)||(opsi > 10)){
-                printf("\nOpsi tidak valid\n");
-            }
-        } while ((opsi < 1)||(opsi > 10));
+        }
 
         return opsi;
 }   
 
-
+void MenuBuatHimpunan(superset_list* POLBAN, subset_list* DKM, subset_list* KEWIRAUSAHAAN, subset_list* BADMINTON, subset_list* BASKET, subset_list* VOLI, subset_list* POLBAN_CHESS, subset_list* JFP, subset_list* ROBOTIK, subset_list* FELLAS, subset_list* USF){
+    int opsi;
+    system("cls");
+    printf("| [1] Buat Himpunan |\n");
+    printf("============================================ MENU BUAT HIMPUNAN ============================================\n");
+    printf("1. Tambah Mahasiswa POLBAN \n");
+    printf("2. Tambah Anggota UKM POLBAN \n");
+    scanf("%d", &opsi);
+    switch (opsi){
+        case 1:
+            Seleksi_MemberSuper(POLBAN);
+            break;
+        case 2: MenuAddSub(DKM, KEWIRAUSAHAAN, BADMINTON, BASKET, VOLI, POLBAN_CHESS, JFP, ROBOTIK, FELLAS, USF);
+            break;
+    }
+}
 
 void Seleksi_MemberSuper(superset_list *S)
 /*  AUTHOR      : Banteng Harisantoso
@@ -188,7 +191,7 @@ void Seleksi_MemberSuper(superset_list *S)
 {
     char nama_mhs[61];
     int jumlah;
-    int opsi;
+    int opsi = 0;
     bool syarat = true;
     
     printf("Berapa banyak calon mahasiswa yang ingin didata?\n");
@@ -201,7 +204,7 @@ void Seleksi_MemberSuper(superset_list *S)
     for(int i=0;i<jumlah;i++){
     system("cls");
     printf("Silahkan masukkan nama calon mahasiswa.\n");
-    scanf("%s", &nama_mhs);
+    addnama(nama_mhs);
     while(syarat){
             system("cls");
             printf("Apakah calon mahasiswa tersebut lolos seleksi SNMPTN/SBMPTN atau SNMPN/SBMPN atau Ujian Mandiri?\n");
@@ -228,8 +231,7 @@ void Seleksi_MemberSuper(superset_list *S)
                                 system("cls");
                                 printf("Mahasiswa lolos persyaratan POLBAN!\n");
                                 printf("Silahkan masukkan NIM mahasiswa tersebut!\n");
-                                printf("NIM\t:");
-                                scanf("%s", &NIM);
+                                addnim(NIM);
                                 if(IsExistSuper(*S, nama_mhs, NIM)){
                                    system("cls"); 
                                    printf("\n\nMahasiswa tersebut sudah terdaftar di POLBAN!");
@@ -239,7 +241,7 @@ void Seleksi_MemberSuper(superset_list *S)
                                     add_membersuper(S, nama_mhs, NIM);
                                     system("cls");
                                     printf("Calon mahasiswa telah resmi menjadi mahasiswa POLBAN!");
-                                    printf("\nInformasi Mahasiswa:");
+                                    printf("\n\nInformasi Mahasiswa:");
                                     printf("\nNama Mahasiswa\t: %s", nama_mhs);
                                     printf("\nNIM\t\t: %s\n", NIM);
                                     system("pause");
@@ -288,7 +290,7 @@ void Seleksi_MemberSuper(superset_list *S)
     
 }
 
-void menu_addsub(subset_list* DKM, subset_list* KEWIRAUSAHAAN, subset_list* BADMINTON, subset_list* BASKET, subset_list* VOLI, subset_list* POLBAN_CHESS, subset_list* JFP, subset_list* ROBOTIK, subset_list* FELLAS, subset_list* FUTSAL)
+void MenuAddSub(subset_list* DKM, subset_list* KEWIRAUSAHAAN, subset_list* BADMINTON, subset_list* BASKET, subset_list* VOLI, subset_list* POLBAN_CHESS, subset_list* JFP, subset_list* ROBOTIK, subset_list* FELLAS, subset_list* USF)
 /*  AUTHOR      : Banteng Harisantoso
     IS          : Sudah terbentuk list subset
     FS          : Menampilkan pesan berhasil atau gagal menambahkan mahasiswa ke dalam himp
@@ -300,133 +302,134 @@ char nama_mhs[61];
 char NIM[10];
 bool valid = false;
 int jumlah = 0;
-int opsi = 0;
 
 while(!valid){
-    printf("============================ Menu Pendataan UKM Mahasiswa ===================================\n");
-    if(ListUKM()==1){
-        printf("Masukkan jumlah mahasiswa yang akan bergabung\t: ");
+    printf("============================ Menu Pendataan Anggota UKM ===================================\n");
+    int opsi = ListUKM();
+    if(opsi==1){
+        printf("Masukkan jumlah mahasiswa yang akan bergabung dengan DKM\t: ");
         scanf("%d", &jumlah);
         for(int i = 0; i < jumlah; i++){
             addnama(nama_mhs);
             addnim(NIM);
-            add_membersub(DKM, nama_mhs, NIM);
+            add_membersub(DKM, nama_mhs, NIM, "DKM");
             printf("\n%s ", nama_mhs);
-            printf("berhasil bergabung di DKM!\n\n");
+            printf("berhasil bergabung dengan DKM!\n\n");
         }
         valid = true;        
         break;
-    }else if(ListUKM()==2){
-        printf("Masukkan jumlah mahasiswa yang akan bergabung\t: ");
+    }else if(opsi==2){
+        printf("Masukkan jumlah mahasiswa yang akan bergabung dengan KEWIRAUSAHAAN\t: ");
         scanf("%d", &jumlah);
         for(int i = 0; i < jumlah; i++){
             addnama(nama_mhs);
             addnim(NIM);
+            add_membersub(KEWIRAUSAHAAN, nama_mhs, NIM, "KEWIRAUSAHAAN");
             printf("\n%s ", nama_mhs);
-            printf("berhasil bergabung di KEWIRAUSAHAAN!\n\n");
+            printf("berhasil bergabung dengan KEWIRAUSAHAAN!\n\n");
         }
         valid = true;
         break;
-    }else if(ListUKM()==3){
-        printf("Masukkan jumlah mahasiswa yang akan bergabung\t: ");
+    }else if(opsi==3){
+        printf("Masukkan jumlah mahasiswa yang akan bergabung dengan BADMINTON\t: ");
         scanf("%d", &jumlah);
         for(int i = 0; i < jumlah; i++){
             addnama(nama_mhs);
             addnim(NIM);
-            add_membersub(BADMINTON, nama_mhs, NIM);
+            add_membersub(BADMINTON, nama_mhs, NIM, "BADMINTON");
             printf("\n%s ", nama_mhs);
-            printf("berhasil bergabung di BADMINTON!\n\n");
+            printf("berhasil bergabung dengan BADMINTON!\n\n");
         }
         valid = true;
         break;
-    }else if(ListUKM()==4){
-        printf("Masukkan jumlah mahasiswa yang akan bergabung\t: ");
+    }else if(opsi==4){
+        printf("Masukkan jumlah mahasiswa yang akan bergabung dengan BASKET\t: ");
         scanf("%d", &jumlah);
         for(int i = 0; i < jumlah; i++){
             addnama(nama_mhs);
             addnim(NIM);
-            add_membersub(BASKET, nama_mhs, NIM);
+            add_membersub(BASKET, nama_mhs, NIM, "BASKET");
             printf("\n%s ", nama_mhs);
-            printf("berhasil bergabung di BASKET!\n\n");
+            printf("berhasil bergabung dengan BASKET!\n\n");
         }
         valid = true;
         break; 
-    }else if(ListUKM()==5){
-       printf("Masukkan jumlah mahasiswa yang akan bergabung\t: ");
+    }else if(opsi==5){
+       printf("Masukkan jumlah mahasiswa yang akan bergabung dengan VOLI\t: ");
         scanf("%d", &jumlah);
         for(int i = 0; i < jumlah; i++){
             addnama(nama_mhs);
             addnim(NIM);
-            add_membersub(VOLI, nama_mhs, NIM);
+            add_membersub(VOLI, nama_mhs, NIM, "VOLI");
             printf("\n%s ", nama_mhs);
-            printf("berhasil bergabung di VOLI!\n\n");
+            printf("berhasil bergabung dengan VOLI!\n\n");
         }
         valid = true;
         break; 
-    }else if(ListUKM()==6){
-        printf("Masukkan jumlah mahasiswa yang akan bergabung\t: ");
+    }else if(opsi==6){
+        printf("Masukkan jumlah mahasiswa yang akan bergabung dengan POLBAN CHESS\t: ");
         scanf("%d", &jumlah);
         for(int i = 0; i < jumlah; i++){
             addnama(nama_mhs);
             addnim(NIM);
-            add_membersub(POLBAN_CHESS, nama_mhs, NIM);
+            add_membersub(POLBAN_CHESS, nama_mhs, NIM, "POLBAN CHESS");
             printf("\n%s ", nama_mhs);
-            printf("berhasil bergabung di ROBOTIK!\n\n");
+            printf("berhasil bergabung dengan ROBOTIK!\n\n");
         }
         valid = true;
         break;
-    }else if(ListUKM()==7){
-        printf("Masukkan jumlah mahasiswa yang akan bergabung\t: ");
+    }else if(opsi==7){
+        printf("Masukkan jumlah mahasiswa yang akan bergabung dengan JFP\t: ");
         scanf("%d", &jumlah);
         for(int i = 0; i < jumlah; i++){
             addnama(nama_mhs);
             addnim(NIM);
-            add_membersub(JFP, nama_mhs, NIM);
+            add_membersub(JFP, nama_mhs, NIM, "JFP");
             printf("\n%s ", nama_mhs);
-            printf("berhasil bergabung di JFP!\n\n");
+            printf("berhasil bergabung dengan JFP!\n\n");
         }
         valid = true;
         break;
-    }else if(ListUKM()==8){
-        printf("Masukkan jumlah mahasiswa yang akan bergabung\t: ");
+    }else if(opsi==8){
+        printf("Masukkan jumlah mahasiswa yang akan bergabung dengan ROBOTIK\t: ");
         scanf("%d", &jumlah);
         for(int i = 0; i < jumlah; i++){
             addnama(nama_mhs);
             addnim(NIM);
-            add_membersub(ROBOTIK, nama_mhs, NIM);
+            add_membersub(ROBOTIK, nama_mhs, NIM, "ROBOTIK");
             printf("\n%s ", nama_mhs);
-            printf("berhasil bergabung di POLBAN CHESS!\n\n");
+            printf("berhasil bergabung dengan POLBAN CHESS!\n\n");
         }
         valid = true;
         break;
-    }else if(ListUKM()==9){
-       printf("Masukkan jumlah mahasiswa yang akan bergabung\t: ");
+    }else if(opsi==9){
+       printf("Masukkan jumlah mahasiswa yang akan bergabung dengan FELLAS\t: ");
         scanf("%d", &jumlah);
         for(int i = 0; i < jumlah; i++){
             addnama(nama_mhs);
             addnim(NIM);
-            add_membersub(FELLAS, nama_mhs, NIM);
+            add_membersub(FELLAS, nama_mhs, NIM, "FELLAS");
             printf("\n%s ", nama_mhs);
-            printf("berhasil bergabung di FELLAS!\n\n");
+            printf("berhasil bergabung dengan FELLAS!\n\n");
         }
         valid = true;
         break; 
-    }else if(ListUKM()==10){
-        printf("Masukkan jumlah mahasiswa yang akan bergabung\t: ");
+    }else if(opsi==10){
+        printf("Masukkan jumlah mahasiswa yang akan bergabung dengan USF\t: ");
         scanf("%d", &jumlah);
         for(int i = 0; i < jumlah; i++){
             addnama(nama_mhs);
             addnim(NIM);
-            add_membersub(FUTSAL, nama_mhs, NIM);
+            add_membersub(USF, nama_mhs, NIM, "USF");
             printf("\n %s ", nama_mhs);
-            printf("berhasil bergabung di FUTSAL!\n\n");
+            printf("berhasil bergabung dengan USF!\n\n");
             system("pause");
         }
         valid = true;
         break; 
     }
     }
-    
+    system("pause");
 }
 
 void addnama(char* nama_mhs){
@@ -512,7 +515,6 @@ void del_membersub(subset_list *H1, char nama_mhs[], char NIM[]) {
 }
 
 void Penghentian_Studi(superset_list *S, char nama_mhs[], char NIM[]){
-    char nama_mhs[20];
     int jumlah;
     char jawaban[5]; // variabel untuk menyimpan jawaban
 
@@ -618,6 +620,109 @@ void Penghentian_Studi(superset_list *S, char nama_mhs[], char NIM[]){
     }
 }
 
+void CopyList(subset_list* H, subset_list SC){
+    alamatsub bantu;
+    bantu = SC.first_sub;
+
+    while(bantu != NULL){
+        add_membersub(H, bantu->member_sub, bantu->id_sub, bantu->nama_sub);
+        bantu = bantu->next_sub;
+    }
+}
+
+void EkstrakList(subset_list* H, subset_list DKM, subset_list KEWIRAUSAHAAN, subset_list BADMINTON, subset_list BASKET, subset_list VOLI, subset_list POLBAN_CHESS, subset_list JFP, subset_list ROBOTIK, subset_list FELLAS, subset_list USF)
+{
+    create_sub(H);
+    bool valid = false;
+
+    while(!valid){
+        int opsi = ListUKM();
+        if(opsi==1){
+            CopyList(H, DKM);
+            valid = true;
+        }else if(opsi==2){
+            CopyList(H, KEWIRAUSAHAAN);
+            valid = true;
+        }else if(opsi==3){
+            CopyList(H, BADMINTON);
+            valid = true;
+        }else if(opsi==4){
+            CopyList(H, BASKET);
+            valid = true;
+        }else if(opsi==5){
+            CopyList(H, VOLI);
+            valid = true;
+        }else if(opsi==6){
+            CopyList(H, POLBAN_CHESS);
+            valid = true;
+        }else if(opsi==7){
+            CopyList(H, JFP);
+            valid = true;
+        }else if(opsi==8){
+            CopyList(H, ROBOTIK);
+            valid = true;
+        }else if(opsi==9){
+            CopyList(H, FELLAS);
+            valid = true;
+        }else if(opsi==10){
+            CopyList(H, USF);
+            valid = true;
+        }
+    }
+}
+
+void MenuOperasi(subset_list* H1, subset_list* H2, subset_list DKM, subset_list KEWIRAUSAHAAN, subset_list BADMINTON, subset_list BASKET, subset_list VOLI, subset_list POLBAN_CHESS, subset_list JFP, subset_list ROBOTIK, subset_list FELLAS, subset_list USF){
+    int opsi = 0;
+    bool valid = false;
+    
+    system("cls");
+    printf("| [2] Operasi Himpunan |\n");
+    printf("============================================ MENU OPERASI UKM ============================================");
+    printf("\nSaat ini program hanya dapat mengkalkulasikan dua himpunan\n");
+    printf("Silahkan pilih UKM pertama\t:\n");
+    EkstrakList(H1, DKM,  KEWIRAUSAHAAN,  BADMINTON,  BASKET,  VOLI,  POLBAN_CHESS,  JFP,  ROBOTIK,  FELLAS,  USF);
+    
+    system("cls");
+    printf("| [2] Operasi Himpunan |\n");
+    printf("============================================ MENU OPERASI UKM ============================================");
+    printf("\nSaat ini program hanya dapat mengkalkulasikan dua himpunan\n");
+    printf("Silahkan pilih UKM kedua\t:\n");
+    EkstrakList(H2, DKM,  KEWIRAUSAHAAN,  BADMINTON,  BASKET,  VOLI,  POLBAN_CHESS,  JFP,  ROBOTIK,  FELLAS,  USF);
+    
+    system("cls");
+    printf("UKM 1 : %s\n", H1->first_sub->nama_sub);
+    printf("UKM 2 : %s\n\n", H2->first_sub->nama_sub);
+    printf("Silahkan pilih operasi di bawah:\n");
+    printf("1. Irisan\n");
+    printf("2. Gabungan\n");
+    printf("3. Selisih\n");
+    printf("4. Komplemen\n");
+    scanf("%d", &opsi);
+
+    while(!valid){
+        switch (opsi)
+        {
+        case 1 :
+            printf("Irisan(Super, H1, H2) 'contoh: %s dan %s'\n", H1->first_sub->member_sub, H2->first_sub->member_sub);
+            valid = true; break;
+        case 2 :
+            printf("Gabungan(Super, H1, H2)'contoh: %s dan %s'\n", H1->first_sub->member_sub, H2->first_sub->member_sub);
+            valid = true;break;
+        case 3 :
+            printf("Selisih(Super, H1, H2)'contoh: %s dan %s'\n", H1->first_sub->member_sub, H2->first_sub->member_sub);
+            valid = true;break;        
+        case 4 :
+            printf("Komplemen(Super, H1, H2)'contoh: %s dan %s'\n", H1->first_sub->member_sub, H2->first_sub->member_sub);
+            valid = true;break;
+        default:
+            printf("Masukkan opsi yang valid!");
+            system("pause");
+            break;
+        }
+    }
+    system("pause");
+}
+
 void irisan(superset_list S, subset_list H1 ){
     alamatsuper P;
     alamatsub Q;
@@ -652,6 +757,7 @@ void gabungan(superset_list S, subset_list H1 ) {
 }
 
 void display_menu() {
+        system("cls");
     	printf("=========================================\n");
         printf("|    Kalkulator Himpunan UKM POLBAN     |\n");
         printf("=========================================\n");

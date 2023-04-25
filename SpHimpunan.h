@@ -10,7 +10,7 @@
 /*============================ STRUKTUR DATA ============================*/
 typedef struct subset *alamatsub;
 typedef struct subset{
-    char nama_sub[10];
+    char nama_sub[20];
     char member_sub[61];
     char id_sub[10];
     alamatsub next_sub;
@@ -60,11 +60,20 @@ void display_menu();
 void display_search(superset_list S, subset_list H1, char nama_mhs[], char NIM[]);
 void display_guide();
 void display_histori();
-void menu_addsub(subset_list* DKM, subset_list* KEWIRAUSAHAAN, subset_list* BADMINTON, subset_list* BASKET, subset_list* VOLI, subset_list* POLBAN_CHESS, subset_list* JFP, subset_list* ROBOTIK, subset_list* FELLAS, subset_list* FUTSAL);
-int ListUKM();
-int OpsiUKM();
-void addnama(char* nama_mhs);
-void addnim(char* NIM);
-void ekstraklist(subset_list* H, subset_list DKM, subset_list KEWIRAUSAHAAN, subset_list BADMINTON, subset_list BASKET, subset_list VOLI, subset_list POLBAN_CHESS, subset_list JFP, subset_list ROBOTIK, subset_list FELLAS, subset_list FUTSAL);
-
+void MenuAddSub(subset_list* DKM, subset_list* KEWIRAUSAHAAN, subset_list* BADMINTON, subset_list* BASKET, subset_list* VOLI, subset_list* POLBAN_CHESS, subset_list* JFP, subset_list* ROBOTIK, subset_list* FELLAS, subset_list* USF);
+//Hari
+int ListUKM(); 
+//Hari
+void addnama(char* nama_mhs); 
+//Hari
+void addnim(char* NIM); 
+//Hari
+void MenuBuatHimpunan(superset_list* POLBAN, subset_list* DKM, subset_list* KEWIRAUSAHAAN, subset_list* BADMINTON, subset_list* BASKET, subset_list* VOLI, subset_list* POLBAN_CHESS, subset_list* JFP, subset_list* ROBOTIK, subset_list* FELLAS, subset_list* USF);
+//Hari
+void MenuOperasi(subset_list* H1, subset_list* H2, subset_list DKM, subset_list KEWIRAUSAHAAN, subset_list BADMINTON, subset_list BASKET, subset_list VOLI, subset_list POLBAN_CHESS, subset_list JFP, subset_list ROBOTIK, subset_list FELLAS, subset_list USF);
+//Hari
+void EkstrakList(subset_list* H, subset_list DKM, subset_list KEWIRAUSAHAAN, subset_list BADMINTON, subset_list BASKET, subset_list VOLI, subset_list POLBAN_CHESS, subset_list JFP, subset_list ROBOTIK, subset_list FELLAS, subset_list USF);
+//Hari
+void CopyList(subset_list* H, subset_list SC); 
+//Hari
 #endif /* SPHIMPUNAN_H */
