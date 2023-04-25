@@ -15,8 +15,9 @@ int main() {
 	superset_list POLBAN;
     subset_list DKM, MUSKING, BADMINTON, BASKET, VOLI;
     subset_list POLBAN_CHESS, JFP, ROBOTIK, FELLAS, FUTSAL;
+    subset_list H1, H2;
     create_super(&POLBAN);
-    create_sub(&DKM);
+    
     create_sub(&MUSKING);
     create_sub(&BADMINTON);
     create_sub(&BASKET);
@@ -26,6 +27,8 @@ int main() {
     create_sub(&ROBOTIK);
     create_sub(&FELLAS);
     create_sub(&FUTSAL);
+    create_sub(&H1);
+    create_sub(&H2);
     int choice, opsi, operasi;
     char nama_mhs[61]; 
 	char NIM[10];
@@ -39,7 +42,7 @@ int main() {
             case 1:
             	printf("| [1] Buat Himpunan |\n");
                 printf("1. Masukkan Superset: \n");
-                printf("2. Masukkan Subset 1: \n");
+                    printf("2. Masukkan Subset 1: \n");
                 printf("3. Masukkan Subset 2: \n");
                 scanf("%d", &opsi);
                 switch (opsi){
