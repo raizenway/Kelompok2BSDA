@@ -16,8 +16,8 @@ int main() {
 	create_super (&S);
     CreateSub (&H1);
     int choice, opsi, operasi;
-    char nama_mhs[20]; 
-	char NIM[9];
+    char nama_mhs[61]; 
+	char NIM[10];
 
     do {
         display_menu();
@@ -33,11 +33,11 @@ int main() {
                 scanf("%d", &opsi);
                 switch (opsi){
                     case 1:
-                        Seleksi_MemberSuper(&S);
+                        Seleksi_MemberSuper(&POLBAN);
                         break;
-                    case 2:
+                    case 2: menu_addsub(&DKM, &MUSKING, &BADMINTON, &BASKET, &VOLI, &POLBAN_CHESS, &JFP, &ROBOTIK, &FELLAS, &FUTSAL);
                         break;
-                    case 3:
+                    case 3: menu_addsub(&DKM, &MUSKING, &BADMINTON, &BASKET, &VOLI, &POLBAN_CHESS, &JFP, &ROBOTIK, &FELLAS, &FUTSAL);
                         break;
                 }
                 break;
@@ -80,11 +80,8 @@ int main() {
 //                        add_membersubset2(&S, nama_mhs, NIM);
                         break;
                 }
-            case 4 : menu_addsub();
-            case 5 : subset_list DKM;
-                        create_sub(&DKM);
-            default:
-                printf("Pilihan tidak valid. Silahkan masukkan angka 1-7.\n");
+            case 4 : break;
+            case 5 : break;
         }
 
         printf("\n");

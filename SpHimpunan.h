@@ -11,7 +11,7 @@
 typedef struct subset *alamatsub;
 typedef struct subset{
     char nama_sub[10];
-    char member_sub[20];
+    char member_sub[61];
     char id_sub[10];
     alamatsub next_sub;
 }elmtsubset;
@@ -19,7 +19,7 @@ typedef struct subset{
 typedef struct superset* alamatsuper;
 typedef struct superset{
     char nama_super[10];
-    char member_sp[20];
+    char member_sp[61];
     char id_member[10];
     alamatsuper next_sp;
 }elmtsuper;
@@ -60,9 +60,11 @@ void display_menu();
 void display_search(superset_list S, subset_list H1, char nama_mhs[], char NIM[]);
 void display_guide();
 void display_histori();
-void menu_addsub();
-int PilihUKM();
+void menu_addsub(subset_list* DKM, subset_list* MUSKING, subset_list* BADMINTON, subset_list* BASKET, subset_list* VOLI, subset_list* POLBAN_CHESS, subset_list* JFP, subset_list* ROBOTIK, subset_list* FELLAS, subset_list* FUTSAL);
+int ListUKM();
+int OpsiUKM();
 void addnama(char* nama_mhs);
 void addnim(char* NIM);
+
 
 #endif /* SPHIMPUNAN_H */
