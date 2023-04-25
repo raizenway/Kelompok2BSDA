@@ -467,6 +467,50 @@ void addnim(char* NIM){
 
 }
 
+void del_membersuper(superset_list *S, char nama_mhs[], char NIM[]){
+    /*  AUTHOR  : Bob Manuel
+    IS          : List superset sudah terbentuk dan memiliki isi sebagai anggota superset
+    FS          : List yang berisi nama dan NIM yang ingin dihapus berhasil dihapus
+    DESKRIPSI   : Prosedur untuk mencari mahasiswa pada superset maupun subset.
+                  Pengguna akan diarahkan untuk menginput nama dan NIM dari mahasiswa yang ingin dicari.
+                  Jika nama dan NIM ditemukan maka modul akan mengembalikan nilai true, 
+                  sebaliknya jika nama dan NIM tidak ditemukan maka akan mengembalikan nilai false
+    =======================================================================================================================*/
+    //Kamus Lokal
+    alamatsuper bantu, hapus, next;
+    bantu = S->first_super;
+
+    if(IsExistSuper(*S, nama_mhs, NIM)){
+        while((bantu->next_sp->member_sp != nama_mhs) || (bantu != NULL)){
+            bantu= bantu->next_sp; 
+            if(bantu->next_sp->member_sp == nama_mhs){
+                hapus = bantu->next_sp;
+                next = hapus->next_sp;
+                bantu->next_sp = next;
+                printf("Mahasiswa bernama %s sudah berhasil dihapus", &hapus->member_sp);
+                free(hapus);
+            } 
+        }
+    } else {
+        printf("Mahasiswa tidak ditemukan");
+    }
+    
+}
+
+void del_membersub(subset_list *H1, char nama_mhs[], char NIM[]) {
+    alamatsub bantu, hapus, next;
+    bantu = H1->first_sub;
+
+    if(IsExistSub(*H1, nama_mhs, NIM)){
+        while((bantu->next_sub->member_sub != nama_mhs) || (bantu != NULL)){
+           bantu = bantu->next_sub;
+           if(bantu->next_sub->member_sub == nama_mhs){
+            
+           }
+        }
+    }
+}
+
 void Penghentian_Studi(superset_list *S, char nama_mhs[], char NIM[]){
     char nama_mhs[20];
     int jumlah;
