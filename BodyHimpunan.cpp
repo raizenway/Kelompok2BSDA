@@ -47,6 +47,17 @@ bool IsExistSuper(superset_list S, char nama_mhs[], char NIM[]) {
     return false;
 }
 
+bool IsExistSub(subset_list H1, char nama_mhs[], char NIM[]){
+    alamatsub P;
+    P = H1.first_sub;
+    while (P != NULL) {
+        if (strcmp(P->member_sub, nama_mhs) == 0 && strcmp(P->id_sub, NIM) == 0) {
+            return true;
+        }
+        P = P->next_sub;
+    }
+}
+
 //mengecek apakah proses alokasi berhasil atau gagal karena memori yang kurang
 bool IsFull() {
     alamatsuper bantu;
@@ -550,6 +561,35 @@ void Penghentian_Studi(superset_list *S, char nama_mhs[], char NIM[]){
 }
 
 void irisan(superset_list S, subset_list H1 ){
+    alamatsuper P;
+    alamatsub Q;
+    if(IsSuperEmpty(S) || IsSubEmpty(H1)) {
+        printf("Tidak terdapat irisan, karena terdapat himpunan yang kosong.\n");
+    } else {
+        printf("Irisan dari kedua himpunan adalah:\n");
+        // Traverse superset_list
+        P = S.first_super;
+        while ( P!=NULL ) {
+            // Traverse subset_list
+            Q = H1.first_sub;
+            while (Q != NULL) {
+                // Jika ada anggota yang sama di kedua himpunan, maka print anggota tersebut
+                if (strcmp(P->member_sp, Q->member_sub) == 0 && strcmp(P->id_member, Q->id_sub) == 0) {
+                    printf("%s - %s\n", P->member_sp, P->id_member);
+                    break;
+                }
+                Q = Q->next_sub;
+            }
+            P = P->next_sp;
+        }
+    }
+}
+
+void selisih(superset_list S, subset_list H1 ) {
+
+}
+
+void gabungan(superset_list S, subset_list H1 ) {
     
 }
 
