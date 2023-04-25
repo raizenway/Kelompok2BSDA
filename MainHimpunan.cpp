@@ -12,9 +12,20 @@
 #include <windows.h>
 
 int main() {
-	superset_list S;
-	create_super (&S);
-    CreateSub (&H1);
+	superset_list POLBAN;
+    subset_list DKM, MUSKING, BADMINTON, BASKET, VOLI;
+    subset_list POLBAN_CHESS, JFP, ROBOTIK, FELLAS, FUTSAL;
+    create_super(&POLBAN);
+    create_sub(&DKM);
+    create_sub(&MUSKING);
+    create_sub(&BADMINTON);
+    create_sub(&BASKET);
+    create_sub(&VOLI);
+    create_sub(&POLBAN_CHESS);
+    create_sub(&JFP);
+    create_sub(&ROBOTIK);
+    create_sub(&FELLAS);
+    create_sub(&FUTSAL);
     int choice, opsi, operasi;
     char nama_mhs[61]; 
 	char NIM[10];
@@ -43,25 +54,25 @@ int main() {
                 break;
             case 2:
             	printf("| [2] Operasi Himpunan |");
-                printf("1. Operasi Irisan");
-                printf("2. Operasi Gabungan");
-                printf("3. Operasi Selisih");
-                printf("4. Operasi Komplemen");
-                scanf("%d", &operasi);
-                switch (operasi){
-                    case 1:
-                       irisan(&S, &H1);
-                        break;
-                    case 2:
-                       gabungan();
-                        break;
-                    case 3:
-                       selisih();
-                        break;
-                    case 4:
-                       komplemen();
-                        break;
-                }
+                // printf("1. Operasi Irisan");
+                // printf("2. Operasi Gabungan");
+                // printf("3. Operasi Selisih");
+                // printf("4. Operasi Komplemen");
+                // scanf("%d", &operasi);
+                // switch (operasi){
+                //     case 1:
+                //        irisan();
+                //         break;
+                //     case 2:
+                //        gabungan();
+                //         break;
+                //     case 3:
+                //        selisih();
+                //         break;
+                //     case 4:
+                //        komplemen();
+                //         break;
+                // }
                 break;
             case 3:
             	printf("| [3] Edit Daftar Himpunan |");

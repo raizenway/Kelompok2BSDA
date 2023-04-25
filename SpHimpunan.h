@@ -34,7 +34,7 @@ typedef struct {
 
 /*============================ METHOD ============================*/
 void create_super (superset_list *S);
-void CreateSub (subset_list *H1);
+void create_sub (subset_list *H1);
 bool IsSuperEmpty (superset_list S);
 bool IsSubEmpty (subset_list H1);
 bool IsExistSuper(superset_list S, char nama_mhs[], char NIM[]);
@@ -65,6 +65,6 @@ int ListUKM();
 int OpsiUKM();
 void addnama(char* nama_mhs);
 void addnim(char* NIM);
-
+void ekstraklist(subset_list* H, subset_list DKM, subset_list MUSKING, subset_list BADMINTON, subset_list BASKET, subset_list VOLI, subset_list POLBAN_CHESS, subset_list JFP, subset_list ROBOTIK, subset_list FELLAS, subset_list FUTSAL);
 
 #endif /* SPHIMPUNAN_H */
