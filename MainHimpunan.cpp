@@ -28,7 +28,7 @@ int main() {
     create_sub(&FUTSAL);
     int choice, opsi, operasi;
     char nama_mhs[61]; 
-	char NIM[9];
+	char NIM[10];
 
     do {
         display_menu();
