@@ -60,11 +60,11 @@ void display_menu();
 void display_search(superset_list S, subset_list H1, char nama_mhs[], char NIM[]);
 void display_guide();
 void display_histori();
-void menu_addsub(subset_list* DKM, subset_list* MUSKING, subset_list* BADMINTON, subset_list* BASKET, subset_list* VOLI, subset_list* POLBAN_CHESS, subset_list* JFP, subset_list* ROBOTIK, subset_list* FELLAS, subset_list* FUTSAL);
+void menu_addsub(subset_list* DKM, subset_list* KEWIRAUSAHAAN, subset_list* BADMINTON, subset_list* BASKET, subset_list* VOLI, subset_list* POLBAN_CHESS, subset_list* JFP, subset_list* ROBOTIK, subset_list* FELLAS, subset_list* FUTSAL);
 int ListUKM();
 int OpsiUKM();
 void addnama(char* nama_mhs);
 void addnim(char* NIM);
-void ekstraklist(subset_list* H, subset_list DKM, subset_list MUSKING, subset_list BADMINTON, subset_list BASKET, subset_list VOLI, subset_list POLBAN_CHESS, subset_list JFP, subset_list ROBOTIK, subset_list FELLAS, subset_list FUTSAL);
+void ekstraklist(subset_list* H, subset_list DKM, subset_list KEWIRAUSAHAAN, subset_list BADMINTON, subset_list BASKET, subset_list VOLI, subset_list POLBAN_CHESS, subset_list JFP, subset_list ROBOTIK, subset_list FELLAS, subset_list FUTSAL);
 
 #endif /* SPHIMPUNAN_H */

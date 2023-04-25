@@ -13,12 +13,12 @@
 
 int main() {
 	superset_list POLBAN;
-    subset_list DKM, MUSKING, BADMINTON, BASKET, VOLI;
+    subset_list DKM, KEWIRAUSAHAAN, BADMINTON, BASKET, VOLI;
     subset_list POLBAN_CHESS, JFP, ROBOTIK, FELLAS, FUTSAL;
     subset_list H1, H2;
     create_super(&POLBAN);
-    
-    create_sub(&MUSKING);
+    create_sub(&DKM);
+    create_sub(&KEWIRAUSAHAAN);
     create_sub(&BADMINTON);
     create_sub(&BASKET);
     create_sub(&VOLI);
@@ -49,9 +49,9 @@ int main() {
                     case 1:
                         Seleksi_MemberSuper(&POLBAN);
                         break;
-                    case 2: menu_addsub(&DKM, &MUSKING, &BADMINTON, &BASKET, &VOLI, &POLBAN_CHESS, &JFP, &ROBOTIK, &FELLAS, &FUTSAL);
+                    case 2: menu_addsub(&DKM, &KEWIRAUSAHAAN, &BADMINTON, &BASKET, &VOLI, &POLBAN_CHESS, &JFP, &ROBOTIK, &FELLAS, &FUTSAL);
                         break;
-                    case 3: menu_addsub(&DKM, &MUSKING, &BADMINTON, &BASKET, &VOLI, &POLBAN_CHESS, &JFP, &ROBOTIK, &FELLAS, &FUTSAL);
+                    case 3: menu_addsub(&DKM, &KEWIRAUSAHAAN, &BADMINTON, &BASKET, &VOLI, &POLBAN_CHESS, &JFP, &ROBOTIK, &FELLAS, &FUTSAL);
                         break;
                 }
                 break;

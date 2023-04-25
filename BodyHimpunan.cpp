@@ -138,7 +138,7 @@ void add_membersub(subset_list *H1, char nama_mhs[], char NIM[]){
 //void ListUKM(){
 //        printf("Pilih salah satu UKM di bawah!\n"
 //               "1. DKM\n"
-//               "2. MUSKING\n"
+//               "2. KEWIRAUSAHAAN\n"
 //               "3. BADMINTON\n"
 //               "4. BASKET\n"
 //               "5. VOLI\n"
@@ -152,7 +152,7 @@ void add_membersub(subset_list *H1, char nama_mhs[], char NIM[]){
 int ListUKM(){
         printf("Pilih salah satu UKM di bawah!\n"
                "1. DKM\n"
-               "2. MUSKING\n"
+               "2. KEWIRAUSAHAAN\n"
                "3. BADMINTON\n"
                "4. BASKET\n"
                "5. VOLI\n"
@@ -288,7 +288,7 @@ void Seleksi_MemberSuper(superset_list *S)
     
 }
 
-void menu_addsub(subset_list* DKM, subset_list* MUSKING, subset_list* BADMINTON, subset_list* BASKET, subset_list* VOLI, subset_list* POLBAN_CHESS, subset_list* JFP, subset_list* ROBOTIK, subset_list* FELLAS, subset_list* FUTSAL)
+void menu_addsub(subset_list* DKM, subset_list* KEWIRAUSAHAAN, subset_list* BADMINTON, subset_list* BASKET, subset_list* VOLI, subset_list* POLBAN_CHESS, subset_list* JFP, subset_list* ROBOTIK, subset_list* FELLAS, subset_list* FUTSAL)
 /*  AUTHOR      : Banteng Harisantoso
     IS          : Sudah terbentuk list subset
     FS          : Menampilkan pesan berhasil atau gagal menambahkan mahasiswa ke dalam himp
@@ -323,7 +323,7 @@ while(!valid){
             addnama(nama_mhs);
             addnim(NIM);
             printf("\n%s ", nama_mhs);
-            printf("berhasil bergabung di MUSKING!\n\n");
+            printf("berhasil bergabung di KEWIRAUSAHAAN!\n\n");
         }
         valid = true;
         break;
