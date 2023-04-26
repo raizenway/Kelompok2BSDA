@@ -651,10 +651,6 @@ void del_membersub(subset_list *H1, char nama_mhs[], char NIM[]) {
 }
 
 void Penghentian_Studi(superset_list *S, char nama_mhs[], char NIM[]){
-<<<<<<< HEAD
-    char nama_mhs[61];
-=======
->>>>>>> 05d024600890db605b3f3fb7b6384a0c9098f046
     int jumlah;
     char jawaban[5]; // variabel untuk menyimpan jawaban
 
@@ -845,9 +841,11 @@ void MenuOperasi(subset_list* H1, subset_list* H2, subset_list DKM, subset_list 
         {
         case 1 :
             printf("Irisan(Super, H1, H2) 'contoh: %s dan %s'\n", H1->first_sub->member_sub, H2->first_sub->member_sub);
+            irisan(*H1, *H2);
             valid = true; break;
         case 2 :
             printf("Gabungan(Super, H1, H2)'contoh: %s dan %s'\n", H1->first_sub->member_sub, H2->first_sub->member_sub);
+            gabungan(*H1, *H2);
             valid = true;break;
         case 3 :
             printf("Selisih(Super, H1, H2)'contoh: %s dan %s'\n", H1->first_sub->member_sub, H2->first_sub->member_sub);
@@ -876,8 +874,8 @@ void irisan(subset_list H1, subset_list H2){
     // Kamus Data
     alamatsub P;
     alamatsub Q;
-    bool found = false;
-    if(IsSubEmpty(H1) || IsSubEmpty(H1)) {
+    bool found = true;
+    if(IsSubEmpty(H1) || IsSubEmpty(H2)) {
         printf("Tidak terdapat irisan, karena terdapat himpunan UKM yang kosong.\n");
     } else {
         printf("Irisan dari kedua himpunan UKM adalah:\n");
@@ -891,6 +889,7 @@ void irisan(subset_list H1, subset_list H2){
                 if (strcmp(P->member_sub, Q->member_sub) == 0 && strcmp(P->id_sub, Q->id_sub) == 0) {
                     printf("%s - %s\n", P->member_sub, P->id_sub);
                     break;
+                    found = false;
                 }
                 Q = Q->next_sub;
             }
@@ -922,7 +921,7 @@ void gabungan(subset_list H1, subset_list H2) {
 
     // Menambahkan semua anggota subset1 ke list HasilGabungan.
     while (P != NULL) {
-        add_membersub(&HasilGabungan, P->member_sub, P->id_sub);
+        add_membersub(&HasilGabungan, P->member_sub, P->id_sub, "Gabungan");
         P = P->next_sub;
     }
 
@@ -932,8 +931,8 @@ void gabungan(subset_list H1, subset_list H2) {
     // Jika ada anggota yang sudah terdapat dalam list, tidak akan ditambahkan lagi.
     while (P != NULL) {
         if(!IsExistSub(HasilGabungan, P->member_sub, P->id_sub)) {
-            add_membersub(&HasilGabungan, P->member_sub, P->id_sub);
-        }_
+            add_membersub(&HasilGabungan, P->member_sub, P->id_sub, "Gabungan");
+        }
         P = P->next_sub;
     }
 

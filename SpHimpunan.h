@@ -43,7 +43,7 @@ bool IsSuperEmpty(superset_list S);
 bool IsSubEmpty(subset_list H1);
 bool IsFull();
 void add_membersuper(superset_list *S, char nama_mhs[], char NIM[]);
-void add_membersub(subset_list *H1, char nama_mhs[], char NIM[]);
+void add_membersub(subset_list *H1, char nama_mhs[], char NIM[], char UKM[]);
 void Seleksi_MemberSuper(superset_list *S);
 void del_membersuper(superset_list *S, char nama_mhs[], char NIM[]);
 void del_membersub(subset_list *H1, char nama_mhs[], char NIM[]);
