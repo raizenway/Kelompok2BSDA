@@ -13,7 +13,7 @@
 
 int main() {
 	superset_list POLBAN;
-    subset_list DKM, KEWIRAUSAHAAN, BADMINTON, BASKET, VOLI;
+    subset_list H1, H2, DKM, KEWIRAUSAHAAN, BADMINTON, BASKET, VOLI;
     subset_list POLBAN_CHESS, JFP, ROBOTIK, FELLAS, FUTSAL;
     create_super(&POLBAN);
     create_sub(&DKM);
@@ -54,25 +54,25 @@ int main() {
                 break;
             case 2:
             	printf("| [2] Operasi Himpunan |");
-                // printf("1. Operasi Irisan");
-                // printf("2. Operasi Gabungan");
-                // printf("3. Operasi Selisih");
-                // printf("4. Operasi Komplemen");
-                // scanf("%d", &operasi);
-                // switch (operasi){
-                //     case 1:
-                //        irisan();
-                //         break;
-                //     case 2:
-                //        gabungan();
-                //         break;
-                //     case 3:
-                //        selisih();
-                //         break;
-                //     case 4:
-                //        komplemen();
-                //         break;
-                // }
+                printf("1. Operasi Irisan");
+                printf("2. Operasi Gabungan");
+                printf("3. Operasi Selisih");
+                printf("4. Operasi Komplemen");
+                scanf("%d", &operasi);
+                switch (operasi){
+                    case 1:
+                        irisan(H1, H2);
+                        break;
+                    case 2:
+                        gabungan(H1, H2);
+                        break;
+                    // case 3:
+                    //    selisih();
+                    //     break;
+                    // case 4:
+                    //    komplemen();
+                    //     break;
+                }
                 break;
             case 3:
             	printf("| [3] Edit Daftar Himpunan |");

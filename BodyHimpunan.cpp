@@ -134,21 +134,7 @@ void add_membersub(subset_list *H1, char nama_mhs[], char NIM[]){
     }
     
 }
-
-//void ListUKM(){
-//        printf("Pilih salah satu UKM di bawah!\n"
-//               "1. DKM\n"
-//               "2. KEWIRAUSAHAAN\n"
-//               "3. BADMINTON\n"
-//               "4. BASKET\n"
-//               "5. VOLI\n"
-//               "6. POLBAN CHESS\n"
-//               "7. JFP\n"
-//               "8. ROBOTIK\n"
-//               "9. FELLAS\n"
-//               "10. FUTSAL\n");
-//}   
-
+   
 int ListUKM(){
         printf("Pilih salah satu UKM di bawah!\n"
                "1. DKM\n"
@@ -322,6 +308,7 @@ while(!valid){
         for(int i = 0; i < jumlah; i++){
             addnama(nama_mhs);
             addnim(NIM);
+            add_membersub(KEWIRAUSAHAAN, nama_mhs, NIM);
             printf("\n%s ", nama_mhs);
             printf("berhasil bergabung di KEWIRAUSAHAAN!\n\n");
         }
@@ -512,7 +499,7 @@ void del_membersub(subset_list *H1, char nama_mhs[], char NIM[]) {
 }
 
 void Penghentian_Studi(superset_list *S, char nama_mhs[], char NIM[]){
-    char nama_mhs[20];
+    char nama_mhs[61];
     int jumlah;
     char jawaban[5]; // variabel untuk menyimpan jawaban
 
@@ -618,37 +605,90 @@ void Penghentian_Studi(superset_list *S, char nama_mhs[], char NIM[]){
     }
 }
 
-void irisan(superset_list S, subset_list H1 ){
-    alamatsuper P;
+void irisan(subset_list H1, subset_list H2){
+/*  AUTHOR      : Salsabil Khoirunisa
+    IS          : List subset1 dan subset2 sudah terbentuk, serta memiliki isi anggota-anggota subset1 dan subset2.
+    FS          : Menampilkan irisan atau anggota-anggota yang sama pada kedua himpunan yang diinputkan.
+    DESKRIPSI   : Prosedur untuk menampilkan anggota yang sama dari kedua himpunan yang diinputkan.
+                  Jika salah satu atau kedua himpunan kosong, maka akan menampilkan pesan bahwa tidak terdapat irisan karena terdapat himpunan yang kosong.
+                  Jika ditemukan anggota yang sama, maka anggota tersebut akan ditampilkan ke layar.
+                  Jika tidak ditemukan anggota yang sama, maka akan menampilkan pesan bahwa tidak terdapat anggota yang sama di kedua himpunan.
+    =======================================================================================================================*/
+    //Kamus Data
+    alamatsub P;
     alamatsub Q;
-    if(IsSuperEmpty(S) || IsSubEmpty(H1)) {
-        printf("Tidak terdapat irisan, karena terdapat himpunan yang kosong.\n");
+    bool found = false;
+    if(IsSubEmpty(H1) || IsSubEmpty(H1)) {
+        printf("Tidak terdapat irisan, karena terdapat himpunan UKM yang kosong.\n");
     } else {
-        printf("Irisan dari kedua himpunan adalah:\n");
-        // Traverse superset_list
-        P = S.first_super;
-        while ( P!=NULL ) {
-            // Traverse subset_list
-            Q = H1.first_sub;
+        printf("Irisan dari kedua himpunan UKM adalah:\n");
+        // Traverse subset_list H1
+        P = H1.first_sub;
+        while ( P != NULL ) {
+            // Traverse subset_list H2
+            Q = H2.first_sub;
             while (Q != NULL) {
-                // Jika ada anggota yang sama di kedua himpunan, maka print anggota tersebut
-                if (strcmp(P->member_sp, Q->member_sub) == 0 && strcmp(P->id_member, Q->id_sub) == 0) {
-                    printf("%s - %s\n", P->member_sp, P->id_member);
+                // Jika ada anggota yang sama di kedua himpunan UKM, maka print anggota tersebut
+                if (strcmp(P->member_sub, Q->member_sub) == 0 && strcmp(P->id_sub, Q->id_sub) == 0) {
+                    printf("%s - %s\n", P->member_sub, P->id_sub);
                     break;
                 }
                 Q = Q->next_sub;
             }
-            P = P->next_sp;
+            P = P->next_sub;
+        }
+        // Jika tidak ada irisan, tampilkan pesan.
+        if (!found) {
+            printf("Tidak terdapat anggota yang sama di kedua UKM.\n");
         }
     }
 }
 
-void selisih(superset_list S, subset_list H1 ) {
+void selisih(subset_list H1, subset_list H2) {
 
 }
 
-void gabungan(superset_list S, subset_list H1 ) {
-    
+void gabungan(subset_list H1, subset_list H2) {
+/*  AUTHOR      : Salsabil Khoirunisa
+    IS          : List subset1 dan subset2 sudah terbentuk, serta memiliki isi anggota-anggota subset1 dan subset2.
+    FS          : Menampilkan hasil gabungan kedua himpunan yang diinputkan.
+    DESKRIPSI   : Prosedur untuk menampilkan gabungan dari kedua himpunan yang diinputkan.
+                  Jika terdapat anggota yang sama diantara kedua list, maka akan ditampilkan satu kali saja.
+                  Hasil gabungan akan ditampung dalam sebuah list baru.
+    =======================================================================================================================*/
+
+    // Membuat list baru untuk menampung gabungan dari subset1 dan subset2.
+    subset_list HasilGabungan;
+    create_sub(&HasilGabungan);
+
+    // Kamus Data
+    alamatsub P;
+    P =  H1.first_sub;
+
+    // Menambahkan semua anggota subset1 ke list HasilGabungan.
+    while (P != NULL) {
+        add_membersub(&HasilGabungan, P->member_sub, P->id_sub);
+        P = P->next_sub;
+    }
+
+    P = H2.first_sub;
+
+    // Menambahkan semua anggota subset2 ke list HasilGabungan.
+    // Jika ada anggota yang sudah terdapat dalam list, tidak akan ditambahkan lagi.
+    while (P != NULL) {
+        if(!IsExistSub(HasilGabungan, P->member_sub, P->id_sub)) {
+            add_membersub(&HasilGabungan, P->member_sub, P->id_sub);
+        }_
+        P = P->next_sub;
+    }
+
+    // Menampilkan semua anggota himpunan gabungan.
+    printf("Himpunan Gabungan : \n");
+    while (P != NULL) {
+        printf("%s - %s\n", P->member_sub, P->id_sub);
+        P = P->next_sub;
+    }
+
 }
 
 void display_menu() {
