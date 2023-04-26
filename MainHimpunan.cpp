@@ -62,13 +62,12 @@ int main() {
                         break;
                 }
             case 4 : break;
-            case 5 : break;
+            case 5 : display_cur(DKM); break;
         }
 
         printf("\n");
-    } while (choice != 7);
+    } while (choice != 99);
 
 	system("pause");
     return 0;
-    
 }

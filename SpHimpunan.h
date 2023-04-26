@@ -55,12 +55,12 @@ void selisih(superset_list S, subset_list H1 );
 void append_history(superset_list S, subset_list H1 );
 void write_cur(superset_list S, subset_list H1);
 void write_guide();
-void display_cur();
+void display_cur(subset_list H);
 void display_menu();
 void display_search(superset_list S, subset_list H1, char nama_mhs[], char NIM[]);
 void display_guide();
 void display_histori();
-void MenuAddSub(subset_list* DKM, subset_list* KEWIRAUSAHAAN, subset_list* BADMINTON, subset_list* BASKET, subset_list* VOLI, subset_list* POLBAN_CHESS, subset_list* JFP, subset_list* ROBOTIK, subset_list* FELLAS, subset_list* USF);
+void MenuAddSub(superset_list POLBAN, subset_list* DKM, subset_list* KEWIRAUSAHAAN, subset_list* BADMINTON, subset_list* BASKET, subset_list* VOLI, subset_list* POLBAN_CHESS, subset_list* JFP, subset_list* ROBOTIK, subset_list* FELLAS, subset_list* USF);
 //Hari
 int ListUKM(); 
 //Hari
