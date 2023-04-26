@@ -48,9 +48,11 @@ void Seleksi_MemberSuper(superset_list *S);
 void del_membersuper(superset_list *S, char nama_mhs[], char NIM[]);
 void del_membersub(subset_list *H1, char nama_mhs[], char NIM[]);
 void Penghentian_Studi(superset_list *S, char nama_mhs[], char NIM[]);
+//Sabil
 void irisan(superset_list S, subset_list H1 );
 void gabungan(superset_list S, subset_list H1 ); 
 void komplemen(superset_list S, subset_list H1 );
+//Bob
 void selisih(superset_list S, subset_list H1 );
 void append_history(superset_list S, subset_list H1 );
 void write_cur(superset_list S, subset_list H1);
@@ -61,19 +63,19 @@ void display_search(superset_list S, subset_list H1, char nama_mhs[], char NIM[]
 void display_guide();
 void display_histori();
 void MenuAddSub(superset_list POLBAN, subset_list* DKM, subset_list* KEWIRAUSAHAAN, subset_list* BADMINTON, subset_list* BASKET, subset_list* VOLI, subset_list* POLBAN_CHESS, subset_list* JFP, subset_list* ROBOTIK, subset_list* FELLAS, subset_list* USF);
-//Hari
+//Hari V
 int ListUKM(); 
-//Hari
+//Hari V
 void addnama(char* nama_mhs); 
-//Hari
+//Hari V
 void addnim(char* NIM); 
-//Hari
+//Hari V
 void MenuBuatHimpunan(superset_list* POLBAN, subset_list* DKM, subset_list* KEWIRAUSAHAAN, subset_list* BADMINTON, subset_list* BASKET, subset_list* VOLI, subset_list* POLBAN_CHESS, subset_list* JFP, subset_list* ROBOTIK, subset_list* FELLAS, subset_list* USF);
-//Hari
+//Hari V
 void MenuOperasi(subset_list* H1, subset_list* H2, subset_list DKM, subset_list KEWIRAUSAHAAN, subset_list BADMINTON, subset_list BASKET, subset_list VOLI, subset_list POLBAN_CHESS, subset_list JFP, subset_list ROBOTIK, subset_list FELLAS, subset_list USF);
-//Hari
+//Hari V
 void EkstrakList(subset_list* H, subset_list DKM, subset_list KEWIRAUSAHAAN, subset_list BADMINTON, subset_list BASKET, subset_list VOLI, subset_list POLBAN_CHESS, subset_list JFP, subset_list ROBOTIK, subset_list FELLAS, subset_list USF);
-//Hari
+//Hari V
 void CopyList(subset_list* H, subset_list SC); 
-//Hari
+//Hari V
 #endif /* SPHIMPUNAN_H */
