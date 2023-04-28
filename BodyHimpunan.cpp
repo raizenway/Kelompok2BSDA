@@ -945,6 +945,71 @@ void gabungan(subset_list H1, subset_list H2) {
 
 }
 
+void selisih(superset_list S, subset_list H1, subset_list H2) {
+/*  AUTHOR      : Bob Manuel
+    IS          : List subset1 dan subset2 sudah terbentuk, ada kemungkinan jika subset kosong.
+    FS          : Menampilkan irisan atau anggota-anggota yang sama pada kedua himpunan yang diinputkan.
+    DESKRIPSI   : Prosedur untuk menampilkan anggota hasil dari operasi selisih antara 2 subset
+                  Jika salah satu atau kedua subset kosong, maka akan menampilkan pesan bahwa tidak terdapat hasil operasi selisih karena terdapat himpunan yang kosong.
+    =======================================================================================================================*/
+    // Kamus Data
+    alamatsub p,q;
+    char* irisan[20];
+    char* bantup[20];
+    char* bantuq[20];
+    int i = 0;
+    int j = 0;
+    int k = 0;
+    int np = 0;
+    int nq = 0;
+
+    if(IsSubEmpty(H1) && IsSubEmpty(H2)){
+        printf("Operasi selisih tidak bisa digunakan karena kedua UKM tidak memiliki satupun anggota");
+    } else {
+        p = H1.first_sub;
+        while (p != NULL){
+            bantup[j] = p->member_sub;
+            q = H2.first_sub;
+            while (q != NULL){
+                bantuq[k] = q->member_sub;
+                if (strcmp(p->member_sub, q->member_sub) == 0 && strcmp(p->id_sub, q->id_sub) == 0) {
+                    irisan[i] = p->member_sub;
+                }
+            q = q->next_sub;
+            nq = nq + 1;
+            }
+        p = p->next_sub;
+        np = np + 1;
+        }
+    }
+
+    printf("Selisih UKM-1 terhadap UKM-2 adalah : ");
+    for (int i = 0; i <= np; i++){
+        int j = 0;
+        if(strcmp(bantup[i], irisan[j]) == 0){
+            bantup[i] = NULL;
+            j++;
+        }
+    }
+
+    for (int i = 0; i <= np; i++){
+        printf("%s", bantup[i]);
+    }
+
+    printf("Selisih UKM-2 terhadap UKM-1 adalah : ");
+    for (int i = 0; i <= np; i++){
+        int j = 0;
+        if(strcmp(bantuq[i], irisan[j]) == 0){
+            bantuq[i] = NULL;
+            j++;
+        }
+    }
+
+    for (int i = 0; i <= np; i++){
+        printf("%s", bantuq[i]);
+    }
+}
+
 void display_menu() {
         system("cls");
     	printf("=========================================\n");
