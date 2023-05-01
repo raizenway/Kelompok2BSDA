@@ -874,7 +874,7 @@ void irisan(subset_list H1, subset_list H2){
     // Kamus Data
     alamatsub P;
     alamatsub Q;
-    bool found = true;
+    bool found = false;
     if(IsSubEmpty(H1) || IsSubEmpty(H2)) {
         printf("Tidak terdapat irisan, karena terdapat himpunan UKM yang kosong.\n");
     } else {
@@ -888,8 +888,8 @@ void irisan(subset_list H1, subset_list H2){
                 // Jika ada anggota yang sama di kedua himpunan UKM, maka print anggota tersebut
                 if (strcmp(P->member_sub, Q->member_sub) == 0 && strcmp(P->id_sub, Q->id_sub) == 0) {
                     printf("%s - %s\n", P->member_sub, P->id_sub);
+                    found = true;
                     break;
-                    found = false;
                 }
                 Q = Q->next_sub;
             }
@@ -917,18 +917,17 @@ void gabungan(subset_list H1, subset_list H2) {
 
     // Kamus Data
     alamatsub P;
-    P =  H1.first_sub;
 
     // Menambahkan semua anggota subset1 ke list HasilGabungan.
+    P =  H1.first_sub;
     while (P != NULL) {
         add_membersub(&HasilGabungan, P->member_sub, P->id_sub, "Gabungan");
         P = P->next_sub;
     }
 
-    P = H2.first_sub;
-
     // Menambahkan semua anggota subset2 ke list HasilGabungan.
     // Jika ada anggota yang sudah terdapat dalam list, tidak akan ditambahkan lagi.
+    P = H2.first_sub;
     while (P != NULL) {
         if(!IsExistSub(HasilGabungan, P->member_sub, P->id_sub)) {
             add_membersub(&HasilGabungan, P->member_sub, P->id_sub, "Gabungan");
@@ -937,6 +936,7 @@ void gabungan(subset_list H1, subset_list H2) {
     }
 
     // Menampilkan semua anggota himpunan gabungan.
+    P = HasilGabungan.first_sub;
     printf("Himpunan Gabungan : \n");
     while (P != NULL) {
         printf("%s - %s\n", P->member_sub, P->id_sub);
