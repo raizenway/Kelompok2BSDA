@@ -43,7 +43,7 @@ bool IsSuperEmpty(superset_list S);
 bool IsSubEmpty(subset_list H1);
 bool IsFull();
 void add_membersuper(superset_list *S, char nama_mhs[], char NIM[]);
-void add_membersub(subset_list *H1, char nama_mhs[], char NIM[], char* UKM[]);
+void add_membersub(subset_list *H1, char nama_mhs[], char NIM[], char UKM[]);
 void Seleksi_MemberSuper(superset_list *S);
 void del_membersuper(superset_list *S, char nama_mhs[], char NIM[]);
 void del_membersub(subset_list *H1, char nama_mhs[], char NIM[]);
@@ -56,46 +56,38 @@ void append_history(superset_list S, subset_list H1 );
 void write_cur(superset_list S, subset_list H1);
 void write_guide();
 void display_cur(subset_list H);
-//Bob
-void display_membersuper(superset_list S);
-//Bob
-void display_membersubset(subset_list* H);
 void display_menu();
-void search(superset_list S, subset_list DKM, subset_list KEWIRAUSAHAAN, subset_list BADMINTON, subset_list BASKET, subset_list VOLI, subset_list POLBAN_CHESS, subset_list JFP, subset_list ROBOTIK, subset_list FELLAS, subset_list USF, char nama_mhs[], char NIM[]);
-void display_search(superset_list S, subset_list DKM, subset_list KEWIRAUSAHAAN, subset_list BADMINTON, subset_list BASKET, subset_list VOLI, subset_list POLBAN_CHESS, subset_list JFP, subset_list ROBOTIK, subset_list FELLAS, subset_list USF, char nama_mhs[], char NIM[]);
+void display_search(superset_list S, subset_list H1, char nama_mhs[], char NIM[]);
 void display_guide();
 void display_histori();
 void MenuAddSub(superset_list POLBAN, subset_list* DKM, subset_list* KEWIRAUSAHAAN, subset_list* BADMINTON, subset_list* BASKET, subset_list* VOLI, subset_list* POLBAN_CHESS, subset_list* JFP, subset_list* ROBOTIK, subset_list* FELLAS, subset_list* USF);
 void MenuEditSub(superset_list POLBAN, subset_list* DKM, subset_list* KEWIRAUSAHAAN, subset_list* BADMINTON, subset_list* BASKET, subset_list* VOLI, subset_list* POLBAN_CHESS, subset_list* JFP, subset_list* ROBOTIK, subset_list* FELLAS, subset_list* USF);
-//Hari V
 int ListUKM(); 
-//Hari V
 void addnama(char* nama_mhs); 
-//Hari V
 void addnim(char* NIM); 
-//Hari V
 void MenuBuatHimpunan(superset_list* POLBAN, subset_list* DKM, subset_list* KEWIRAUSAHAAN, subset_list* BADMINTON, subset_list* BASKET, subset_list* VOLI, subset_list* POLBAN_CHESS, subset_list* JFP, subset_list* ROBOTIK, subset_list* FELLAS, subset_list* USF);
 void MenuEditHimpunan(superset_list* POLBAN, subset_list* DKM, subset_list* KEWIRAUSAHAAN, subset_list* BADMINTON, subset_list* BASKET, subset_list* VOLI, subset_list* POLBAN_CHESS, subset_list* JFP, subset_list* ROBOTIK, subset_list* FELLAS, subset_list* USF, char nama_mhs[], char NIM[]);
-//bob
-void MenuDisplayHimpunan(superset_list* POLBAN, subset_list* DKM, subset_list* KEWIRAUSAHAAN, subset_list* BADMINTON, subset_list* BASKET, subset_list* VOLI, subset_list* POLBAN_CHESS, subset_list* JFP, subset_list* ROBOTIK, subset_list* FELLAS, subset_list* USF, char nama_mhs[], char NIM[]);
-
-//Hari V
 void MenuOperasi(superset_list S, subset_list* H1, subset_list* H2, subset_list DKM, subset_list KEWIRAUSAHAAN, subset_list BADMINTON, subset_list BASKET, subset_list VOLI, subset_list POLBAN_CHESS, subset_list JFP, subset_list ROBOTIK, subset_list FELLAS, subset_list USF);
-//Hari V
 void EkstrakList(subset_list* H, subset_list DKM, subset_list KEWIRAUSAHAAN, subset_list BADMINTON, subset_list BASKET, subset_list VOLI, subset_list POLBAN_CHESS, subset_list JFP, subset_list ROBOTIK, subset_list FELLAS, subset_list USF);
-//Hari V
 void CopyList(subset_list* H, subset_list SC); 
-//Hari V
-void WritePOLBAN(char nama_mhs[], char NIM[]); //Hari V
-void WriteUKM(int opsi, char nama_mhs[], char NIM[]); //Hari V
-void EkstrakPOLBAN(superset_list* POLBAN); //Hari V
+void WritePOLBAN(char nama_mhs[], char NIM[]);  
+void WriteUKM(int opsi, char nama_mhs[], char NIM[]);  
+void EkstrakPOLBAN(superset_list* POLBAN);  
 void EkstrakUKM(superset_list S, subset_list* DKM, subset_list* KEWIRAUSAHAAN, subset_list* BADMINTON, subset_list* BASKET, subset_list* VOLI, subset_list* POLBAN_CHESS, subset_list* JFP, subset_list* ROBOTIK, subset_list* FELLAS, subset_list* USF);
-//Hari
 void CopyFromFile(superset_list S, subset_list* H, char NamaUKM[]);
-//Hari
-void DeleteFromPOLBANFile(char nama_mhs[], char NIM[]); //Hari
-void DeleteFromUKMFile(int opsi, char nama_mhs[], char NIM[]); //Hari
+void DeleteFromPOLBANFile(char nama_mhs[], char NIM[]); 
+void DeleteFromUKMFile(char nama_mhs[], char NIM[], char UKM[]);
+void WriteHistory(char kalimat[]);
+void DisplayHistory();
+void MenuEditMahasiswa(superset_list* POLBAN, subset_list* DKM, subset_list* KEWIRAUSAHAAN, subset_list* BADMINTON, subset_list* BASKET, subset_list* VOLI, subset_list* POLBAN_CHESS, subset_list* JFP, subset_list* ROBOTIK, subset_list* FELLAS, subset_list* USF);
+//Hari (belom)
+void EditMahasiswaPOLBAN(char nama_mhs[], char NIM[], superset_list* POLBAN);
+//Hari (belom)
+void EditAnggotaUKM(char nama_mhs[], char NIM[], subset_list H);
+//Hari (belom)
+void EditFilePOLBAN(char nama_mhs[], char NIM[], superset_list S);
+//Hari (belom)
+void EditFileUKM(char nama_mhs[], char NIM[], char UKM[]);
+//Hari (belom)
 
-//buat test
-void display_UKM(subset_list H);
 #endif /* SPHIMPUNAN_H */
