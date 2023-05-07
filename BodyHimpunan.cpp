@@ -1692,7 +1692,6 @@ void TampilkanPanduan(){
     fclose(fp);
 }
 
-
 void WritePOLBAN(char nama_mhs[], char NIM[]){
     FILE *fp = fopen("POLBAN.txt", "a+");
 
