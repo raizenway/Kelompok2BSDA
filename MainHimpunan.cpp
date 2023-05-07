@@ -63,7 +63,9 @@ int main(){
             case 3:
             	MenuEditHimpunan(&POLBAN, &DKM, &KEWIRAUSAHAAN, &BADMINTON, &BASKET, &VOLI, &POLBAN_CHESS, &JFP, &ROBOTIK, &FELLAS, &USF, nama_mhs, NIM); break;
             case 4 : EkstrakPOLBAN(&POLBAN); break;
-            case 5 : display_cur(POLBAN); break;
+            case 5 : PanduanPenggunaan(); 
+            TampilkanPanduan(); break;
+            case 6 : search(POLBAN, DKM, KEWIRAUSAHAAN, BADMINTON, BASKET, VOLI, POLBAN_CHESS, JFP, ROBOTIK, FELLAS, USF, nama_mhs, NIM);
         }
 
         printf("\n");

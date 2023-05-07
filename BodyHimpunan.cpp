@@ -1288,6 +1288,98 @@ void  selisih(subset_list H1, subset_list H2) {
     }
 }
 
+void search(superset_list S, subset_list DKM, subset_list KEWIRAUSAHAAN, subset_list BADMINTON, subset_list BASKET, subset_list VOLI, subset_list POLBAN_CHESS, subset_list JFP, subset_list ROBOTIK, subset_list FELLAS, subset_list USF, char nama_mhs[], char NIM[]){
+    addnama(nama_mhs);
+    addnim(NIM);
+    display_search(S, DKM, KEWIRAUSAHAAN, BADMINTON, BASKET, VOLI, POLBAN_CHESS, JFP, ROBOTIK, FELLAS, USF, nama_mhs, NIM);
+}
+
+void display_search(superset_list S, subset_list DKM, subset_list KEWIRAUSAHAAN, subset_list BADMINTON, subset_list BASKET, subset_list VOLI, subset_list POLBAN_CHESS, subset_list JFP, subset_list ROBOTIK, subset_list FELLAS, subset_list USF, char nama_mhs[], char NIM[]) {
+    alamatsuper P;
+    alamatsub Q;
+    P = S.first_super;
+    bool found = false;
+
+    while (P != NULL) {
+    if (strcmp(P->member_sp, nama_mhs) == 0 && strcmp(P->id_member, NIM) == 0) {
+        found = true;
+        printf("Data Mahasiswa:\n");
+        printf("Nama: %s\n", P->member_sp);
+        printf("NIM: %s\n", P->id_member);
+        printf("UKM yang diikuti:\n");
+        if (IsExistSub(DKM, nama_mhs, NIM)) {
+            printf("- DKM\n");
+        }
+        if (IsExistSub(KEWIRAUSAHAAN, nama_mhs, NIM)) {
+            printf("- UKM Kewirausahaan\n");
+        }
+        if (IsExistSub(BADMINTON, nama_mhs, NIM)) {
+            printf("- UKM Badminton\n");
+        }
+        if (IsExistSub(BASKET, nama_mhs, NIM)) {
+            printf("- UKM Basket\n");
+        }
+        if (IsExistSub(VOLI, nama_mhs, NIM)) {
+            printf("- UKM Voli\n");
+        }
+        if (IsExistSub(POLBAN_CHESS, nama_mhs, NIM)) {
+            printf("- UKM Polban Chess\n");
+        }
+        if (IsExistSub(JFP, nama_mhs, NIM)) {
+            printf("- UKM JFP\n");
+        }
+        if (IsExistSub(ROBOTIK, nama_mhs, NIM)) {
+            printf("- UKM Robotik\n");
+        }
+        if (IsExistSub(FELLAS, nama_mhs, NIM)) {
+            printf("- UKM Fellas\n");
+        }
+        if (IsExistSub(USF, nama_mhs, NIM)) {
+            printf("- UKM USF\n");
+        }
+        printf("\n");
+        break;
+    }
+    P = P->next_sp;
+    }
+
+    if (!found) {
+        printf("Data mahasiswa tidak ditemukan.\n");
+    }
+
+    system("pause");
+
+}
+
+// void display_search(superset_list S, subset_list DKM, subset_list KEWIRAUSAHAAN, subset_list BADMINTON, subset_list BASKET, subset_list VOLI, subset_list POLBAN_CHESS, subset_list JFP, subset_list ROBOTIK, subset_list FELLAS, subset_list USF, char nama_mhs[], char NIM[]) {
+//     bool found = false;
+//     alamatsuper P;
+//     P = S.first_super;
+//     while (P != NULL) {
+//         if (strcmp(P->member_sp, nama_mhs) == 0 && strcmp(P->id_member, NIM) == 0) {
+//             found = true;
+//             printf("Data Mahasiswa:\n");
+//             printf("Nama: %s\n", P->member_sp);
+//             printf("NIM: %s\n", P->id_member);
+//             printf("\nDaftar UKM yang diikuti:\n");
+//             alamatsub Q;
+//             Q = H1.first_sub;
+//             while (Q != NULL) {
+//                 if (strcmp(Q->id_sub, NIM) == 0) {
+//                     printf("- %s\n", Q->nama_sub);
+//                 }
+//                 Q = Q->next_sub;
+//             }
+//             break;
+//         }
+//         P = P->next_sp;
+//     }
+//     if (!found) {
+//         printf("Mahasiswa dengan NIM %s tidak ditemukan.\n", NIM);
+//     }
+//     system("pause");
+// }
+
 
 // void display_ukm(superset_list POLBAN, subset_list DKM, subset_list KEWIRAUSAHAAN, subset_list BADMINTON, subset_list BASKET, subset_list VOLI, subset_list POLBAN_CHESS, subset_list JFP, subset_list ROBOTIK, subset_list FELLAS, subset_list USF, char nama_mhs[]) {
 //     char nama_mhs[100];
@@ -1429,7 +1521,7 @@ void  selisih(subset_list H1, subset_list H2) {
 void display_menu() {
         system("cls");
     	printf("=========================================\n");
-        printf("|    Kalkulator Himpunan UKM POLBAN     |\n");
+        printf("|          Himpunan UKM POLBAN          |\n");
         printf("=========================================\n");
         printf("| Menu: \t\t\t\t|\n");
         printf("| [1] Buat Himpunan \t\t\t|\n");
@@ -1441,6 +1533,55 @@ void display_menu() {
         printf("=========================================\n");
 
 }
+
+void PanduanPenggunaan(){
+    FILE *fp = fopen("PANDUAN.txt", "w+");
+
+    if(fp == NULL){
+        printf("\nFile tidak bisa dibuka atau tidak ditemukan!\n");
+    }
+
+    fprintf(fp, "%s", "==================== PROGRAM HIMPUNAN ====================\n");
+    fprintf(fp, "%s", "Program himpunan memiliki 3 himpunan yaitu, himpunan POLBAN sebagai superset, himpunan UKM-1 sebagai subset-1, dan himpunan UKM-2 sebagai subset-2.\n");
+    fprintf(fp, "%s", "Dalam konteks ini, setiap anggota UKM-1 dan UKM-2 juga merupakan anggota dari POLBAN.\n\n");
+    fprintf(fp, "%s", "TUJUAN\n");
+    fprintf(fp, "%s", "Tujuan dari program himpunan ini adalah untuk memodelkan hubungan antara himpunan dalam konteks keanggotaan organisasi suatu universitas.\n");
+    fprintf(fp, "%s", "Dengan menggunakan himpunan sebagai model, dapat dilakukan berbagai operasi dan analisis terhadap anggota organisasi universitas.\n\n");
+    fprintf(fp, "%s", "CARA MENGGUNAKAN\n");
+    fprintf(fp, "%s", "1. Jalankan program himpunan pada IDE masing-masing.\n");
+    fprintf(fp, "%s", "2. Setelah program berhasil dijalankan, maka pengguna akan ditampilkan dengan display menu.\n");
+    fprintf(fp, "%s", "3. Dalam display menu, pengguna dapat melakukan beberapa fitur, diantaranya :\n");
+    fprintf(fp, "%s", "\t [1] Buat Himpunan\n");
+    fprintf(fp, "%s", "\t     Pada menu ini pengguna dapat menambahkan anggota mahasiswa POLBAN sebagai superset, dan juga dapat menambahkan anggota pada UKM POLBAN sebagai subset.\n");
+    fprintf(fp, "%s", "\t [2] Operasi Himpunan\n");
+    fprintf(fp, "%s", "\t     Pada operasi himpunan, pengguna dapat menampilkan operasi himpunan seperti irisan, gabungan, selisih, dan komplemen sesuai kebutuhan.\n");
+    fprintf(fp, "%s", "\t [3] Edit Daftar Himpunan\n");
+    fprintf(fp, "%s", "\t     Pada menu ini, pengguna dapat mengubah atau menghapus anggota superset maupun anggota subset\n");
+    fprintf(fp, "%s", "\t [4] Cari Anggota Himpunan\n");
+    fprintf(fp, "%s", "\t     Pada menu ini pengguna dapat memasukkan nama dan NIM dari mahasiswa, kemudian program akan menampilkan mahasiswa tergabung dalam UKM apa saja.\n");
+    fprintf(fp, "%s", "\t [5] Tampilkan Daftar Himpunan\n");
+    fprintf(fp, "%s", "\t     Pada operasi himpunan, pengguna dapat memilih untuk melihat anggota himpunan secara HISTORY, CURRENT, dan menampilkan GUIDE atau panduan penggunaan aplikasi.\n");
+
+    fclose(fp);
+
+}
+
+void TampilkanPanduan(){
+    FILE *fp = fopen("PANDUAN.txt", "r");
+
+    if(fp == NULL){
+        printf("\nFile tidak bisa dibuka atau tidak ditemukan!\n");
+        return;
+    }
+
+    char ch;
+    while((ch = fgetc(fp)) != EOF){
+        printf("%c", ch);
+    }
+
+    fclose(fp);
+}
+
 
 void WritePOLBAN(char nama_mhs[], char NIM[]){
     FILE *fp = fopen("POLBAN.txt", "a+");
