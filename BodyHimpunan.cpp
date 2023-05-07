@@ -134,15 +134,48 @@ void add_membersub(subset_list *H1, char nama_mhs[], char NIM[], char UKM[]){
         last->next_sub->next_sub = NULL;
     }
     }
-    
+
 }
    
 
-void display_cur(subset_list H){
+void display_cur(superset_list S){
+    alamatsuper P;
+    P = S.first_super;
+    while(P != NULL){
+        printf("%s ", P->member_sp);
+        printf("%s\n", P->id_member);
+        P = P->next_sp;
+    }
+    system("pause");
+}
+
+void display_membersuper(superset_list S) {
+    alamatsuper P;
+    P = S.first_super;
+    printf("Mahasiswa yang terdaftar di POLBAN adalah : \n");
+    while (P != NULL) {
+        printf("%s\n", P->member_sp);
+        P = P->next_sp;
+    }
+}
+
+void display_membersubset(subset_list* H){
+    alamatsub P;
+    P = H->first_sub;
+    printf("Mahasiswa yang terdaftar di  ");
+    while(P != NULL) {
+        printf("%s\n", &P->member_sub);
+        P = P->next_sub;
+    }
+}
+
+
+void display_UKM(subset_list H){
     alamatsub P;
     P = H.first_sub;
     while(P != NULL){
         printf("%s ", P->member_sub);
+        printf("%s\n", P->id_sub);
         P = P->next_sub;
     }
     system("pause");
@@ -193,6 +226,38 @@ void MenuBuatHimpunan(superset_list* POLBAN, subset_list* DKM, subset_list* KEWI
             Seleksi_MemberSuper(POLBAN);
             break;
         case 2: MenuAddSub(*POLBAN, DKM, KEWIRAUSAHAAN, BADMINTON, BASKET, VOLI, POLBAN_CHESS, JFP, ROBOTIK, FELLAS, USF);
+            break;
+        case 99 :
+            break;
+    }
+}
+
+void MenuEditHimpunan(superset_list* POLBAN, subset_list* DKM, subset_list* KEWIRAUSAHAAN, subset_list* BADMINTON, subset_list* BASKET, subset_list* VOLI, subset_list* POLBAN_CHESS, subset_list* JFP, subset_list* ROBOTIK, subset_list* FELLAS, subset_list* USF, char nama_mhs[], char NIM[]) {
+/*  AUTHOR      : Salsabil Khoirunisa
+    IS          : Sudah terbentuk list subset
+    FS          : Menampilkan pesan berhasil atau gagal menghapus atau mengubah data mahasiswa ke dalam himpunan.
+    DESKRIPSI   : Prosedur untuk memilih menu penghapusan atau pengubahan mahasiswa dari list UKM maupun list POLBAN.
+=======================================================================================================================*/
+
+    int opsi;
+    system("cls");
+        printf("=========================================\n");
+        printf("|\t[1] Edit Himpunan\t\t|\n");
+        printf("=========================================\n");
+        printf("| Menu: \t\t\t\t|\n");
+        printf("| [1] Hapus Mahasiswa POLBAN \t\t|\n");
+        printf("| [2] Hapus Anggota UKM POLBAN \t\t|\n");
+        // printf("| [3] Edit Mahasiswa POLBAN \t\t|\n");
+        // printf("| [4] Edit Anggota UKM POLBAN \t|\n");
+        printf("| [99] Back \t\t\t\t|\n");
+        printf("=========================================\n");
+    scanf("%d", &opsi);
+    switch (opsi){
+        case 1:
+            Penghentian_Studi(POLBAN, nama_mhs, NIM);
+            break;
+        case 2: 
+            MenuEditSub(*POLBAN, DKM, KEWIRAUSAHAAN, BADMINTON, BASKET, VOLI, POLBAN_CHESS, JFP, ROBOTIK, FELLAS, USF);
             break;
         case 99 :
             break;
@@ -300,6 +365,7 @@ void Seleksi_MemberSuper(superset_list *S)
                                     printf("=========================================\n");
                                     printf(" Nama\t\t: %.*s.\n", 20, nama_mhs);
                                     printf(" NIM\t\t: %s\n\n", NIM);
+                                    WritePOLBAN(nama_mhs, NIM);
                                     system("pause");
                                 }
                                 syarat = false;
@@ -375,6 +441,7 @@ while(!valid){
                 add_membersub(DKM, nama_mhs, NIM, "DKM");
                 printf("\n%s ", nama_mhs);
                 printf("berhasil bergabung dengan DKM!\n\n");
+                WriteUKM(opsi, nama_mhs, NIM);
             }
             else{
                 printf("\nTidak ada mahasiswa tersebut!\n");
@@ -395,6 +462,7 @@ while(!valid){
                 add_membersub(KEWIRAUSAHAAN, nama_mhs, NIM, "KEWIRAUSAHAAN");
                 printf("\n%s ", nama_mhs);
                 printf("berhasil bergabung dengan KEWIRAUSAHAAN!\n\n");
+                WriteUKM(opsi, nama_mhs, NIM);
             }
             else{
                 printf("\nTidak ada mahasiswa tersebut!\n");
@@ -415,6 +483,7 @@ while(!valid){
                 add_membersub(BADMINTON, nama_mhs, NIM, "BADMINTON");
                 printf("\n%s ", nama_mhs);
                 printf("berhasil bergabung dengan BADMINTON!\n\n");
+                WriteUKM(opsi, nama_mhs, NIM);
             }
             else{
                 printf("\nTidak ada mahasiswa tersebut!\n");
@@ -435,6 +504,7 @@ while(!valid){
                 add_membersub(BASKET, nama_mhs, NIM, "BASKET");
                 printf("\n%s ", nama_mhs);
                 printf("berhasil bergabung dengan BASKET!\n\n");
+                WriteUKM(opsi, nama_mhs, NIM);
             }
             else{
                 printf("\nTidak ada mahasiswa tersebut!\n");
@@ -455,6 +525,7 @@ while(!valid){
                 add_membersub(VOLI, nama_mhs, NIM, "VOLI");
                 printf("\n%s ", nama_mhs);
                 printf("berhasil bergabung dengan VOLI!\n\n");
+                WriteUKM(opsi, nama_mhs, NIM);
             }
             else{
                 printf("\nTidak ada mahasiswa tersebut!\n");
@@ -475,6 +546,7 @@ while(!valid){
                 add_membersub(POLBAN_CHESS, nama_mhs, NIM, "POLBAN_CHESS");
                 printf("\n%s ", nama_mhs);
                 printf("berhasil bergabung dengan POLBAN CHESS!\n\n");
+                WriteUKM(opsi, nama_mhs, NIM);
             }            
             else{
                 printf("\nTidak ada mahasiswa tersebut!\n");
@@ -495,6 +567,7 @@ while(!valid){
                 add_membersub(JFP, nama_mhs, NIM, "JFP");
                 printf("\n%s ", nama_mhs);
                 printf("berhasil bergabung dengan JFP!\n\n");
+                WriteUKM(opsi, nama_mhs, NIM);
             }   
             else{
                 printf("\nTidak ada mahasiswa tersebut!\n");
@@ -515,6 +588,7 @@ while(!valid){
                 add_membersub(ROBOTIK, nama_mhs, NIM, "ROBOTIK");
                 printf("\n%s ", nama_mhs);
                 printf("berhasil bergabung dengan ROBOTIK!\n\n");
+                WriteUKM(opsi, nama_mhs, NIM);
             }
             else{
                 printf("\nTidak ada mahasiswa tersebut!\n");
@@ -535,6 +609,7 @@ while(!valid){
                 add_membersub(FELLAS, nama_mhs, NIM, "FELLAS");
                 printf("\n%s ", nama_mhs);
                 printf("berhasil bergabung dengan FELLAS!\n\n");
+                WriteUKM(opsi, nama_mhs, NIM);
             }
             else{
                 printf("\nTidak ada mahasiswa tersebut!\n");
@@ -555,6 +630,179 @@ while(!valid){
                 add_membersub(USF, nama_mhs, NIM, "USF");
                 printf("\n%s ", nama_mhs);
                 printf("berhasil bergabung dengan USF!\n\n");
+                WriteUKM(opsi, nama_mhs, NIM);
+            }
+            else{
+                printf("\nTidak ada mahasiswa tersebut!\n");
+            }
+        }
+        valid = true;
+        break; 
+    }
+    }
+    system("pause");
+}
+
+void MenuEditSub(superset_list POLBAN, subset_list* DKM, subset_list* KEWIRAUSAHAAN, subset_list* BADMINTON, subset_list* BASKET, subset_list* VOLI, subset_list* POLBAN_CHESS, subset_list* JFP, subset_list* ROBOTIK, subset_list* FELLAS, subset_list* USF)
+/*  AUTHOR      : Salsabil Khoirunisa
+    IS          : Sudah terbentuk list subset
+    FS          : Menampilkan pesan berhasil atau gagal menghapus atau mengubah data mahasiswa ke dalam himpunan.
+    DESKRIPSI   : Prosedur untuk masuk ke menu penghapusan atau pengubahan mahasiswa dari list UKM maupun list POLBAN.
+=======================================================================================================================*/
+{
+system("cls");
+char nama_mhs[61];
+char NIM[10];
+bool valid = false;
+int jumlah = 0;
+
+while(!valid){
+    
+    printf("============================ Menu Update Anggota UKM ===================================\n");
+    int opsi = ListUKM();
+    if(opsi==1){
+        printf("Masukkan jumlah mahasiswa yang akan dihapus dari UKM DKM: ");
+        scanf("%d", &jumlah);
+        for(int i = 0; i < jumlah; i++){
+            addnama(nama_mhs);
+            addnim(NIM);
+            if(IsExistSub(*DKM, nama_mhs, NIM)){
+                del_membersub(DKM, nama_mhs, NIM);
+            }
+            else{
+                printf("\nTidak ada mahasiswa tersebut!\n");
+            }
+        }
+        valid = true;        
+        break;
+    }else if(opsi==2){
+        printf("Masukkan jumlah mahasiswa yang akan dihapus dari UKM KEWIRAUSAHAAN: ");
+        scanf("%d", &jumlah);
+        for(int i = 0; i < jumlah; i++){
+            addnama(nama_mhs);
+            addnim(NIM);
+            if(IsExistSub(*KEWIRAUSAHAAN, nama_mhs, NIM)){
+                del_membersub(KEWIRAUSAHAAN, nama_mhs, NIM);
+            }
+            else{
+                printf("\nTidak ada mahasiswa tersebut!\n");
+            }
+        }
+        valid = true;
+        break;
+    }else if(opsi==3){
+        printf("Masukkan jumlah mahasiswa yang akan dihapus dari UKM BADMINTON: ");
+        scanf("%d", &jumlah);
+        for(int i = 0; i < jumlah; i++){
+            addnama(nama_mhs);
+            addnim(NIM);
+            if(IsExistSub(*BADMINTON, nama_mhs, NIM)){
+                del_membersub(BADMINTON, nama_mhs, NIM);
+            }
+            else{
+                printf("\nTidak ada mahasiswa tersebut!\n");
+            }
+        }
+        valid = true;
+        break;
+    }else if(opsi==4){
+        printf("Masukkan jumlah mahasiswa yang akan dihapus dari UKM BASKET: ");
+        scanf("%d", &jumlah);
+        for(int i = 0; i < jumlah; i++){
+            addnama(nama_mhs);
+            addnim(NIM);
+            if(IsExistSub(*BASKET, nama_mhs, NIM)){
+                del_membersub(BASKET, nama_mhs, NIM);
+            }
+            else{
+                printf("\nTidak ada mahasiswa tersebut!\n");
+            }
+        }
+        valid = true;
+        break; 
+    }else if(opsi==5){
+       printf("Masukkan jumlah mahasiswa yang akan dihapus dari UKM VOLI: ");
+        scanf("%d", &jumlah);
+        for(int i = 0; i < jumlah; i++){
+            addnama(nama_mhs);
+            addnim(NIM);
+            if(IsExistSub(*VOLI, nama_mhs, NIM)){
+                del_membersub(VOLI, nama_mhs, NIM);
+            }
+            else{
+                printf("\nTidak ada mahasiswa tersebut!\n");
+            }
+        }
+        valid = true;
+        break; 
+    }else if(opsi==6){
+        printf("Masukkan jumlah mahasiswa yang akan dihapus dari UKM POLBAN CHESS: ");
+        scanf("%d", &jumlah);
+        for(int i = 0; i < jumlah; i++){
+            addnama(nama_mhs);
+            addnim(NIM);
+            if(IsExistSub(*POLBAN_CHESS, nama_mhs, NIM)){
+                del_membersub(POLBAN_CHESS, nama_mhs, NIM);
+            }       
+            else{
+                printf("\nTidak ada mahasiswa tersebut!\n");
+            }
+        }
+        valid = true;
+        break;
+    }else if(opsi==7){
+        printf("Masukkan jumlah mahasiswa yang akan dihapus dari UKM JFP: ");
+        scanf("%d", &jumlah);
+        for(int i = 0; i < jumlah; i++){
+            addnama(nama_mhs);
+            addnim(NIM);
+            if(IsExistSub(*JFP, nama_mhs, NIM)){
+                del_membersub(JFP, nama_mhs, NIM);
+            }
+            else{
+                printf("\nTidak ada mahasiswa tersebut!\n");
+            }
+        }
+        valid = true;
+        break;
+    }else if(opsi==8){
+        printf("Masukkan jumlah mahasiswa yang akan dihapus dari UKM ROBOTIK: ");
+        scanf("%d", &jumlah);
+        for(int i = 0; i < jumlah; i++){
+            addnama(nama_mhs);
+            addnim(NIM);
+            if(IsExistSub(*ROBOTIK, nama_mhs, NIM)){
+                del_membersub(ROBOTIK, nama_mhs, NIM);
+            }
+            else{
+                printf("\nTidak ada mahasiswa tersebut!\n");
+            }
+        }
+        valid = true;
+        break;
+    }else if(opsi==9){
+       printf("Masukkan jumlah mahasiswa yang akan dihapus dari UKM FELLAS: ");
+        scanf("%d", &jumlah);
+        for(int i = 0; i < jumlah; i++){
+            addnama(nama_mhs);
+            addnim(NIM);
+            if(IsExistSub(*FELLAS, nama_mhs, NIM)){
+                del_membersub(ROBOTIK, nama_mhs, NIM);
+            }
+            else{
+                printf("\nTidak ada mahasiswa tersebut!\n");
+            }
+        }
+        valid = true;
+        break; 
+    }else if(opsi==10){
+        printf("Masukkan jumlah mahasiswa yang akan dihapus dari UKM USF: ");
+        scanf("%d", &jumlah);
+        for(int i = 0; i < jumlah; i++){
+            addnama(nama_mhs);
+            addnim(NIM);
+            if(IsExistSub(*USF, nama_mhs, NIM)){
+                del_membersub(USF, nama_mhs, NIM);
             }
             else{
                 printf("\nTidak ada mahasiswa tersebut!\n");
@@ -572,9 +820,7 @@ void addnama(char* nama_mhs){
     while(!valid){
         
         printf("Masukkan nama mahasiswa\t: ");
-        //fgets(nama_mhs, 61, stdin);
         scanf(" %[^\n]", nama_mhs);
-        //scanf("%s ", nama_mhs);
         getchar();
         if(strlen(nama_mhs) > 60){
             printf("Nama mahasiswa terlalu panjang!\n");
@@ -585,7 +831,6 @@ void addnama(char* nama_mhs){
     }
 
 }
-
 
 
 void addnim(char* NIM){
@@ -606,8 +851,38 @@ void addnim(char* NIM){
 
 }
 
-void del_membersuper(superset_list *S, char nama_mhs[], char NIM[]){
-    /*  AUTHOR  : Bob Manuel
+// void del_membersuper(superset_list *S, char nama_mhs[], char NIM[]){
+//     /*  AUTHOR  : Bob Manuel
+//     IS          : List superset sudah terbentuk dan memiliki isi sebagai anggota superset
+//     FS          : List yang berisi nama dan NIM yang ingin dihapus berhasil dihapus
+//     DESKRIPSI   : Prosedur untuk mencari mahasiswa pada superset maupun subset.
+//                   Pengguna akan diarahkan untuk menginput nama dan NIM dari mahasiswa yang ingin dicari.
+//                   Jika nama dan NIM ditemukan maka modul akan mengembalikan nilai true, 
+//                   sebaliknya jika nama dan NIM tidak ditemukan maka akan mengembalikan nilai false
+//     =======================================================================================================================*/
+//     //Kamus Lokal
+//     alamatsuper bantu, hapus, next;
+//     bantu = S->first_super;
+
+//     if(IsExistSuper(*S, nama_mhs, NIM)){
+//         while((bantu->next_sp->member_sp != nama_mhs) || (bantu != NULL)){
+//             bantu= bantu->next_sp; 
+//             if(bantu->next_sp->member_sp == nama_mhs){
+//                 hapus = bantu->next_sp;
+//                 next = hapus->next_sp;
+//                 bantu->next_sp = next;
+//                 printf("Mahasiswa bernama %s sudah berhasil dihapus", &hapus->member_sp);
+//                 free(hapus);
+//             } 
+//         }
+//     } else {
+//         printf("Mahasiswa tidak ditemukan");
+//     }
+    
+// }
+
+void del_membersuper(superset_list *S, char nama_mhs[], char NIM[]) {
+/*  AUTHOR      : Bob Manuel
     IS          : List superset sudah terbentuk dan memiliki isi sebagai anggota superset
     FS          : List yang berisi nama dan NIM yang ingin dihapus berhasil dihapus
     DESKRIPSI   : Prosedur untuk mencari mahasiswa pada superset maupun subset.
@@ -615,44 +890,123 @@ void del_membersuper(superset_list *S, char nama_mhs[], char NIM[]){
                   Jika nama dan NIM ditemukan maka modul akan mengembalikan nilai true, 
                   sebaliknya jika nama dan NIM tidak ditemukan maka akan mengembalikan nilai false
     =======================================================================================================================*/
-    //Kamus Lokal
-    alamatsuper bantu, hapus, next;
-    bantu = S->first_super;
-
-    if(IsExistSuper(*S, nama_mhs, NIM)){
-        while((bantu->next_sp->member_sp != nama_mhs) || (bantu != NULL)){
-            bantu= bantu->next_sp; 
-            if(bantu->next_sp->member_sp == nama_mhs){
-                hapus = bantu->next_sp;
-                next = hapus->next_sp;
-                bantu->next_sp = next;
-                printf("Mahasiswa bernama %s sudah berhasil dihapus", &hapus->member_sp);
-                free(hapus);
-            } 
+    alamatsuper P, Q;
+    P = S->first_super;
+    Q = NULL;
+    while (P != NULL) {
+        if (strcmp(P->member_sp, nama_mhs) == 0 && strcmp(P->id_member, NIM) == 0) {
+            if (Q == NULL) {
+                S->first_super = P->next_sp;
+            } else {
+                Q->next_sp = P->next_sp;
+            }
+            free(P);
+            printf("Mahasiswa dengan NIM %s telah dihapus dari UKM POLBAN\n", NIM);
+            return;
         }
-    } else {
-        printf("Mahasiswa tidak ditemukan");
+        Q = P;
+        P = P->next_sp;
     }
-    
+    printf("Mahasiswa dengan NIM %s tidak ditemukan dalam Politeknik Negeri Bandung\n", NIM);
 }
 
 void del_membersub(subset_list *H1, char nama_mhs[], char NIM[]) {
-    alamatsub bantu, hapus, next;
-    bantu = H1->first_sub;
-
-    if(IsExistSub(*H1, nama_mhs, NIM)){
-        while((bantu->next_sub->member_sub != nama_mhs) || (bantu != NULL)){
-           bantu = bantu->next_sub;
-           if(bantu->next_sub->member_sub == nama_mhs){
-            
-           }
+    alamatsub P, Q;
+    P = H1->first_sub;
+    Q = NULL;
+    while (P != NULL) {
+        if (strcmp(P->member_sub, nama_mhs) == 0 && strcmp(P->id_sub, NIM) == 0) {
+            if (Q == NULL) {
+                H1->first_sub = P->next_sub;
+            } else {
+                Q->next_sub = P->next_sub;
+            }
+            free(P);
+            printf("Anggota UKM dengan NIM %s telah dihapus!\n", NIM);
+            return;
         }
+        Q = P;
+        P = P->next_sub;
     }
+    printf("Anggota UKMdengan NIM %s tidak ditemukan!\n", NIM);
 }
 
-void Penghentian_Studi(superset_list *S, char nama_mhs[], char NIM[]){
+
+// void del_membersub(subset_list *H1, char nama_mhs[], char NIM[]) {
+//     alamatsub bantu, hapus, next;
+//     bantu = H1->first_sub;
+
+//     if(IsExistSub(*H1, nama_mhs, NIM)){
+//         while((bantu->next_sub->member_sub != nama_mhs) || (bantu != NULL)){
+//            bantu = bantu->next_sub;
+//            if(bantu->next_sub->member_sub == nama_mhs){
+            
+//            }
+//         }
+//     }
+// }
+
+void MenuDisplayHimpunan(superset_list* POLBAN, subset_list* DKM, subset_list* KEWIRAUSAHAAN, subset_list* BADMINTON, subset_list* BASKET, subset_list* VOLI, subset_list* POLBAN_CHESS, subset_list* JFP, subset_list* ROBOTIK, subset_list* FELLAS, subset_list* USF, char nama_mhs[], char NIM[]) {
+/*  AUTHOR      : Bob Manuel
+    IS          : List superset POLBAN dan subset UKM sudah terbentuk
+    FS          : Menampilkan setiap anggota superset POLBAN ataupun setiap anggota dari subset UKM
+    DESKRIPSI   : Prosedur untuk masuk ke menu menampilkan mahasiswa dalam superset POLBAN,
+                  pengguna akan diarahkan dengan pengkondisian (if else) untuk memilih superset atau subset yang akan ditampilkan anggotanya,
+                  Setelahnya, akan menampilkan anggota sesuai opsi yang dipilih
+=======================================================================================================================*/ 
+    bool valid = false;
+    alamatsub H;
+    while (!valid) {
+        int opsi = ListUKM();
+
+        if (opsi == 1) {
+            display_membersubset(DKM);
+            valid = true;
+        } else if (opsi == 2) {
+            display_membersubset(KEWIRAUSAHAAN);
+            valid = true;
+        } else if (opsi == 3) {
+            display_membersubset(BADMINTON);
+            valid = true;
+        } else if (opsi == 4) {
+            display_membersubset(BASKET);
+            valid = true;
+        } else if (opsi == 5) {
+            display_membersubset(VOLI);
+            valid = true;
+        } else if (opsi == 6) {
+            display_membersubset(POLBAN_CHESS);
+            valid = true;
+        } else if (opsi == 7) {
+            display_membersubset(JFP);
+            valid = true;
+        } else if (opsi == 8) {
+            display_membersubset(ROBOTIK);
+            valid = true;
+        } else if (opsi == 9) {
+            display_membersubset(FELLAS);
+            valid = true;
+        } else if (opsi == 10) {
+            display_membersubset(USF);
+            valid = true;
+        }
+    }  
+    printf("\n\n");
+    display_membersuper(*POLBAN);
+}
+
+void Penghentian_Studi(superset_list *S, char nama_mhs[], char NIM[])
+/*  AUTHOR      : Salsabil Khoirunisa
+    IS          : Sudah terbentuk list superset
+    FS          : Menampilkan pesan berhasil atau gagal menghapus mahasiswa ke dalam list POLBAN
+    DESKRIPSI   : Prosedur untuk masuk ke menu penghapusan mahasiswa dengan syarat-syarat POLBAN,
+                  pengguna akan diarahkan ke kondisi if else, jika salah satu kondisi memenuhi,
+                  maka akan memanggil modul untuk menghapus anggota dari List POLBAN.
+=======================================================================================================================*/
+{
     int jumlah;
     char jawaban[5]; // variabel untuk menyimpan jawaban
+
 
     printf("Berapa banyak mahasiswa yang ingin dihapus?\n");
     scanf("%d", &jumlah);
@@ -663,20 +1017,17 @@ void Penghentian_Studi(superset_list *S, char nama_mhs[], char NIM[]){
 
     for(int i=0;i<jumlah;i++){
         system("cls");
-        printf("Silahkan masukkan nama mahasiswa yang ingin dihapus.\n");
-        scanf("%s", &nama_mhs);
-
-        printf("Silahkan masukkan NIM mahasiswa tersebut!\n");
-        printf("NIM\t:");
-        scanf("%s", &NIM);
+        addnama(nama_mhs);
+        addnim(NIM);
         if(IsExistSuper(*S, nama_mhs, NIM)){
-            printf("JSilakan jawab dengan ya atau tidak.\n");
+            printf("Silakan jawab dengan ya atau tidak.\n");
             // pertanyaan 1
             printf("Apakah mahasiswa dua semester berturut-turut lulus percobaan sampai dengan semester IV untuk mahasiswa Program Diploma III dan semester VI untuk mahasiswa Program Diploma IV?\n");
             scanf("%s", jawaban);
             if (strcmp(jawaban, "ya") == 0) {
                 del_membersuper(S, nama_mhs, NIM);
                 printf("Mahasiswa %s", nama_mhs, "telah dihapus dari daftar anggota POLBAN.\n");
+                system("pause");
                 return;
             }
 
@@ -686,6 +1037,7 @@ void Penghentian_Studi(superset_list *S, char nama_mhs[], char NIM[]){
             if (strcmp(jawaban, "ya") == 0) {
                 del_membersuper(S, nama_mhs, NIM);
                 printf("Mahasiswa %s", nama_mhs, "telah dihapus dari daftar anggota POLBAN.\n");
+                system("pause");
                 return;
             }
 
@@ -695,6 +1047,7 @@ void Penghentian_Studi(superset_list *S, char nama_mhs[], char NIM[]){
             if (strcmp(jawaban, "ya") == 0) {
                 del_membersuper(S, nama_mhs, NIM);
                 printf("Mahasiswa %s", nama_mhs, "telah dihapus dari daftar anggota POLBAN.\n");
+                system("pause");
                 return;
             }
 
@@ -704,6 +1057,7 @@ void Penghentian_Studi(superset_list *S, char nama_mhs[], char NIM[]){
             if (strcmp(jawaban, "ya") == 0) {
                 del_membersuper(S, nama_mhs, NIM);
                 printf("Mahasiswa %s", nama_mhs, "telah dihapus dari daftar anggota POLBAN.\n");
+                system("pause");
                 return;
             }
 
@@ -713,6 +1067,7 @@ void Penghentian_Studi(superset_list *S, char nama_mhs[], char NIM[]){
             if (strcmp(jawaban, "ya") == 0) {
                 del_membersuper(S, nama_mhs, NIM);
                 printf("Mahasiswa %s", nama_mhs, "telah dihapus dari daftar anggota POLBAN.\n");
+                system("pause");
                 return;
             }
 
@@ -722,6 +1077,7 @@ void Penghentian_Studi(superset_list *S, char nama_mhs[], char NIM[]){
             if (strcmp(jawaban, "ya") == 0) {
                 del_membersuper(S, nama_mhs, NIM);
                 printf("Mahasiswa %s", nama_mhs, "telah dihapus dari daftar anggota POLBAN.\n");
+                system("pause");
                 return;
             }
 
@@ -731,6 +1087,7 @@ void Penghentian_Studi(superset_list *S, char nama_mhs[], char NIM[]){
             if (strcmp(jawaban, "ya") == 0) {
                 del_membersuper(S, nama_mhs, NIM);
                 printf("Mahasiswa %s", nama_mhs, "telah dihapus dari daftar anggota POLBAN.\n");
+                system("pause");
                 return;
             } 
 
@@ -740,6 +1097,7 @@ void Penghentian_Studi(superset_list *S, char nama_mhs[], char NIM[]){
             if (strcmp(jawaban, "ya") == 0) {
                 del_membersuper(S, nama_mhs, NIM);
                 printf("Mahasiswa %s", nama_mhs, "telah dihapus dari daftar anggota POLBAN.\n");
+                system("pause");
                 return;
             }
             
@@ -807,7 +1165,7 @@ void EkstrakList(subset_list* H, subset_list DKM, subset_list KEWIRAUSAHAAN, sub
     }
 }
 
-void MenuOperasi(subset_list* H1, subset_list* H2, subset_list DKM, subset_list KEWIRAUSAHAAN, subset_list BADMINTON, subset_list BASKET, subset_list VOLI, subset_list POLBAN_CHESS, subset_list JFP, subset_list ROBOTIK, subset_list FELLAS, subset_list USF){
+void MenuOperasi(superset_list S, subset_list* H1, subset_list* H2, subset_list DKM, subset_list KEWIRAUSAHAAN, subset_list BADMINTON, subset_list BASKET, subset_list VOLI, subset_list POLBAN_CHESS, subset_list JFP, subset_list ROBOTIK, subset_list FELLAS, subset_list USF){
     int opsi = 0;
     bool valid = false;
     
@@ -849,6 +1207,7 @@ void MenuOperasi(subset_list* H1, subset_list* H2, subset_list DKM, subset_list 
             valid = true;break;
         case 3 :
             printf("Selisih(Super, H1, H2)'contoh: %s dan %s'\n", H1->first_sub->member_sub, H2->first_sub->member_sub);
+            selisih(*H1, *H2);
             valid = true;break;        
         case 4 :
             printf("Komplemen(Super, H1, H2)'contoh: %s dan %s'\n", H1->first_sub->member_sub, H2->first_sub->member_sub);
@@ -874,7 +1233,7 @@ void irisan(subset_list H1, subset_list H2){
     // Kamus Data
     alamatsub P;
     alamatsub Q;
-    bool found = true;
+    bool found = false;
     if(IsSubEmpty(H1) || IsSubEmpty(H2)) {
         printf("Tidak terdapat irisan, karena terdapat himpunan UKM yang kosong.\n");
     } else {
@@ -888,8 +1247,8 @@ void irisan(subset_list H1, subset_list H2){
                 // Jika ada anggota yang sama di kedua himpunan UKM, maka print anggota tersebut
                 if (strcmp(P->member_sub, Q->member_sub) == 0 && strcmp(P->id_sub, Q->id_sub) == 0) {
                     printf("%s - %s\n", P->member_sub, P->id_sub);
+                    found = true;
                     break;
-                    found = false;
                 }
                 Q = Q->next_sub;
             }
@@ -917,18 +1276,17 @@ void gabungan(subset_list H1, subset_list H2) {
 
     // Kamus Data
     alamatsub P;
-    P =  H1.first_sub;
 
     // Menambahkan semua anggota subset1 ke list HasilGabungan.
+    P =  H1.first_sub;
     while (P != NULL) {
         add_membersub(&HasilGabungan, P->member_sub, P->id_sub, "Gabungan");
         P = P->next_sub;
     }
 
-    P = H2.first_sub;
-
     // Menambahkan semua anggota subset2 ke list HasilGabungan.
     // Jika ada anggota yang sudah terdapat dalam list, tidak akan ditambahkan lagi.
+    P = H2.first_sub;
     while (P != NULL) {
         if(!IsExistSub(HasilGabungan, P->member_sub, P->id_sub)) {
             add_membersub(&HasilGabungan, P->member_sub, P->id_sub, "Gabungan");
@@ -937,6 +1295,7 @@ void gabungan(subset_list H1, subset_list H2) {
     }
 
     // Menampilkan semua anggota himpunan gabungan.
+    P = HasilGabungan.first_sub;
     printf("Himpunan Gabungan : \n");
     while (P != NULL) {
         printf("%s - %s\n", P->member_sub, P->id_sub);
@@ -945,7 +1304,7 @@ void gabungan(subset_list H1, subset_list H2) {
 
 }
 
-void selisih(subset_list H1, subset_list H2) {
+void  selisih(subset_list H1, subset_list H2) {
 /*  AUTHOR      : Bob Manuel
     IS          : List subset1 dan subset2 sudah terbentuk, ada kemungkinan jika subset kosong.
     FS          : Menampilkan irisan atau anggota-anggota yang sama pada kedua himpunan yang diinputkan.
@@ -1010,6 +1369,173 @@ void selisih(subset_list H1, subset_list H2) {
     }
 }
 
+
+// void display_ukm(superset_list POLBAN, subset_list DKM, subset_list KEWIRAUSAHAAN, subset_list BADMINTON, subset_list BASKET, subset_list VOLI, subset_list POLBAN_CHESS, subset_list JFP, subset_list ROBOTIK, subset_list FELLAS, subset_list USF, char nama_mhs[]) {
+//     char nama_mhs[100];
+//     printf("Masukkan nama mahasiswa yang ingin dicari: ");
+    
+//     bool found = false;
+    
+//     printf("UKM yang diikuti oleh %s:\n", nama_mhs);
+
+//     if (!IsSuperEmpty(POLBAN)) {
+//         alamatsuper P = S.first_super;
+//         while (P != NULL) {
+//             if (strcmp(P->member_sp, nama_mhs) == 0) {
+//                 printf("- %s\n", P->nama_super);
+//                 found = true;
+//             }
+//             P = P->next_sp;
+//         }
+//     }
+    
+//     if (!IsSubEmpty(DKM)) {
+//         alamatsub P = DKM.first_sub;
+//         while (P != NULL) {
+//             if (strcmp(P->member_sub, nama_mhs) == 0) {
+//                 printf("- %s\n", P->nama_sub);
+//                 found = true;
+//             }
+//             P = P->next_sub;
+//         }
+//     }
+    
+//     if (!IsSubEmpty(KEWIRAUSAHAAN)) {
+//         alamatsub P = KEWIRAUSAHAAN.first_sub;
+//         while (P != NULL) {
+//             if (strcmp(P->member_sub, nama_mhs) == 0) {
+//                 printf("- %s\n", P->nama_sub);
+//                 found = true;
+//             }
+//             P = P->next_sub;
+//         }
+//     }
+    
+//     if (!IsSubEmpty(BADMINTON)) {
+//         alamatsub P = BADMINTON.first_sub;
+//         while (P != NULL) {
+//             if (strcmp(P->member_sub, nama_mhs) == 0) {
+//                 printf("- %s\n", P->nama_sub);
+//                 found = true;
+//             }
+//             P = P->next_sub;
+//         }
+//     }
+    
+//     if (!IsSubEmpty(BASKET)) {
+//         alamatsub P = BASKET.first_sub;
+//         while (P != NULL) {
+//             if (strcmp(P->member_sub, nama_mhs) == 0) {
+//                 printf("- %s\n", P->nama_sub);
+//                 found = true;
+//             }
+//             P = P->next_sub;
+//         }
+//     }
+    
+//     if (!IsSubEmpty(VOLI)) {
+//         alamatsub P = VOLI.first_sub;
+//         while (P != NULL) {
+//             if (strcmp(P->member_sub, nama_mhs) == 0) {
+//                 printf("- %s\n", P->nama_sub);
+//                 found = true;
+//             }
+//             P = P->next_sub;
+//         }
+//     }
+    
+//     if (!IsSubEmpty(POLBAN_CHESS)) {
+//         alamatsub P = POLBAN_CHESS.first_sub;
+//         while (P != NULL) {
+//             if (strcmp(P->member_sub, nama_mhs) == 0) {
+//                 printf("- %s\n", P->nama_sub);
+//                 found = true;
+//             }
+//             P = P->next_sub;
+//         }
+//     }
+    
+//     if (!IsSubEmpty(JFP)) {
+//         alamatsub P = JFP.first_sub;
+//         while (P != NULL) {
+//             if (strcmp(P->member_sub, nama_mhs) == 0) {
+//                 printf("- %s\n", P->nama_sub);
+//                 found = true;
+//             }
+//             P = P->next_sub;
+//         }
+//     }
+
+//     if (!IsSubEmpty(ROBOTIK)) {
+//         alamatsub P = ROBOTIK.first_sub;
+//         while (P != NULL) {
+//             if (strcmp(P->member_sub, nama_mhs) == 0) {
+//                 printf("- %s\n", P->nama_sub);
+//                 found = true;
+//             }
+//             P = P->next_sub;
+//         }
+//     }
+
+//     if (!IsSubEmpty(FELLAS)) {
+//         alamatsub P = FELLAS.first_sub;
+//         while (P != NULL) {
+//             if (strcmp(P->member_sub, nama_mhs) == 0) {
+//                 printf("- %s\n", P->nama_sub);
+//                 found = true;
+//             }
+//             P = P->next_sub;
+//         }
+//     }
+
+//     if (!IsSubEmpty(USF)) {
+//         alamatsub P = USF.first_sub;
+//         while (P != NULL) {
+//             if (strcmp(P->member_sub, nama_mhs) == 0) {
+//                 printf("- %s\n", P->nama_sub);
+//                 found = true;
+//             }
+//             P = P->next_sub;
+//         }
+//     }
+
+//     if (!found) {
+//         printf("Tidak terdaftar di UKM manapun.\n");
+//     }
+
+// }
+
+
+
+void komplemen(superset_list S, subset_list H1, subset_list H2) {
+    int i = 0;
+    int y = 0;
+    alamatsuper p;
+    alamatsub q, r;
+    char * complemen[i];
+
+    p = S.first_super;
+    while(p != NULL){
+        q = H1.first_sub;
+        while (q != NULL) {
+            r = H2.first_sub;
+            if (strcmp(p->member_sp, q->member_sub) == 0 && strcmp(p->id_member, q->id_sub) == 0){
+                complemen[i] = p->member_sp;
+                i++;
+                y = i;
+            } else {
+                q = q->next_sub;
+            }
+            q = q->next_sub;
+        }
+    p = p->next_sp;
+    }
+    for (int i = 0; i <= y; i++){
+        printf("Hasil dari komplemen adalah : \n");
+        printf("%s\n", complemen[i]);
+    }
+}
+
 void display_menu() {
         system("cls");
     	printf("=========================================\n");
@@ -1026,3 +1552,324 @@ void display_menu() {
 
 }
 
+void WritePOLBAN(char nama_mhs[], char NIM[]){
+    FILE *fp = fopen("POLBAN.txt", "a+");
+
+    if(fp == NULL){
+        printf("\nFile tidak bisa dibuka atau tidak ditemukan!\n");
+    }
+
+    fprintf(fp, "%s\n", nama_mhs);
+    fprintf(fp, "%s\n", NIM);
+
+    fclose(fp);
+
+    printf("Berhasil ditambahkan ke database POLBAN!\n");
+}
+
+void WriteUKM(int opsi, char nama_mhs[], char NIM[]){
+    
+    if(opsi == 1){
+        FILE *fp = fopen("DKM.txt", "a+");
+
+        if(fp == NULL){
+            printf("\nFile tidak bisa dibuka atau tidak ditemukan!\n");
+        }
+
+        fprintf(fp, "%s\n", nama_mhs);
+        fprintf(fp, "%s\n", NIM);
+
+        fclose(fp);
+        printf("Berhasil ditambahkan ke database DKM!\n");
+    } else if(opsi == 2){
+        FILE *fp = fopen("KEWIRAUSAHAAN.txt", "a+");
+
+        if(fp == NULL){
+            printf("\nFile tidak bisa dibuka atau tidak ditemukan!\n");
+        }
+
+        fprintf(fp, "%s\n", nama_mhs);
+        fprintf(fp, "%s\n", NIM);
+
+        fclose(fp);
+        printf("Berhasil ditambahkan ke database KEWIRAUSAHAAN!\n");
+    } else if(opsi == 3){
+        FILE *fp = fopen("BADMINTON.txt", "a+");
+
+        if(fp == NULL){
+            printf("\nFile tidak bisa dibuka atau tidak ditemukan!\n");
+        }
+
+        fprintf(fp, "%s\n", nama_mhs);
+        fprintf(fp, "%s\n", NIM);
+
+        fclose(fp);
+        printf("Berhasil ditambahkan ke database BADMINTON!\n");
+    } else if(opsi == 4){
+        FILE *fp = fopen("BASKET.txt", "a+");
+
+        if(fp == NULL){
+            printf("\nFile tidak bisa dibuka atau tidak ditemukan!\n");
+        }
+
+        fprintf(fp, "%s\n", nama_mhs);
+        fprintf(fp, "%s\n", NIM);
+
+        fclose(fp);
+        printf("Berhasil ditambahkan ke database BASKET!\n");
+    } else if(opsi == 5){
+        FILE *fp = fopen("VOLI.txt", "a+");
+
+        if(fp == NULL){
+            printf("\nFile tidak bisa dibuka atau tidak ditemukan!\n");
+        }
+
+        fprintf(fp, "%s\n", nama_mhs);
+        fprintf(fp, "%s\n", NIM);
+
+        fclose(fp);
+        printf("Berhasil ditambahkan ke database VOLI!\n");
+    } else if(opsi == 6){
+        FILE *fp = fopen("POLBAN_CHESS.txt", "a+");
+
+        if(fp == NULL){
+            printf("\nFile tidak bisa dibuka atau tidak ditemukan!\n");
+        }
+
+        fprintf(fp, "%s\n", nama_mhs);
+        fprintf(fp, "%s\n", NIM);
+
+        fclose(fp);
+        printf("Berhasil ditambahkan ke database POLBAN_CHESS!\n");
+    } else if(opsi == 7){
+        FILE *fp = fopen("JFP.txt", "a+");
+
+        if(fp == NULL){
+            printf("\nFile tidak bisa dibuka atau tidak ditemukan!\n");
+        }
+
+        fprintf(fp, "%s\n", nama_mhs);
+        fprintf(fp, "%s\n", NIM);
+
+        fclose(fp);
+        printf("Berhasil ditambahkan ke database JFP!\n");
+    } else if(opsi == 8){
+        FILE *fp = fopen("ROBOTIK.txt", "a+");
+
+        if(fp == NULL){
+            printf("\nFile tidak bisa dibuka atau tidak ditemukan!\n");
+        }
+
+        fprintf(fp, "%s\n", nama_mhs);
+        fprintf(fp, "%s\n", NIM);
+
+        fclose(fp);
+        printf("Berhasil ditambahkan ke database ROBOTIK!\n");
+    } else if(opsi == 9){
+        FILE *fp = fopen("FELLAS.txt", "a+");
+
+        if(fp == NULL){
+            printf("\nFile tidak bisa dibuka atau tidak ditemukan!\n");
+        }
+
+        fprintf(fp, "%s\n", nama_mhs);
+        fprintf(fp, "%s\n", NIM);
+
+        fclose(fp);
+        printf("Berhasil ditambahkan ke database FELLAS!\n");
+    } else if(opsi == 10){
+        FILE *fp = fopen("USF.txt", "a+");
+
+        if(fp == NULL){
+            printf("\nFile tidak bisa dibuka atau tidak ditemukan!\n");
+        }
+
+        fprintf(fp, "%s\n", nama_mhs);
+        fprintf(fp, "%s\n", NIM);
+
+        fclose(fp);
+        printf("Berhasil ditambahkan ke database USF!\n");
+    }
+     
+}
+
+void EkstrakPOLBAN(superset_list* S){
+    int i = 0;
+    FILE* fp = fopen("POLBAN.txt", "r");
+
+    if(fp == NULL){
+        printf("\nDatabase belum dibuat!\n");
+    }
+
+    char nama[61];
+    char nim[10];
+    char buffer[100];
+
+    while(fgets(buffer, sizeof(buffer), fp)){
+        //Token agar tidak mengambil new line
+        strtok(buffer, "\n");
+        strcpy(nama, buffer); 
+        fgets(buffer, sizeof(buffer), fp);
+        sscanf(buffer, "%9[^\n]", nim);
+        
+        if(!IsExistSuper(*S, nama, nim)){ 
+            add_membersuper(S, nama, nim);
+            i++;
+        }
+    }
+    if(i > 0){
+        printf("Berhasil mengekstrak database!\n");
+    } else{
+        printf("Tidak ada data yang dapat diekstrak!\n");
+    }
+           
+    system("pause");
+
+    fclose(fp);
+}
+
+void EkstrakUKM(superset_list S, subset_list* DKM, subset_list* KEWIRAUSAHAAN, subset_list* BADMINTON, subset_list* BASKET, subset_list* VOLI, subset_list* POLBAN_CHESS, subset_list* JFP, subset_list* ROBOTIK, subset_list* FELLAS, subset_list* USF){
+    bool valid = false;
+    
+    while(!valid){
+        int opsi = ListUKM();
+        if(opsi==1){
+            CopyFromFile(S, DKM, "DKM");
+            valid = true;
+        }else if(opsi==2){
+            CopyFromFile(S, KEWIRAUSAHAAN, "KEWIRAUSAHAAN");
+            valid = true;
+        }else if(opsi==3){
+            CopyFromFile(S, BADMINTON, "BADMINTON");
+            valid = true;
+        }else if(opsi==4){
+           
+            CopyFromFile(S, BASKET, "BASKET");
+            valid = true;
+        }else if(opsi==5){
+            
+            CopyFromFile(S, VOLI, "VOLI");
+            valid = true;
+        }else if(opsi==6){
+           
+            CopyFromFile(S, POLBAN_CHESS, "POLBAN_CHESS");
+            valid = true;
+        }else if(opsi==7){
+            
+            CopyFromFile(S, JFP, "JFP");
+            valid = true;
+        }else if(opsi==8){
+           
+            CopyFromFile(S, ROBOTIK, "ROBOTIK");
+            valid = true;
+        }else if(opsi==9){
+            
+            CopyFromFile(S, FELLAS, "FELLAS");
+            valid = true;
+        }else if(opsi==10){
+            
+            CopyFromFile(S, USF, "USF");
+            valid = true;
+        }
+    }
+}
+
+void CopyFromFile(superset_list S, subset_list* H, char NamaUKM[]){
+    char nama_file[100];
+    char nama[61];
+    char nim[10];
+    char buffer[100];
+    alamatsub UKM;
+    int i = 0;
+
+    UKM = H->first_sub;
+
+    if(UKM == NULL){
+        UKM = (alamatsub) malloc(sizeof(elmtsubset));
+        strcpy(UKM->nama_sub, NamaUKM);
+    }
+
+    sprintf(nama_file, "%s.txt", UKM->nama_sub);
+    FILE* fp = fopen(nama_file, "r");
+
+
+    if(fp == NULL){
+        printf("\nDatabase belum dibuat!\n");
+    }
+
+
+    while(fgets(buffer, sizeof(buffer), fp)){
+        //Token agar tidak mengambil new line
+        char* token = strtok(buffer, "\n");
+        strcpy(nama, buffer);
+        fgets(buffer, sizeof(buffer), fp);
+        sscanf(buffer, "%9[^\n]", nim);
+        
+        if(IsExistSuper(S, nama, nim)){
+            if(!IsExistSub(*H, nama, nim)){
+            add_membersub(H, nama, nim, UKM->nama_sub);
+            i++;
+            } else {
+                printf("Mahasiswa sudah terdaftar!\n");
+            }
+        }
+        else{
+            printf("Tidak ada mahasiswa bernama %s!\n", nama);
+        }
+    }
+    if(i > 0){
+        printf("Berhasil mengekstrak database!\n");
+    } else{
+        printf("Tidak ada data yang dapat diekstrak!\n");
+    } 
+    system("pause");
+    fclose(fp); 
+}
+
+void DeleteFromPOLBANFile(char nama_mhs[], char NIM[]){
+    printf("%s", nama_mhs);
+    printf("%s", NIM);
+    char buffer[100];
+    int line = 1;
+    int found = 0;
+    
+    FILE *fp, *temp;
+    fp = fopen("POLBAN.txt", "r");
+    if(fp == NULL){
+        printf("File tidak dapat dibuka atau ditemukan!\n");
+        exit(EXIT_FAILURE);
+    }
+
+    temp = fopen("temp.txt", "w+");
+    if(temp == NULL){
+        printf("File temp.txt tidak dapat dibuka atau ditemukan!\n");
+        exit(EXIT_FAILURE);
+    }
+
+
+    while(fgets(buffer, sizeof(buffer), fp)){
+        //Mencari nama dan nim
+        if((strstr(buffer, nama_mhs) != NULL) && (strstr(buffer, NIM) != NULL)){
+            found = 1;
+            continue; //skip baris
+        }
+        fprintf(temp, "%s", buffer);
+        line++;
+    }
+    
+    
+    fclose(fp);
+    fclose(temp);
+
+    if(found == 1){
+        printf("Woi putih");
+        remove("POLBAN.txt");
+        rename("temp.txt", "POLBAN.txt");
+        printf("Mahasiswa bernama %s dengan NIM %s sudah berhasil dihapus dari database.\n", nama_mhs, NIM);
+    } else{
+        printf("woi ireng"); system("pause");
+        remove("temp.txt");
+        printf("Tidak ada mahasiswa bernama %s dengan NIM %s", nama_mhs, NIM);
+    }
+
+}
