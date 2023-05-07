@@ -149,6 +149,27 @@ void display_cur(superset_list S){
     system("pause");
 }
 
+void display_membersuper(superset_list S) {
+    alamatsuper P;
+    P = S.first_super;
+    printf("Mahasiswa yang terdaftar di POLBAN adalah : \n");
+    while (P != NULL) {
+        printf("%s\n", P->member_sp);
+        P = P->next_sp;
+    }
+}
+
+void display_membersubset(subset_list* H){
+    alamatsub P;
+    P = H->first_sub;
+    printf("Mahasiswa yang terdaftar di  ");
+    while(P != NULL) {
+        printf("%s\n", &P->member_sub);
+        P = P->next_sub;
+    }
+}
+
+
 void display_UKM(subset_list H){
     alamatsub P;
     P = H.first_sub;
@@ -886,7 +907,7 @@ void del_membersuper(superset_list *S, char nama_mhs[], char NIM[]) {
         Q = P;
         P = P->next_sp;
     }
-    printf("Mahasiswa dengan NIM %s tidak ditemukan dalam UKM POLBAN\n", NIM);
+    printf("Mahasiswa dengan NIM %s tidak ditemukan dalam Politeknik Negeri Bandung\n", NIM);
 }
 
 void del_membersub(subset_list *H1, char nama_mhs[], char NIM[]) {
@@ -924,6 +945,55 @@ void del_membersub(subset_list *H1, char nama_mhs[], char NIM[]) {
 //         }
 //     }
 // }
+
+void MenuDisplayHimpunan(superset_list* POLBAN, subset_list* DKM, subset_list* KEWIRAUSAHAAN, subset_list* BADMINTON, subset_list* BASKET, subset_list* VOLI, subset_list* POLBAN_CHESS, subset_list* JFP, subset_list* ROBOTIK, subset_list* FELLAS, subset_list* USF, char nama_mhs[], char NIM[]) {
+/*  AUTHOR      : Bob Manuel
+    IS          : List superset POLBAN dan subset UKM sudah terbentuk
+    FS          : Menampilkan setiap anggota superset POLBAN ataupun setiap anggota dari subset UKM
+    DESKRIPSI   : Prosedur untuk masuk ke menu menampilkan mahasiswa dalam superset POLBAN,
+                  pengguna akan diarahkan dengan pengkondisian (if else) untuk memilih superset atau subset yang akan ditampilkan anggotanya,
+                  Setelahnya, akan menampilkan anggota sesuai opsi yang dipilih
+=======================================================================================================================*/ 
+    bool valid = false;
+    alamatsub H;
+    while (!valid) {
+        int opsi = ListUKM();
+
+        if (opsi == 1) {
+            display_membersubset(DKM);
+            valid = true;
+        } else if (opsi == 2) {
+            display_membersubset(KEWIRAUSAHAAN);
+            valid = true;
+        } else if (opsi == 3) {
+            display_membersubset(BADMINTON);
+            valid = true;
+        } else if (opsi == 4) {
+            display_membersubset(BASKET);
+            valid = true;
+        } else if (opsi == 5) {
+            display_membersubset(VOLI);
+            valid = true;
+        } else if (opsi == 6) {
+            display_membersubset(POLBAN_CHESS);
+            valid = true;
+        } else if (opsi == 7) {
+            display_membersubset(JFP);
+            valid = true;
+        } else if (opsi == 8) {
+            display_membersubset(ROBOTIK);
+            valid = true;
+        } else if (opsi == 9) {
+            display_membersubset(FELLAS);
+            valid = true;
+        } else if (opsi == 10) {
+            display_membersubset(USF);
+            valid = true;
+        }
+    }  
+    printf("\n\n");
+    display_membersuper(*POLBAN);
+}
 
 void Penghentian_Studi(superset_list *S, char nama_mhs[], char NIM[])
 /*  AUTHOR      : Salsabil Khoirunisa
@@ -1757,6 +1827,8 @@ void CopyFromFile(superset_list S, subset_list* H, char NamaUKM[]){
 }
 
 void DeleteFromPOLBANFile(char nama_mhs[], char NIM[]){
+    printf("%s", nama_mhs);
+    printf("%s", NIM);
     char buffer[100];
     int line = 1;
     int found = 0;
@@ -1768,7 +1840,7 @@ void DeleteFromPOLBANFile(char nama_mhs[], char NIM[]){
         exit(EXIT_FAILURE);
     }
 
-    temp = fopen("temp.txt", "a+");
+    temp = fopen("temp.txt", "w+");
     if(temp == NULL){
         printf("File temp.txt tidak dapat dibuka atau ditemukan!\n");
         exit(EXIT_FAILURE);
@@ -1777,89 +1849,27 @@ void DeleteFromPOLBANFile(char nama_mhs[], char NIM[]){
 
     while(fgets(buffer, sizeof(buffer), fp)){
         //Mencari nama dan nim
-        char *ptr;
-        ptr = strstr(buffer, nama_mhs);
-        if(ptr != NULL){
-            printf("Nama ditemukan!\n");
-            fgets(buffer, sizeof(buffer), fp);
-            char *ptrnim;
-            ptrnim = strstr(buffer, NIM);
-            if(ptrnim != NULL){
-                printf("NIM sesuai!"); 
-                found = 1;
-                continue;
-            }
+        if((strstr(buffer, nama_mhs) != NULL) && (strstr(buffer, NIM) != NULL)){
+            found = 1;
+            continue; //skip baris
         }
         fprintf(temp, "%s", buffer);
         line++;
-    }   
+    }
+    
     
     fclose(fp);
     fclose(temp);
 
     if(found == 1){
+        printf("Woi putih");
         remove("POLBAN.txt");
         rename("temp.txt", "POLBAN.txt");
         printf("Mahasiswa bernama %s dengan NIM %s sudah berhasil dihapus dari database.\n", nama_mhs, NIM);
     } else{
+        printf("woi ireng"); system("pause");
         remove("temp.txt");
-        printf("Tidak ada mahasiswa bernama %s dengan NIM %s", nama_mhs, NIM); system("pause");
-    }
-    system("pause");
-}
-
-void DeleteFromUKMFile(char nama_mhs[], char NIM[], char UKM[]){
-    char nama_file[100];
-    char buffer[100];
-    int line = 1;
-    int found = 0;
-
-    sprintf(nama_file, "%s.txt", UKM);
-    FILE *fp, *temp;
-
-
-    fp = fopen(nama_file, "r");
-    if(fp == NULL){
-        printf("File tidak dapat dibuka atau ditemukan!\n");
-        exit(EXIT_FAILURE);
+        printf("Tidak ada mahasiswa bernama %s dengan NIM %s", nama_mhs, NIM);
     }
 
-    temp = fopen("temp.txt", "a+");
-    if(temp == NULL){
-        printf("File temp.txt tidak dapat dibuka atau ditemukan!\n");
-        exit(EXIT_FAILURE);
-    }
-
-
-    while(fgets(buffer, sizeof(buffer), fp)){
-        //Mencari nama dan nim
-        char *ptr;
-        ptr = strstr(buffer, nama_mhs);
-        if(ptr != NULL){
-            printf("Nama ditemukan!\n");
-            fgets(buffer, sizeof(buffer), fp);
-            char *ptrnim;
-            ptrnim = strstr(buffer, NIM);
-            if(ptrnim != NULL){
-                printf("NIM sesuai!"); 
-                found = 1;
-                continue;
-            }
-        }
-        fprintf(temp, "%s", buffer);
-        line++;
-    }   
-    
-    fclose(fp);
-    fclose(temp);
-
-    if(found == 1){
-        remove(nama_file);
-        rename("temp.txt", nama_file);
-        printf("Mahasiswa bernama %s dengan NIM %s sudah berhasil dihapus dari database.\n", nama_mhs, NIM);
-    } else{
-        remove("temp.txt");
-        printf("Tidak ada mahasiswa bernama %s dengan NIM %s", nama_mhs, NIM); system("pause");
-    }
-    system("pause");
 }
