@@ -66,23 +66,9 @@ int main() {
                 // }
                 
             case 3:
-            	printf("| [3] Edit Daftar Himpunan |");
-                printf("1. Edit Superset: ");
-                printf("2. Edit Subset 1: ");
-                printf("3. Edit Subset 3: ");
-                scanf("%d", &opsi);
-                switch (opsi){
-                    case 1:
-                        // add_membersuper(&S, nama_mhs, NIM);
-                        break;
-                    case 2:
-//                        add_membersubset1(&S, nama_mhs, NIM);
-                        break;
-                    case 3:
-//                        add_membersubset2(&S, nama_mhs, NIM);
-                        break;
-                }
-            case 4 : break;
+            	MenuEditHimpunan(&POLBAN, &DKM, &KEWIRAUSAHAAN, &BADMINTON, &BASKET, &VOLI, &POLBAN_CHESS, &JFP, &ROBOTIK, &FELLAS, &USF, nama_mhs, NIM);
+            case 4 : 
+                break;
             case 5 : display_cur(DKM); break;
         }
 
