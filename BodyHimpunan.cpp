@@ -134,16 +134,17 @@ void add_membersub(subset_list *H1, char nama_mhs[], char NIM[], char UKM[]){
         last->next_sub->next_sub = NULL;
     }
     }
-    
+
 }
    
 
-void display_cur(subset_list H){
-    alamatsub P;
-    P = H.first_sub;
+void display_cur(superset_list S){
+    alamatsuper P;
+    P = S.first_super;
     while(P != NULL){
-        printf("%s ", P->member_sub);
-        P = P->next_sub;
+        printf("%s ", P->member_sp);
+        printf("%s\n", P->id_member);
+        P = P->next_sp;
     }
     system("pause");
 }
@@ -300,6 +301,7 @@ void Seleksi_MemberSuper(superset_list *S)
                                     printf("=========================================\n");
                                     printf(" Nama\t\t: %.*s.\n", 20, nama_mhs);
                                     printf(" NIM\t\t: %s\n\n", NIM);
+                                    WritePOLBAN(nama_mhs, NIM);
                                     system("pause");
                                 }
                                 syarat = false;
@@ -375,6 +377,7 @@ while(!valid){
                 add_membersub(DKM, nama_mhs, NIM, "DKM");
                 printf("\n%s ", nama_mhs);
                 printf("berhasil bergabung dengan DKM!\n\n");
+                WriteUKM(opsi, nama_mhs, NIM);
             }
             else{
                 printf("\nTidak ada mahasiswa tersebut!\n");
@@ -395,6 +398,7 @@ while(!valid){
                 add_membersub(KEWIRAUSAHAAN, nama_mhs, NIM, "KEWIRAUSAHAAN");
                 printf("\n%s ", nama_mhs);
                 printf("berhasil bergabung dengan KEWIRAUSAHAAN!\n\n");
+                WriteUKM(opsi, nama_mhs, NIM);
             }
             else{
                 printf("\nTidak ada mahasiswa tersebut!\n");
@@ -415,6 +419,7 @@ while(!valid){
                 add_membersub(BADMINTON, nama_mhs, NIM, "BADMINTON");
                 printf("\n%s ", nama_mhs);
                 printf("berhasil bergabung dengan BADMINTON!\n\n");
+                WriteUKM(opsi, nama_mhs, NIM);
             }
             else{
                 printf("\nTidak ada mahasiswa tersebut!\n");
@@ -435,6 +440,7 @@ while(!valid){
                 add_membersub(BASKET, nama_mhs, NIM, "BASKET");
                 printf("\n%s ", nama_mhs);
                 printf("berhasil bergabung dengan BASKET!\n\n");
+                WriteUKM(opsi, nama_mhs, NIM);
             }
             else{
                 printf("\nTidak ada mahasiswa tersebut!\n");
@@ -455,6 +461,7 @@ while(!valid){
                 add_membersub(VOLI, nama_mhs, NIM, "VOLI");
                 printf("\n%s ", nama_mhs);
                 printf("berhasil bergabung dengan VOLI!\n\n");
+                WriteUKM(opsi, nama_mhs, NIM);
             }
             else{
                 printf("\nTidak ada mahasiswa tersebut!\n");
@@ -475,6 +482,7 @@ while(!valid){
                 add_membersub(POLBAN_CHESS, nama_mhs, NIM, "POLBAN_CHESS");
                 printf("\n%s ", nama_mhs);
                 printf("berhasil bergabung dengan POLBAN CHESS!\n\n");
+                WriteUKM(opsi, nama_mhs, NIM);
             }            
             else{
                 printf("\nTidak ada mahasiswa tersebut!\n");
@@ -495,6 +503,7 @@ while(!valid){
                 add_membersub(JFP, nama_mhs, NIM, "JFP");
                 printf("\n%s ", nama_mhs);
                 printf("berhasil bergabung dengan JFP!\n\n");
+                WriteUKM(opsi, nama_mhs, NIM);
             }   
             else{
                 printf("\nTidak ada mahasiswa tersebut!\n");
@@ -515,6 +524,7 @@ while(!valid){
                 add_membersub(ROBOTIK, nama_mhs, NIM, "ROBOTIK");
                 printf("\n%s ", nama_mhs);
                 printf("berhasil bergabung dengan ROBOTIK!\n\n");
+                WriteUKM(opsi, nama_mhs, NIM);
             }
             else{
                 printf("\nTidak ada mahasiswa tersebut!\n");
@@ -535,6 +545,7 @@ while(!valid){
                 add_membersub(FELLAS, nama_mhs, NIM, "FELLAS");
                 printf("\n%s ", nama_mhs);
                 printf("berhasil bergabung dengan FELLAS!\n\n");
+                WriteUKM(opsi, nama_mhs, NIM);
             }
             else{
                 printf("\nTidak ada mahasiswa tersebut!\n");
@@ -555,6 +566,7 @@ while(!valid){
                 add_membersub(USF, nama_mhs, NIM, "USF");
                 printf("\n%s ", nama_mhs);
                 printf("berhasil bergabung dengan USF!\n\n");
+                WriteUKM(opsi, nama_mhs, NIM);
             }
             else{
                 printf("\nTidak ada mahasiswa tersebut!\n");
@@ -572,9 +584,7 @@ void addnama(char* nama_mhs){
     while(!valid){
         
         printf("Masukkan nama mahasiswa\t: ");
-        //fgets(nama_mhs, 61, stdin);
         scanf(" %[^\n]", nama_mhs);
-        //scanf("%s ", nama_mhs);
         getchar();
         if(strlen(nama_mhs) > 60){
             printf("Nama mahasiswa terlalu panjang!\n");
@@ -585,7 +595,6 @@ void addnama(char* nama_mhs){
     }
 
 }
-
 
 
 void addnim(char* NIM){
@@ -807,7 +816,7 @@ void EkstrakList(subset_list* H, subset_list DKM, subset_list KEWIRAUSAHAAN, sub
     }
 }
 
-void MenuOperasi(subset_list* H1, subset_list* H2, subset_list DKM, subset_list KEWIRAUSAHAAN, subset_list BADMINTON, subset_list BASKET, subset_list VOLI, subset_list POLBAN_CHESS, subset_list JFP, subset_list ROBOTIK, subset_list FELLAS, subset_list USF){
+void MenuOperasi(superset_list S, subset_list* H1, subset_list* H2, subset_list DKM, subset_list KEWIRAUSAHAAN, subset_list BADMINTON, subset_list BASKET, subset_list VOLI, subset_list POLBAN_CHESS, subset_list JFP, subset_list ROBOTIK, subset_list FELLAS, subset_list USF){
     int opsi = 0;
     bool valid = false;
     
@@ -849,6 +858,7 @@ void MenuOperasi(subset_list* H1, subset_list* H2, subset_list DKM, subset_list 
             valid = true;break;
         case 3 :
             printf("Selisih(Super, H1, H2)'contoh: %s dan %s'\n", H1->first_sub->member_sub, H2->first_sub->member_sub);
+            selisih(*H1, *H2);
             valid = true;break;        
         case 4 :
             printf("Komplemen(Super, H1, H2)'contoh: %s dan %s'\n", H1->first_sub->member_sub, H2->first_sub->member_sub);
@@ -945,7 +955,7 @@ void gabungan(subset_list H1, subset_list H2) {
 
 }
 
-void selisih(superset_list S, subset_list H1, subset_list H2) {
+void  selisih(subset_list H1, subset_list H2) {
 /*  AUTHOR      : Bob Manuel
     IS          : List subset1 dan subset2 sudah terbentuk, ada kemungkinan jika subset kosong.
     FS          : Menampilkan irisan atau anggota-anggota yang sama pada kedua himpunan yang diinputkan.
@@ -1026,3 +1036,268 @@ void display_menu() {
 
 }
 
+void WritePOLBAN(char nama_mhs[], char NIM[]){
+    FILE *fp = fopen("POLBAN.txt", "a+");
+
+    if(fp == NULL){
+        printf("\nFile tidak bisa dibuka atau tidak ditemukan!\n");
+    }
+
+    fprintf(fp, "%s\n", nama_mhs);
+    fprintf(fp, "%s\n", NIM);
+
+    fclose(fp);
+
+    printf("Berhasil ditambahkan ke database POLBAN!\n");
+}
+
+void WriteUKM(int opsi, char nama_mhs[], char NIM[]){
+    
+    if(opsi == 1){
+        FILE *fp = fopen("DKM.txt", "a+");
+
+        if(fp == NULL){
+            printf("\nFile tidak bisa dibuka atau tidak ditemukan!\n");
+        }
+
+        fprintf(fp, "%s\n", nama_mhs);
+        fprintf(fp, "%s\n", NIM);
+
+        fclose(fp);
+        printf("Berhasil ditambahkan ke database DKM!\n");
+    } else if(opsi == 2){
+        FILE *fp = fopen("KEWIRAUSAHAAN.txt", "a+");
+
+        if(fp == NULL){
+            printf("\nFile tidak bisa dibuka atau tidak ditemukan!\n");
+        }
+
+        fprintf(fp, "%s\n", nama_mhs);
+        fprintf(fp, "%s\n", NIM);
+
+        fclose(fp);
+        printf("Berhasil ditambahkan ke database KEWIRAUSAHAAN!\n");
+    } else if(opsi == 3){
+        FILE *fp = fopen("BADMINTON.txt", "a+");
+
+        if(fp == NULL){
+            printf("\nFile tidak bisa dibuka atau tidak ditemukan!\n");
+        }
+
+        fprintf(fp, "%s\n", nama_mhs);
+        fprintf(fp, "%s\n", NIM);
+
+        fclose(fp);
+        printf("Berhasil ditambahkan ke database BADMINTON!\n");
+    } else if(opsi == 4){
+        FILE *fp = fopen("BASKET.txt", "a+");
+
+        if(fp == NULL){
+            printf("\nFile tidak bisa dibuka atau tidak ditemukan!\n");
+        }
+
+        fprintf(fp, "%s\n", nama_mhs);
+        fprintf(fp, "%s\n", NIM);
+
+        fclose(fp);
+        printf("Berhasil ditambahkan ke database BASKET!\n");
+    } else if(opsi == 5){
+        FILE *fp = fopen("VOLI.txt", "a+");
+
+        if(fp == NULL){
+            printf("\nFile tidak bisa dibuka atau tidak ditemukan!\n");
+        }
+
+        fprintf(fp, "%s\n", nama_mhs);
+        fprintf(fp, "%s\n", NIM);
+
+        fclose(fp);
+        printf("Berhasil ditambahkan ke database VOLI!\n");
+    } else if(opsi == 6){
+        FILE *fp = fopen("POLBAN_CHESS.txt", "a+");
+
+        if(fp == NULL){
+            printf("\nFile tidak bisa dibuka atau tidak ditemukan!\n");
+        }
+
+        fprintf(fp, "%s\n", nama_mhs);
+        fprintf(fp, "%s\n", NIM);
+
+        fclose(fp);
+        printf("Berhasil ditambahkan ke database POLBAN_CHESS!\n");
+    } else if(opsi == 7){
+        FILE *fp = fopen("JFP.txt", "a+");
+
+        if(fp == NULL){
+            printf("\nFile tidak bisa dibuka atau tidak ditemukan!\n");
+        }
+
+        fprintf(fp, "%s\n", nama_mhs);
+        fprintf(fp, "%s\n", NIM);
+
+        fclose(fp);
+        printf("Berhasil ditambahkan ke database JFP!\n");
+    } else if(opsi == 8){
+        FILE *fp = fopen("ROBOTIK.txt", "a+");
+
+        if(fp == NULL){
+            printf("\nFile tidak bisa dibuka atau tidak ditemukan!\n");
+        }
+
+        fprintf(fp, "%s\n", nama_mhs);
+        fprintf(fp, "%s\n", NIM);
+
+        fclose(fp);
+        printf("Berhasil ditambahkan ke database ROBOTIK!\n");
+    } else if(opsi == 9){
+        FILE *fp = fopen("FELLAS.txt", "a+");
+
+        if(fp == NULL){
+            printf("\nFile tidak bisa dibuka atau tidak ditemukan!\n");
+        }
+
+        fprintf(fp, "%s\n", nama_mhs);
+        fprintf(fp, "%s\n", NIM);
+
+        fclose(fp);
+        printf("Berhasil ditambahkan ke database FELLAS!\n");
+    } else if(opsi == 10){
+        FILE *fp = fopen("USF.txt", "a+");
+
+        if(fp == NULL){
+            printf("\nFile tidak bisa dibuka atau tidak ditemukan!\n");
+        }
+
+        fprintf(fp, "%s\n", nama_mhs);
+        fprintf(fp, "%s\n", NIM);
+
+        fclose(fp);
+        printf("Berhasil ditambahkan ke database USF!\n");
+    }
+     
+}
+
+void EkstrakPOLBAN(superset_list* S){
+    int i = 0;
+    FILE* fp = fopen("POLBAN.txt", "r");
+
+    if(fp == NULL){
+        printf("\nDatabase belum dibuat!\n");
+    }
+
+    char nama[61];
+    char nim[10];
+    char buffer[100];
+
+    while(fgets(buffer, sizeof(buffer), fp)){
+        //Token agar tidak mengambil new line
+        char* token = strtok(buffer, "\n");
+        strcpy(nama, buffer); 
+        fgets(buffer, sizeof(buffer), fp);
+        sscanf(buffer, "%9[^\n]", nim);
+        
+        if(!IsExistSuper(*S, nama, nim)){ 
+            add_membersuper(S, nama, nim);
+            i++;
+        }
+    }
+    if(i > 0){
+        printf("Berhasil mengekstrak database!");
+    } else{
+        printf("Tidak ada data yang dapat diekstrak!");
+    }
+           
+    system("pause");
+
+    fclose(fp);
+}
+
+void EkstrakUKM(superset_list S, subset_list* DKM, subset_list* KEWIRAUSAHAAN, subset_list* BADMINTON, subset_list* BASKET, subset_list* VOLI, subset_list* POLBAN_CHESS, subset_list* JFP, subset_list* ROBOTIK, subset_list* FELLAS, subset_list* USF){
+    bool valid = false;
+    
+    while(!valid){
+        int opsi = ListUKM();
+        if(opsi==1){
+            strcpy(DKM->first_sub->nama_sub, "DKM");
+            CopyFromFile(S, DKM);
+            valid = true;
+        }else if(opsi==2){
+            strcpy(KEWIRAUSAHAAN->first_sub->nama_sub, "KEWIRAUSAHAAN");
+            CopyFromFile(S, KEWIRAUSAHAAN);
+            valid = true;
+        }else if(opsi==3){
+            strcpy(BADMINTON->first_sub->nama_sub, "BADMINTON");
+            CopyFromFile(S, BADMINTON);
+            valid = true;
+        }else if(opsi==4){
+            strcpy(BASKET->first_sub->nama_sub, "BASKET");
+            CopyFromFile(S, BASKET);
+            valid = true;
+        }else if(opsi==5){
+            strcpy(VOLI->first_sub->nama_sub, "VOLI");
+            CopyFromFile(S, VOLI);
+            valid = true;
+        }else if(opsi==6){
+            strcpy(POLBAN_CHESS->first_sub->nama_sub, "POLBAN_CHESS");
+            CopyFromFile(S, POLBAN_CHESS);
+            valid = true;
+        }else if(opsi==7){
+            strcpy(JFP->first_sub->nama_sub, "JFP");
+            CopyFromFile(S, JFP);
+            valid = true;
+        }else if(opsi==8){
+            strcpy(ROBOTIK->first_sub->nama_sub, "ROBOTIK");
+            CopyFromFile(S, ROBOTIK);
+            valid = true;
+        }else if(opsi==9){
+            strcpy(FELLAS->first_sub->nama_sub, "FELLAS");
+            CopyFromFile(S, FELLAS);
+            valid = true;
+        }else if(opsi==10){
+            strcpy(USF->first_sub->nama_sub, "USF");
+            CopyFromFile(S, USF);
+            valid = true;
+        }
+    }
+}
+
+void CopyFromFile(superset_list S, subset_list* H){
+    char nama_file[100];
+    char nama[61];
+    char nim[10];
+    char buffer[100];
+    alamatsub UKM;
+    int i = 0;
+
+    UKM = H->first_sub;
+    sprintf(nama_file, "%s.txt", UKM->nama_sub);
+    FILE* fp = fopen(nama_file, "r");
+
+
+    if(fp == NULL){
+        printf("\nDatabase belum dibuat!\n");
+    }
+
+
+    while(fgets(buffer, sizeof(buffer), fp)){
+        //Token agar tidak mengambil new line
+        char* token = strtok(buffer, "\n");
+        strcpy(nama, buffer);
+        fgets(buffer, sizeof(buffer), fp);
+        sscanf(buffer, "%9[^\n]", nim);
+        
+        if(IsExistSuper(S, nama, nim)){
+            if(!IsExistSub(*H, nama, nim)){ 
+            add_membersub(H, nama, nim, UKM->nama_sub);
+            i++;
+        }
+        }
+    }
+    if(i > 0){
+        printf("Berhasil mengekstrak database!");
+    } else{
+        printf("Tidak ada data yang dapat diekstrak!");
+    } 
+    system("pause");
+    fclose(fp); 
+}
