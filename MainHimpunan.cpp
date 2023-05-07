@@ -39,35 +39,14 @@ int main(){
             case 2:
                 MenuOperasi(POLBAN, &H1, &H2, DKM,  KEWIRAUSAHAAN,  BADMINTON,  BASKET,  VOLI,  POLBAN_CHESS,  JFP,  ROBOTIK,  FELLAS,  USF);
                 break;
-            	// printf("| [2] Operasi Himpunan |");
-                // printf("1. Operasi Irisan");
-                // printf("2. Operasi Gabungan");
-                // printf("3. Operasi Selisih");
-                // printf("4. Operasi Komplemen");
-                // scanf("%d", &operasi);
-                // switch (operasi){
-                //     case 1:
-                //         irisan(H1, H2);
-                //         break;
-                //     case 2:
-                //         gabungan(H1, H2);
-                //         break;
-                //     // case 3:
-                //     //    selisih();
-                //     //     break;
-                //     // case 4:
-                //     //    komplemen();
-                //     //     break;
-                // }
-                
             case 3:
             	MenuEditHimpunan(&POLBAN, &DKM, &KEWIRAUSAHAAN, &BADMINTON, &BASKET, &VOLI, &POLBAN_CHESS, &JFP, &ROBOTIK, &FELLAS, &USF, nama_mhs, NIM); break;
-            case 4 : EkstrakPOLBAN(&POLBAN); break;
-            case 5 : display_cur(POLBAN); break;
-            case 6 : EkstrakUKM(POLBAN, &DKM, &KEWIRAUSAHAAN, &BADMINTON, &BASKET, &VOLI, &POLBAN_CHESS, &JFP, &ROBOTIK, &FELLAS, &USF); break;
-            case 7 : display_UKM(DKM);
-            case 8 : DeleteFromUKMFile("Banteng Harisantoso", "221524036", "DKM");
-            case 9 : DisplayHistory();
+            case 4 : search(POLBAN, DKM,  KEWIRAUSAHAAN,  BADMINTON,  BASKET,  VOLI,  POLBAN_CHESS,  JFP,  ROBOTIK,  FELLAS,  USF, nama_mhs, NIM); break;
+            case 5 : MenuDisplayHimpunan(POLBAN, DKM,  KEWIRAUSAHAAN,  BADMINTON,  BASKET,  VOLI,  POLBAN_CHESS,  JFP,  ROBOTIK,  FELLAS,  USF, nama_mhs, NIM); break;
+            case 6 : PanduanPenggunaan(); TampilkanPanduan(); break;
+            //case 7 : display_UKM(DKM);
+            //case 8 : DeleteFromUKMFile("Banteng Harisantoso", "221524036", "DKM");
+            //case 9 : DisplayHistory();
            }
 
         printf("\n");
