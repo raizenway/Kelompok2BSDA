@@ -167,6 +167,75 @@ void display_UKM(subset_list H){
     system("pause");
 }
 
+void display_membersuper(superset_list S) {
+    alamatsuper P;
+    P = S.first_super;
+    printf("Mahasiswa yang terdaftar di POLBAN adalah : \n");
+    while (P != NULL) {
+        printf("%s\n", P->member_sp);
+        P = P->next_sp;
+    }
+}
+
+void display_membersubset(subset_list* H){
+    alamatsub P;
+    P = H->first_sub;
+    printf("Mahasiswa yang terdaftar di  ");
+    while(P != NULL) {
+        printf("%s\n", &P->member_sub);
+        P = P->next_sub;
+    }
+}
+
+void MenuDisplayHimpunan(superset_list* POLBAN, subset_list* DKM, subset_list* KEWIRAUSAHAAN, subset_list* BADMINTON, subset_list* BASKET, subset_list* VOLI, subset_list* POLBAN_CHESS, subset_list* JFP, subset_list* ROBOTIK, subset_list* FELLAS, subset_list* USF, char nama_mhs[], char NIM[]) {
+/*  AUTHOR      : Bob Manuel
+    IS          : List superset POLBAN dan subset UKM sudah terbentuk
+    FS          : Menampilkan setiap anggota superset POLBAN ataupun setiap anggota dari subset UKM
+    DESKRIPSI   : Prosedur untuk masuk ke menu menampilkan mahasiswa dalam superset POLBAN,
+                  pengguna akan diarahkan dengan pengkondisian (if else) untuk memilih superset atau subset yang akan ditampilkan anggotanya,
+                  Setelahnya, akan menampilkan anggota sesuai opsi yang dipilih
+=======================================================================================================================*/ 
+    bool valid = false;
+    alamatsub H;
+    while (!valid) {
+        int opsi = ListUKM();
+
+        if (opsi == 1) {
+            display_membersubset(DKM);
+            valid = true;
+        } else if (opsi == 2) {
+            display_membersubset(KEWIRAUSAHAAN);
+            valid = true;
+        } else if (opsi == 3) {
+            display_membersubset(BADMINTON);
+            valid = true;
+        } else if (opsi == 4) {
+            display_membersubset(BASKET);
+            valid = true;
+        } else if (opsi == 5) {
+            display_membersubset(VOLI);
+            valid = true;
+        } else if (opsi == 6) {
+            display_membersubset(POLBAN_CHESS);
+            valid = true;
+        } else if (opsi == 7) {
+            display_membersubset(JFP);
+            valid = true;
+        } else if (opsi == 8) {
+            display_membersubset(ROBOTIK);
+            valid = true;
+        } else if (opsi == 9) {
+            display_membersubset(FELLAS);
+            valid = true;
+        } else if (opsi == 10) {
+            display_membersubset(USF);
+            valid = true;
+        }
+    }  
+    printf("\n\n");
+    display_membersuper(*POLBAN);
+}
+
 int ListUKM()
 /*  AUTHOR      : Banteng Harisantoso
     IS          : ListUKM bernilai tidak tentu
