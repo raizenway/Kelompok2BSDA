@@ -103,6 +103,7 @@ void add_membersuper(superset_list *S, char nama_mhs[], char NIM[]) {
     }
     
 }
+
 /* Menambah member subset*/
 void add_membersub(subset_list *H1, char nama_mhs[], char NIM[], char UKM[]){
     
