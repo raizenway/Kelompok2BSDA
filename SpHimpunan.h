@@ -81,8 +81,11 @@ void WriteUKM(int opsi, char nama_mhs[], char NIM[]); //Hari V
 void EkstrakPOLBAN(superset_list* POLBAN); //Hari V
 void EkstrakUKM(superset_list S, subset_list* DKM, subset_list* KEWIRAUSAHAAN, subset_list* BADMINTON, subset_list* BASKET, subset_list* VOLI, subset_list* POLBAN_CHESS, subset_list* JFP, subset_list* ROBOTIK, subset_list* FELLAS, subset_list* USF);
 //Hari
-void CopyFromFile(superset_list S, subset_list* H);
+void CopyFromFile(superset_list S, subset_list* H, char NamaUKM[]);
 //Hari
 void DeleteFromPOLBANFile(char nama_mhs[], char NIM[]); //Hari
 void DeleteFromUKMFile(int opsi, char nama_mhs[], char NIM[]); //Hari
+
+//buat test
+void display_UKM(subset_list H);
 #endif /* SPHIMPUNAN_H */

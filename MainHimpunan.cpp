@@ -79,6 +79,7 @@ int main(){
                 }
             case 4 : EkstrakPOLBAN(&POLBAN); break;
             case 5 : display_cur(POLBAN); break;
+            case 6 : DeleteFromPOLBANFile("Muhamad Fahri Yuwan Dwi Putra", "221524057");
         }
 
         printf("\n");

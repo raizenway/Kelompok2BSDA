@@ -149,6 +149,17 @@ void display_cur(superset_list S){
     system("pause");
 }
 
+void display_UKM(subset_list H){
+    alamatsub P;
+    P = H.first_sub;
+    while(P != NULL){
+        printf("%s ", P->member_sub);
+        printf("%s\n", P->id_sub);
+        P = P->next_sub;
+    }
+    system("pause");
+}
+
 int ListUKM(){
 
         printf("| Pilih salah satu UKM di bawah:\t|\n");
@@ -1020,6 +1031,35 @@ void  selisih(subset_list H1, subset_list H2) {
     }
 }
 
+void komplemen(superset_list S, subset_list H1, subset_list H2) {
+    int i = 0;
+    int y = 0;
+    alamatsuper p;
+    alamatsub q, r;
+    char * complemen[i];
+
+    p = S.first_super;
+    while(p != NULL){
+        q = H1.first_sub;
+        while (q != NULL) {
+            r = H2.first_sub;
+            if (strcmp(p->member_sp, q->member_sub) == 0 && strcmp(p->id_member, q->id_sub) == 0){
+                complemen[i] = p->member_sp;
+                i++;
+                y = i;
+            } else {
+                q = q->next_sub;
+            }
+            q = q->next_sub;
+        }
+    p = p->next_sp;
+    }
+    for (int i = 0; i <= y; i++){
+        printf("Hasil dari komplemen adalah : \n");
+        printf("%s\n", complemen[i]);
+    }
+}
+
 void display_menu() {
         system("cls");
     	printf("=========================================\n");
@@ -1191,7 +1231,7 @@ void EkstrakPOLBAN(superset_list* S){
 
     while(fgets(buffer, sizeof(buffer), fp)){
         //Token agar tidak mengambil new line
-        char* token = strtok(buffer, "\n");
+        strtok(buffer, "\n");
         strcpy(nama, buffer); 
         fgets(buffer, sizeof(buffer), fp);
         sscanf(buffer, "%9[^\n]", nim);
@@ -1202,9 +1242,9 @@ void EkstrakPOLBAN(superset_list* S){
         }
     }
     if(i > 0){
-        printf("Berhasil mengekstrak database!");
+        printf("Berhasil mengekstrak database!\n");
     } else{
-        printf("Tidak ada data yang dapat diekstrak!");
+        printf("Tidak ada data yang dapat diekstrak!\n");
     }
            
     system("pause");
@@ -1218,50 +1258,47 @@ void EkstrakUKM(superset_list S, subset_list* DKM, subset_list* KEWIRAUSAHAAN, s
     while(!valid){
         int opsi = ListUKM();
         if(opsi==1){
-            strcpy(DKM->first_sub->nama_sub, "DKM");
-            CopyFromFile(S, DKM);
+            CopyFromFile(S, DKM, "DKM");
             valid = true;
         }else if(opsi==2){
-            strcpy(KEWIRAUSAHAAN->first_sub->nama_sub, "KEWIRAUSAHAAN");
-            CopyFromFile(S, KEWIRAUSAHAAN);
+            CopyFromFile(S, KEWIRAUSAHAAN, "KEWIRAUSAHAAN");
             valid = true;
         }else if(opsi==3){
-            strcpy(BADMINTON->first_sub->nama_sub, "BADMINTON");
-            CopyFromFile(S, BADMINTON);
+            CopyFromFile(S, BADMINTON, "BADMINTON");
             valid = true;
         }else if(opsi==4){
-            strcpy(BASKET->first_sub->nama_sub, "BASKET");
-            CopyFromFile(S, BASKET);
+           
+            CopyFromFile(S, BASKET, "BASKET");
             valid = true;
         }else if(opsi==5){
-            strcpy(VOLI->first_sub->nama_sub, "VOLI");
-            CopyFromFile(S, VOLI);
+            
+            CopyFromFile(S, VOLI, "VOLI");
             valid = true;
         }else if(opsi==6){
-            strcpy(POLBAN_CHESS->first_sub->nama_sub, "POLBAN_CHESS");
-            CopyFromFile(S, POLBAN_CHESS);
+           
+            CopyFromFile(S, POLBAN_CHESS, "POLBAN_CHESS");
             valid = true;
         }else if(opsi==7){
-            strcpy(JFP->first_sub->nama_sub, "JFP");
-            CopyFromFile(S, JFP);
+            
+            CopyFromFile(S, JFP, "JFP");
             valid = true;
         }else if(opsi==8){
-            strcpy(ROBOTIK->first_sub->nama_sub, "ROBOTIK");
-            CopyFromFile(S, ROBOTIK);
+           
+            CopyFromFile(S, ROBOTIK, "ROBOTIK");
             valid = true;
         }else if(opsi==9){
-            strcpy(FELLAS->first_sub->nama_sub, "FELLAS");
-            CopyFromFile(S, FELLAS);
+            
+            CopyFromFile(S, FELLAS, "FELLAS");
             valid = true;
         }else if(opsi==10){
-            strcpy(USF->first_sub->nama_sub, "USF");
-            CopyFromFile(S, USF);
+            
+            CopyFromFile(S, USF, "USF");
             valid = true;
         }
     }
 }
 
-void CopyFromFile(superset_list S, subset_list* H){
+void CopyFromFile(superset_list S, subset_list* H, char NamaUKM[]){
     char nama_file[100];
     char nama[61];
     char nim[10];
@@ -1270,6 +1307,12 @@ void CopyFromFile(superset_list S, subset_list* H){
     int i = 0;
 
     UKM = H->first_sub;
+
+    if(UKM == NULL){
+        UKM = (alamatsub) malloc(sizeof(elmtsubset));
+        strcpy(UKM->nama_sub, NamaUKM);
+    }
+
     sprintf(nama_file, "%s.txt", UKM->nama_sub);
     FILE* fp = fopen(nama_file, "r");
 
@@ -1287,17 +1330,70 @@ void CopyFromFile(superset_list S, subset_list* H){
         sscanf(buffer, "%9[^\n]", nim);
         
         if(IsExistSuper(S, nama, nim)){
-            if(!IsExistSub(*H, nama, nim)){ 
+            if(!IsExistSub(*H, nama, nim)){
             add_membersub(H, nama, nim, UKM->nama_sub);
             i++;
+            } else {
+                printf("Mahasiswa sudah terdaftar!\n");
+            }
         }
+        else{
+            printf("Tidak ada mahasiswa bernama %s!\n", nama);
         }
     }
     if(i > 0){
-        printf("Berhasil mengekstrak database!");
+        printf("Berhasil mengekstrak database!\n");
     } else{
-        printf("Tidak ada data yang dapat diekstrak!");
+        printf("Tidak ada data yang dapat diekstrak!\n");
     } 
     system("pause");
     fclose(fp); 
+}
+
+void DeleteFromPOLBANFile(char nama_mhs[], char NIM[]){
+    printf("%s", nama_mhs);
+    printf("%s", NIM);
+    char buffer[100];
+    int line = 1;
+    int found = 0;
+    
+    FILE *fp, *temp;
+    fp = fopen("POLBAN.txt", "r");
+    if(fp == NULL){
+        printf("File tidak dapat dibuka atau ditemukan!\n");
+        exit(EXIT_FAILURE);
+    }
+
+    temp = fopen("temp.txt", "w+");
+    if(temp == NULL){
+        printf("File temp.txt tidak dapat dibuka atau ditemukan!\n");
+        exit(EXIT_FAILURE);
+    }
+
+
+    while(fgets(buffer, sizeof(buffer), fp)){
+        //Mencari nama dan nim
+        if((strstr(buffer, nama_mhs) != NULL) && (strstr(buffer, NIM) != NULL)){
+            found = 1;
+            continue; //skip baris
+        }
+        fprintf(temp, "%s", buffer);
+        line++;
+    }
+    
+    
+    fclose(fp);
+    fclose(temp);
+
+    if(found == 1){
+        printf("Woi putih");
+        remove("POLBAN.txt");
+        rename("temp.txt", "POLBAN.txt");
+        printf("Mahasiswa bernama %s dengan NIM %s sudah berhasil dihapus dari database.\n", nama_mhs, NIM);
+    } else{
+        printf("woi ireng"); system("pause");
+        remove("temp.txt");
+        printf("Tidak ada mahasiswa bernama %s dengan NIM %s", nama_mhs, NIM);
+    }
+
 }
