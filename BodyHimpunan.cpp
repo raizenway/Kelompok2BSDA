@@ -1279,13 +1279,18 @@ void Penghentian_Studi(superset_list *S, char nama_mhs[], char NIM[])
                 return;
             }
 
-
         }
 
     }
 }
 
-void CopyList(subset_list* H, subset_list SC){
+void CopyList(subset_list* H, subset_list SC)
+/*  AUTHOR      : Banteng Harisantoso
+    IS          : List UKM telah terbentuk
+    FS          : Berhasil menyalin list dari UKM ke variabel sementara (H)
+    DESKRIPSI   : Prosedur untuk menyalin isi list UKM ke H
+=======================================================================================================================*/
+{
     alamatsub bantu;
     bantu = SC.first_sub;
 
@@ -1296,6 +1301,12 @@ void CopyList(subset_list* H, subset_list SC){
 }
 
 void EkstrakList(subset_list* H, subset_list DKM, subset_list KEWIRAUSAHAAN, subset_list BADMINTON, subset_list BASKET, subset_list VOLI, subset_list POLBAN_CHESS, subset_list JFP, subset_list ROBOTIK, subset_list FELLAS, subset_list USF)
+/*  AUTHOR      : Banteng Harisantoso
+    IS          : List 10 UKM sudah terbentu baik berisi atau kosong
+    FS          : Mengirimkan parameter berupa UKM ke modul CopyList
+    DESKRIPSI   : Prosedur untuk menampilkan memilih UKM yang akan disalin isinya
+                  ke variabel sementara yaitu H
+=======================================================================================================================*/
 {
     create_sub(H);
     bool valid = false;
@@ -1699,7 +1710,7 @@ void TampilkanPanduan(){
 void display_menu() {
         system("cls");
     	printf("=========================================\n");
-        printf("|    Kalkulator Himpunan UKM POLBAN     |\n");
+        printf("|    Program Himpunan \t\t     |\n");
         printf("=========================================\n");
         printf("| Menu: \t\t\t\t|\n");
         printf("| [1] Pendataan Mahasiswa \t\t|\n");
@@ -1868,7 +1879,13 @@ void WriteUKM(int opsi, char nama_mhs[], char NIM[])
      
 }
 
-void EkstrakPOLBAN(superset_list* S){
+void EkstrakPOLBAN(superset_list* S)
+/*  AUTHOR      : Banteng Harisantoso
+    IS          : List S sudah terbentuk
+    FS          : Berhasil atau gagal menyalin nama-nama mahasiswa beserta nim ke list POLBAN
+    DESKRIPSI   : Prosedur untuk menyalin isi file POLBAN.txt ke list S
+=======================================================================================================================*/
+{
     int i = 0;
     FILE* fp = fopen("POLBAN.txt", "r");
 
@@ -1903,7 +1920,13 @@ void EkstrakPOLBAN(superset_list* S){
     fclose(fp);
 }
 
-void EkstrakUKM(superset_list S, subset_list* DKM, subset_list* KEWIRAUSAHAAN, subset_list* BADMINTON, subset_list* BASKET, subset_list* VOLI, subset_list* POLBAN_CHESS, subset_list* JFP, subset_list* ROBOTIK, subset_list* FELLAS, subset_list* USF){
+void EkstrakUKM(superset_list S, subset_list* DKM, subset_list* KEWIRAUSAHAAN, subset_list* BADMINTON, subset_list* BASKET, subset_list* VOLI, subset_list* POLBAN_CHESS, subset_list* JFP, subset_list* ROBOTIK, subset_list* FELLAS, subset_list* USF)
+/*  AUTHOR      : Banteng Harisantoso
+    IS          : List S sudah terbentuk
+    FS          : Berhasil atau gagal mengirim parameter berupa pilihan UKM ke modul CopyFromFiles
+    DESKRIPSI   : Prosedur untuk mengirimkan parameter UKM ke CopyFromFiles
+=======================================================================================================================*/
+{
     bool valid = false;
     
     while(!valid){
@@ -1949,7 +1972,13 @@ void EkstrakUKM(superset_list S, subset_list* DKM, subset_list* KEWIRAUSAHAAN, s
     }
 }
 
-void CopyFromFile(superset_list S, subset_list* H, char NamaUKM[]){
+void CopyFromFile(superset_list S, subset_list* H, char NamaUKM[])
+/*  AUTHOR      : Banteng Harisantoso
+    IS          : List S dan H sudah terbentuk
+    FS          : Berhasil atau gagal menyalin nama-nama mahasiswa beserta nim ke list UKM
+    DESKRIPSI   : Prosedur untuk menyalin isi file "NAMA_UKM".txt ke list H
+=======================================================================================================================*/
+{
     char nama_file[100];
     char nama[61];
     char nim[10];

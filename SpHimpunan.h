@@ -52,15 +52,10 @@ void irisan(subset_list H1, subset_list H2);
 void gabungan(subset_list H1, subset_list H2); 
 void komplemen(superset_list S, subset_list H1 );
 void selisih(subset_list H1, subset_list H2);
-void append_history(superset_list S, subset_list H1 );
-void write_cur(superset_list S, subset_list H1);
-void write_guide();
-void display_cur(subset_list H);
 void display_menu();
 void display_membersuper(superset_list S); 
 void display_membersubset(subset_list H);
 void display_search(superset_list S, subset_list DKM, subset_list KEWIRAUSAHAAN, subset_list BADMINTON, subset_list BASKET, subset_list VOLI, subset_list POLBAN_CHESS, subset_list JFP, subset_list ROBOTIK, subset_list FELLAS, subset_list USF, char nama_mhs[], char NIM[]);
-void display_guide();
 void MenuAddSub(superset_list POLBAN, subset_list* DKM, subset_list* KEWIRAUSAHAAN, subset_list* BADMINTON, subset_list* BASKET, subset_list* VOLI, subset_list* POLBAN_CHESS, subset_list* JFP, subset_list* ROBOTIK, subset_list* FELLAS, subset_list* USF);
 void MenuEditSub(superset_list POLBAN, subset_list* DKM, subset_list* KEWIRAUSAHAAN, subset_list* BADMINTON, subset_list* BASKET, subset_list* VOLI, subset_list* POLBAN_CHESS, subset_list* JFP, subset_list* ROBOTIK, subset_list* FELLAS, subset_list* USF);
 int  ListUKM(); 
@@ -82,10 +77,13 @@ void DeleteFromUKMFile(char nama_mhs[], char NIM[], char UKM[]);
 void WriteHistory(char kalimat[]);
 void DisplayHistory();
 void MenuEditMahasiswa(superset_list* POLBAN, subset_list* DKM, subset_list* KEWIRAUSAHAAN, subset_list* BADMINTON, subset_list* BASKET, subset_list* VOLI, subset_list* POLBAN_CHESS, subset_list* JFP, subset_list* ROBOTIK, subset_list* FELLAS, subset_list* USF);
-void EditMahasiswaPOLBAN(char nama_mhs[], char NIM[], superset_list* POLBAN);
-void EditAnggotaUKM(char nama_mhs[], char NIM[], subset_list H);
-void EditFilePOLBAN(char nama_mhs[], char NIM[], superset_list S);
-void EditFileUKM(char nama_mhs[], char NIM[], char UKM[]);
 void PanduanPenggunaan();
 void TampilkanPanduan();
+
+
+//void EditMahasiswaPOLBAN(char nama_mhs[], char NIM[], superset_list* POLBAN);
+//void EditAnggotaUKM(char nama_mhs[], char NIM[], subset_list H);
+//void EditFilePOLBAN(char nama_mhs[], char NIM[], superset_list S);
+//void EditFileUKM(char nama_mhs[], char NIM[], char UKM[]);
+
 #endif /* SPHIMPUNAN_H */
