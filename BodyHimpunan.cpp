@@ -2239,7 +2239,7 @@ void MenuEditMahasiswa(superset_list* POLBAN, subset_list* DKM, subset_list* KEW
             scanf("%d", &opsi);
             //Lanjutkan Perubahan
             if(opsi == 1){
-                EditMahasiswaPOLBAN(nama_mhs, NIM, nama_baru, NIM_baru, POLBAN);
+                update_membersuper(nama_mhs, NIM, nama_baru, NIM_baru, POLBAN);
                 EditFilePOLBAN(nama_mhs, NIM, nama_baru, NIM_baru, POLBAN);
                 EditInAllUKM(*DKM, *KEWIRAUSAHAAN, *BADMINTON,  *BASKET, *VOLI, *POLBAN_CHESS, *JFP, *ROBOTIK, *FELLAS, *USF, nama_mhs, NIM, nama_baru, NIM_baru);
                 //Menampilkan pesan
@@ -2277,7 +2277,7 @@ void MenuEditMahasiswa(superset_list* POLBAN, subset_list* DKM, subset_list* KEW
     }
     } 
 }  
-void EditMahasiswaPOLBAN(char nama_mhs[], char NIM[], char nama_baru[], char NIM_baru[], superset_list* S){
+void update_membersuper(char nama_mhs[], char NIM[], char nama_baru[], char NIM_baru[], superset_list* S){
     alamatsuper P;
 	P = S->first_super;
     while (P != NULL) {
@@ -2294,48 +2294,48 @@ void EditMahasiswaPOLBAN(char nama_mhs[], char NIM[], char nama_baru[], char NIM
 
 void EditInAllUKM(subset_list DKM, subset_list KEWIRAUSAHAAN, subset_list BADMINTON, subset_list BASKET, subset_list VOLI, subset_list POLBAN_CHESS, subset_list JFP, subset_list ROBOTIK, subset_list FELLAS, subset_list USF, char nama_mhs[], char NIM[], char nama_baru[], char NIM_baru[]){
     if(IsExistSub(DKM, nama_mhs, NIM)){
-        EditAnggotaUKM(nama_mhs, NIM, nama_baru, NIM_baru, DKM);
+        update_membersub(nama_mhs, NIM, nama_baru, NIM_baru, DKM);
         EditFileUKM(nama_mhs, NIM, nama_baru, NIM_baru, "DKM");
     }
     if(IsExistSub(KEWIRAUSAHAAN, nama_mhs, NIM)){
-        EditAnggotaUKM(nama_mhs, NIM, nama_baru, NIM_baru, KEWIRAUSAHAAN);
+        update_membersub(nama_mhs, NIM, nama_baru, NIM_baru, KEWIRAUSAHAAN);
         EditFileUKM(nama_mhs, NIM, nama_baru, NIM_baru, "KEWIRAUSAHAAN");
     }
     if(IsExistSub(BADMINTON, nama_mhs, NIM)){
-        EditAnggotaUKM(nama_mhs, NIM, nama_baru, NIM_baru, BADMINTON);
+        update_membersub(nama_mhs, NIM, nama_baru, NIM_baru, BADMINTON);
         EditFileUKM(nama_mhs, NIM, nama_baru, NIM_baru, "BADMINTON");
     }
     if(IsExistSub(BASKET, nama_mhs, NIM)){
-        EditAnggotaUKM(nama_mhs, NIM, nama_baru, NIM_baru, BASKET);
+        update_membersub(nama_mhs, NIM, nama_baru, NIM_baru, BASKET);
         EditFileUKM(nama_mhs, NIM, nama_baru, NIM_baru, "BASKET");
     }
     if(IsExistSub(VOLI, nama_mhs, NIM)){
-        EditAnggotaUKM(nama_mhs, NIM, nama_baru, NIM_baru, VOLI);
+        update_membersub(nama_mhs, NIM, nama_baru, NIM_baru, VOLI);
         EditFileUKM(nama_mhs, NIM, nama_baru, NIM_baru, "VOLI");
     }
     if(IsExistSub(POLBAN_CHESS, nama_mhs, NIM)){
-        EditAnggotaUKM(nama_mhs, NIM, nama_baru, NIM_baru, POLBAN_CHESS);
+        update_membersub(nama_mhs, NIM, nama_baru, NIM_baru, POLBAN_CHESS);
         EditFileUKM(nama_mhs, NIM, nama_baru, NIM_baru, "POLBAN_CHESS");
     }
     if(IsExistSub(JFP, nama_mhs, NIM)){
-        EditAnggotaUKM(nama_mhs, NIM, nama_baru, NIM_baru, JFP);
+        update_membersub(nama_mhs, NIM, nama_baru, NIM_baru, JFP);
         EditFileUKM(nama_mhs, NIM, nama_baru, NIM_baru, "JFP");
     }
     if(IsExistSub(ROBOTIK, nama_mhs, NIM)){
-        EditAnggotaUKM(nama_mhs, NIM, nama_baru, NIM_baru, ROBOTIK);
+        update_membersub(nama_mhs, NIM, nama_baru, NIM_baru, ROBOTIK);
         EditFileUKM(nama_mhs, NIM, nama_baru, NIM_baru, "ROBOTIK");
     }
     if(IsExistSub(FELLAS, nama_mhs, NIM)){
-        EditAnggotaUKM(nama_mhs, NIM, nama_baru, NIM_baru, FELLAS);
+        update_membersub(nama_mhs, NIM, nama_baru, NIM_baru, FELLAS);
         EditFileUKM(nama_mhs, NIM, nama_baru, NIM_baru, "FELLAS");
     }
     if(IsExistSub(USF, nama_mhs, NIM)){
-        EditAnggotaUKM(nama_mhs, NIM, nama_baru, NIM_baru, USF);
+        update_membersub(nama_mhs, NIM, nama_baru, NIM_baru, USF);
         EditFileUKM(nama_mhs, NIM, nama_baru, NIM_baru, "USF");
     }
 }
 
-void EditAnggotaUKM(char nama_mhs[], char NIM[], char nama_baru[], char NIM_baru[], subset_list H){
+void update_membersub(char nama_mhs[], char NIM[], char nama_baru[], char NIM_baru[], subset_list H){
     alamatsub P;
 	P = H.first_sub;
     while (P != NULL) {
