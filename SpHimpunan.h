@@ -87,4 +87,6 @@ void EditAnggotaUKM(char nama_mhs[], char NIM[], char nama_baru[], char NIM_baru
 void EditFilePOLBAN(char nama_mhs[], char NIM[], char nama_baru[], char NIM_baru[], superset_list *S);
 void EditFileUKM(char nama_mhs[], char NIM[], char nama_baru[], char NIM_baru[],char UKM[]);
 
-#endif /* SPHIMPUNAN_H */
+#endif 
+
+/* SPHIMPUNAN_H */
