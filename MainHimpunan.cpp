@@ -45,10 +45,7 @@ int main(){
             case 5 : 
                 MenuDisplayHimpunan(POLBAN, DKM,  KEWIRAUSAHAAN,  BADMINTON,  BASKET,  VOLI,  POLBAN_CHESS,  JFP,  ROBOTIK,  FELLAS,  USF); break;
             case 6 : 
-                PanduanPenggunaan()                                                                                                                                            ; TampilkanPanduan(); break;
-            //case 7 : display_UKM(DKM);
-            //case 8 : DeleteFromUKMFile("Banteng Harisantoso", "221524036", "DKM");
-            //case 9 : DisplayHistory();
+                PanduanPenggunaan(); break;                                                                                                                                            ; TampilkanPanduan(); break;
            }
 
         printf("\n");

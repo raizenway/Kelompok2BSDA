@@ -22,6 +22,7 @@ Mochammad Fathur Rabbani (221524045) telah dikeluarkan dari KEWIRAUSAHAAN
 
 Banteng Harisantoso (221524036) telah dikeluarkan dari POLBAN!
 
+<<<<<<< HEAD
 Salsabil (1) telah resmi menjadi mahasiswa POLBAN
 
 Hari (2) telah resmi menjadi mahasiswa POLBAN
@@ -83,4 +84,35 @@ Niqa (221524054) telah bergabung dengan FELLAS
 Banteng Harisantoso (221524036) telah dikeluarkan dari USF
 
 Salsabil Khoirunisa (221524058) telah dikeluarkan dari POLBAN!
+=======
+Banteng Harisantoso (221524036) telah dikeluarkan dari POLBAN!
+
+Banteng Harisantoso (221524036) telah dikeluarkan dari POLBAN!
+
+Banteng Harisantoso -> Ujang
+
+221524036 -> 121212 
+
+Ujang -> Banteng Harisantoso
+
+121212 -> 221524036 
+
+(Update) Banteng Harisantoso -> Awikwok Bilek
+
+(Update) 221524036 -> 1213 
+
+(Update) Mochammad Fathur Rabbani -> Ancritt
+
+(Update) 221524045 -> 123124 
+
+(Update) Banteng Harisantoso -> Ujang Gatrik
+
+(Update) 221524036 -> 696969 
+
+(Update) Ujang Gatrik -> Banteng Harisantoso
+
+(Update) 696969 -> 221524036 
+
+(Add) Ucup (221524036) telah resmi menjadi mahasiswa POLBAN
+>>>>>>> 9b4e250274b3fedc0c92ed5d4caeb592e2fc1069
 
