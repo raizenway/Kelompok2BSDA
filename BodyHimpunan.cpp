@@ -73,6 +73,12 @@ bool IsFull() {
 
 // Meminta input dari pengguna dan menambahkan mahasiswa ke dalam superset_list
 void add_membersuper(superset_list *S, char nama_mhs[], char NIM[]) {
+/*  AUTHOR      : Salsabil Khoirunisa
+    IS          : List POLBAN mungkin kosong
+    FS          : Melakukan alokasi dan menambahkan node baru di salah satu list superset.
+    DESKRIPSI   : Prosedur untuk mengalokasikan dan menambahkan Mahasiswa baru ke Polban.
+                  Informasi yang ada adalah Nama, NIM.
+=======================================================================================================================*/
     alamatsuper P;
     P = (alamatsuper) malloc(sizeof(elmtsuper));
     strcpy(P->member_sp, nama_mhs);
@@ -345,7 +351,7 @@ void MenuBuatHimpunan(superset_list* POLBAN, subset_list* DKM, subset_list* KEWI
     int opsi;
     system("cls");
         printf("=========================================\n");
-        printf("|\t[1] Pendataan Mahasiswa\t|\n");
+        printf("|\t[1] Pendataan Mahasiswa\t\t|\n");
         printf("=========================================\n");
         printf("| Menu: \t\t\t\t|\n");
         printf("| [1] Tambah Mahasiswa POLBAN \t\t|\n");
@@ -1169,129 +1175,182 @@ void Penghentian_Studi(superset_list *S)
             // pertanyaan 1
             printf("Apakah mahasiswa dua semester berturut-turut lulus percobaan sampai dengan semester IV untuk mahasiswa Program Diploma III dan semester VI untuk mahasiswa Program Diploma IV?\n");
             scanf("%s", jawaban);
+            while (strcmp(jawaban, "ya") != 0 && strcmp(jawaban, "tidak") != 0) {
+                printf("Jawaban tidak valid, silakan jawab dengan ya atau tidak.\n");
+                printf("Apakah mahasiswa dua semester berturut-turut lulus percobaan sampai dengan semester IV untuk mahasiswa Program Diploma III dan semester VI untuk mahasiswa Program Diploma IV?\n");
+                scanf("%s", jawaban);
+            }
             if (strcmp(jawaban, "ya") == 0) {
                     del_membersuper(S, nama_mhs, NIM);
                     DeleteFromPOLBANFile(nama_mhs, NIM);
                     printf("Mahasiswa %s dengan NIM telah dihapus dari daftar anggota POLBAN.\n", nama_mhs, NIM);
                     char pesan[100];
-                    sprintf(pesan, "%s (%s) telah dikeluarkan dari POLBAN!", nama_mhs, NIM);
+                    sprintf(pesan, "%s (%s) telah dikeluarkan dari POLBAN!\n", nama_mhs, NIM);
                     WriteHistory(pesan);
                     system("pause");
                     return;
+            }  else if (strcmp(jawaban, "tidak") == 0) {
+
             }
 
             // pertanyaan 2
             printf("Apakah Indeks Prestasi (IP) mahasiswa berada di antara 1,70 dan 2,00 dan jumlah SKS nilai D lebih dari 7 SKS?\n");
             scanf("%s", jawaban);
+            while (strcmp(jawaban, "ya") != 0 && strcmp(jawaban, "tidak") != 0) {
+                printf("Jawaban tidak valid, silakan jawab dengan ya atau tidak.\n");
+                printf("Apakah Indeks Prestasi (IP) mahasiswa berada di antara 1,70 dan 2,00 dan jumlah SKS nilai D lebih dari 7 SKS?\n");
+                scanf("%s", jawaban);
+            }
             if (strcmp(jawaban, "ya") == 0) {
-                   del_membersuper(S, nama_mhs, NIM);
+                del_membersuper(S, nama_mhs, NIM);
                     DeleteFromPOLBANFile(nama_mhs, NIM);
                     printf("Mahasiswa %s dengan NIM telah dihapus dari daftar anggota POLBAN.\n", nama_mhs, NIM);
                     char pesan[100];
-                    sprintf(pesan, "%s (%s) telah dikeluarkan dari POLBAN!", nama_mhs, NIM);
+                    sprintf(pesan, "%s (%s) telah dikeluarkan dari POLBAN!\n", nama_mhs, NIM);
                     WriteHistory(pesan);
                     system("pause");
                     return;
+            } else if (strcmp(jawaban, "tidak") == 0) {
+
             }
 
             // pertanyaan 3
             printf("Apakah nilai IP mahasiswa di bawah 1,70?\n");
             scanf("%s", jawaban);
+            while (strcmp(jawaban, "ya") != 0 && strcmp(jawaban, "tidak") != 0) {
+                printf("Jawaban tidak valid, silakan jawab dengan ya atau tidak.\n");
+                printf("Apakah nilai IP mahasiswa di bawah 1,70?\n");
+                scanf("%s", jawaban);
+            }
             if (strcmp(jawaban, "ya") == 0) {
                     del_membersuper(S, nama_mhs, NIM);
                     DeleteFromPOLBANFile(nama_mhs, NIM);
                     printf("Mahasiswa %s dengan NIM telah dihapus dari daftar anggota POLBAN.\n", nama_mhs, NIM);
                     char pesan[100];
-                    sprintf(pesan, "%s (%s) telah dikeluarkan dari POLBAN!", nama_mhs, NIM);
+                    sprintf(pesan, "%s (%s) telah dikeluarkan dari POLBAN!\n", nama_mhs, NIM);
                     WriteHistory(pesan);
                     system("pause");
                     return;
+            } else if (strcmp(jawaban, "tidak") == 0) {
+
             }
 
             // pertanyaan 4
             printf("Apakah mahasiswa tidak memenuhi syarat kelulusan pada semester VI untuk mahasiswa Program Diploma III dan pada semester VIII untuk mahasiswa Program Diploma IV, setelah diberi kesempatan mengulang satu kali?\n");
             scanf("%s", jawaban);
+            while (strcmp(jawaban, "ya") != 0 && strcmp(jawaban, "tidak") != 0) {
+                printf("Jawaban tidak valid, silakan jawab dengan ya atau tidak.\n");
+                printf("Apakah mahasiswa tidak memenuhi syarat kelulusan pada semester VI untuk mahasiswa Program Diploma III dan pada semester VIII untuk mahasiswa Program Diploma IV, setelah diberi kesempatan mengulang satu kali?\n");
+                scanf("%s", jawaban);
+            }
             if (strcmp(jawaban, "ya") == 0) {
                     del_membersuper(S, nama_mhs, NIM);
                     DeleteFromPOLBANFile(nama_mhs, NIM);
                     printf("Mahasiswa %s dengan NIM telah dihapus dari daftar anggota POLBAN.\n", nama_mhs, NIM);
                     char pesan[100];
-                    sprintf(pesan, "%s (%s) telah dikeluarkan dari POLBAN!", nama_mhs, NIM);
+                    sprintf(pesan, "%s (%s) telah dikeluarkan dari POLBAN!\n", nama_mhs, NIM);
                     WriteHistory(pesan);
                     system("pause");
                     return;
+            } else if (strcmp(jawaban, "tidak") == 0) {
+
+            } 
 
             // pertanyaan 5
             printf("Apakah mahasiswa mempunyai nilai E pada semester I sampai dengan IV untuk mahasiswa Program Diploma III dan semester I sampai IV?\n");
             scanf("%s", jawaban);
+            while (strcmp(jawaban, "ya") != 0 && strcmp(jawaban, "tidak") != 0) {
+                printf("Jawaban tidak valid, silakan jawab dengan ya atau tidak.\n");
+                printf("Apakah mahasiswa mempunyai nilai E pada semester I sampai dengan IV untuk mahasiswa Program Diploma III dan semester I sampai IV?\n");
+                scanf("%s", jawaban);
+            }
             if (strcmp(jawaban, "ya") == 0) {
                     del_membersuper(S, nama_mhs, NIM);
                     DeleteFromPOLBANFile(nama_mhs, NIM);
                     printf("Mahasiswa %s dengan NIM telah dihapus dari daftar anggota POLBAN.\n", nama_mhs, NIM);
                     char pesan[100];
-                    sprintf(pesan, "%s (%s) telah dikeluarkan dari POLBAN!", nama_mhs, NIM);
+                    sprintf(pesan, "%s (%s) telah dikeluarkan dari POLBAN!\n", nama_mhs, NIM);
                     WriteHistory(pesan);
                     system("pause");
                     return;
-            }
+            } else if (strcmp(jawaban, "tidak") == 0) {
+
+            } 
 
             // pertanyaan 6
             printf("Apakah mahasiswa melewati batas studi yang telah ditetapkan dalam Pasal 18 Ayat 1 dan 2?\n");
             scanf("%s", jawaban);
+            while (strcmp(jawaban, "ya") != 0 && strcmp(jawaban, "tidak") != 0) {
+                printf("Jawaban tidak valid, silakan jawab dengan ya atau tidak.\n");
+                printf("Apakah mahasiswa melewati batas studi yang telah ditetapkan dalam Pasal 18 Ayat 1 dan 2?\n");
+                scanf("%s", jawaban);
+            }
             if (strcmp(jawaban, "ya") == 0) {
                     del_membersuper(S, nama_mhs, NIM);
                     DeleteFromPOLBANFile(nama_mhs, NIM);
                     printf("Mahasiswa %s dengan NIM telah dihapus dari daftar anggota POLBAN.\n", nama_mhs, NIM);
                     char pesan[100];
-                    sprintf(pesan, "%s (%s) telah dikeluarkan dari POLBAN!", nama_mhs, NIM);
+                    sprintf(pesan, "%s (%s) telah dikeluarkan dari POLBAN!\n", nama_mhs, NIM);
                     WriteHistory(pesan);
                     system("pause");
                     return;
-            }
+            } else if (strcmp(jawaban, "tidak") == 0) {
+
+            } 
 
             // pertanyaan 7
             printf("Apakah mahasiswa memiliki status ketidakhadiran yang tidak diperbolehkan, sebagaimana diatur dalam Pasal 22?\n");
             scanf("%s", jawaban);
+            while (strcmp(jawaban, "ya") != 0 && strcmp(jawaban, "tidak") != 0) {
+                printf("Jawaban tidak valid, silakan jawab dengan ya atau tidak.\n");
+                printf("Apakah mahasiswa memiliki status ketidakhadiran yang tidak diperbolehkan, sebagaimana diatur dalam Pasal 22?\n");
+                scanf("%s", jawaban);
+            }
             if (strcmp(jawaban, "ya") == 0) {
                     del_membersuper(S, nama_mhs, NIM);
                     DeleteFromPOLBANFile(nama_mhs, NIM);
                     printf("Mahasiswa %s dengan NIM telah dihapus dari daftar anggota POLBAN.\n", nama_mhs, NIM);
                     char pesan[100];
-                    sprintf(pesan, "%s (%s) telah dikeluarkan dari POLBAN!", nama_mhs, NIM);
+                    sprintf(pesan, "%s (%s) telah dikeluarkan dari POLBAN!\n", nama_mhs, NIM);
                     WriteHistory(pesan);
                     system("pause");
                     return;
+            } else if (strcmp(jawaban, "tidak") == 0) {
+
             } 
 
             // pertanyaan 8
             printf("Apakah mahasiswa terlibat dalam perbuatan kriminal yang dinyatakan oleh pihak berwajib?\n");
             scanf("%s", jawaban);
+            while (strcmp(jawaban, "ya") != 0 && strcmp(jawaban, "tidak") != 0) {
+                printf("Jawaban tidak valid, silakan jawab dengan ya atau tidak.\n");
+                printf("Apakah mahasiswa terlibat dalam perbuatan kriminal yang dinyatakan oleh pihak berwajib?\n");
+                scanf("%s", jawaban);
+            }
             if (strcmp(jawaban, "ya") == 0) {
                     del_membersuper(S, nama_mhs, NIM);
                     DeleteFromPOLBANFile(nama_mhs, NIM);
                     printf("Mahasiswa %s dengan NIM telah dihapus dari daftar anggota POLBAN.\n", nama_mhs, NIM);
                     char pesan[100];
-                    sprintf(pesan, "%s (%s) telah dikeluarkan dari POLBAN!", nama_mhs, NIM);
+                    sprintf(pesan, "%s (%s) telah dikeluarkan dari POLBAN!\n", nama_mhs, NIM);
                     WriteHistory(pesan);
                     system("pause");
                     return;
-            }
+            } else if (strcmp(jawaban, "tidak") == 0) {
+
+            } 
             
-            else if (strcmp(jawaban, "tidak") == 0) {
-                // jawaban tidak, lanjut ke pertanyaan berikutnya
-            } else {
-                printf("Jawaban tidak valid, silakan jawab dengan ya atau tidak.\n");
-                return;
-            }
 
         }
 
-    } else{
-        printf("Tidak ada mahasiswa tersebut!\n");
-        system("pause");
-    }
+        else {
+            printf("Tidak ada mahasiswa tersebut!\n");
+            system("pause");
+        }
+        
     }
 }
+
 
 void CopyList(subset_list* H, subset_list SC)
 /*  AUTHOR      : Banteng Harisantoso
@@ -1515,6 +1574,7 @@ void  selisih(subset_list H1, subset_list H2) {
     alamatsub P;
     alamatsub Q;
     int found;
+    int ada_selisih = 0;
 
 
     printf("\nSelisih anggota %s dan %s adalah:\n", H1.first_sub->nama_sub, H2.first_sub->nama_sub);
@@ -1532,8 +1592,37 @@ void  selisih(subset_list H1, subset_list H2) {
         }
         if (!found) {
             printf("-%s (%s)\n", P->member_sub, P->id_sub);
+            ada_selisih = 1;
         }
-    P = P->next_sub;
+        P = P->next_sub;
+    }
+
+    if (!ada_selisih) {
+        printf("Tidak terdapat selisih antara %s - %s\n", H1.first_sub->nama_sub, H2.first_sub->nama_sub);
+    }
+
+    printf("\nSelisih anggota %s dan %s adalah:\n", H2.first_sub->nama_sub, H1.first_sub->nama_sub);
+
+    Q = H2.first_sub;
+    while (Q != NULL) {
+        found = 0;
+        P = H1.first_sub;
+        while (P != NULL) {
+            if (strcmp(Q->member_sub, P->member_sub) == 0) {
+                found = 1;
+                break;
+            }
+            P = P->next_sub;
+        }
+        if (!found) {
+            printf("-%s (%s)\n", Q->member_sub, Q->id_sub);
+            ada_selisih = 1;
+        }
+        Q = Q->next_sub;
+    }
+
+    if (!ada_selisih) {
+        printf("Tidak terdapat selisih antara %s - %s\n", H2.first_sub->nama_sub, H1.first_sub->nama_sub);
     }
 }
 
