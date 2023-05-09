@@ -80,10 +80,11 @@ void MenuEditMahasiswa(superset_list* POLBAN, subset_list* DKM, subset_list* KEW
 void PanduanPenggunaan();
 void TampilkanPanduan();
 
-
+bool IsNIMTaken(char NIM[], char NIM_lama[], superset_list S);
 void EditMahasiswaPOLBAN(char nama_mhs[], char NIM[], char nama_baru[], char NIM_baru[], superset_list* S);
-void EditAnggotaUKM(char nama_mhs[], char NIM[], subset_list H);
-//void EditFilePOLBAN(char nama_mhs[], char NIM[], superset_list S);
-//void EditFileUKM(char nama_mhs[], char NIM[], char UKM[]);
+void EditInAllUKM(subset_list DKM, subset_list KEWIRAUSAHAAN, subset_list BADMINTON, subset_list BASKET, subset_list VOLI, subset_list POLBAN_CHESS, subset_list JFP, subset_list ROBOTIK, subset_list FELLAS, subset_list USF, char nama_mhs[], char NIM[], char nama_baru[], char NIM_baru[]);
+void EditAnggotaUKM(char nama_mhs[], char NIM[], char nama_baru[], char NIM_baru[], subset_list H);
+void EditFilePOLBAN(char nama_mhs[], char NIM[], char nama_baru[], char NIM_baru[], superset_list *S);
+void EditFileUKM(char nama_mhs[], char NIM[], char nama_baru[], char NIM_baru[],char UKM[]);
 
 #endif /* SPHIMPUNAN_H */
