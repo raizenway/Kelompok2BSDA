@@ -81,8 +81,8 @@ void PanduanPenggunaan();
 void TampilkanPanduan();
 
 
-void EditMahasiswaPOLBAN(char nama_mhs[], char NIM[], superset_list* POLBAN);
-//void EditAnggotaUKM(char nama_mhs[], char NIM[], subset_list H);
+void EditMahasiswaPOLBAN(char nama_mhs[], char NIM[], char nama_baru[], char NIM_baru[], superset_list* S);
+void EditAnggotaUKM(char nama_mhs[], char NIM[], subset_list H);
 //void EditFilePOLBAN(char nama_mhs[], char NIM[], superset_list S);
 //void EditFileUKM(char nama_mhs[], char NIM[], char UKM[]);
 

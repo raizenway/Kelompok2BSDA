@@ -25,9 +25,7 @@ int main(){
     int choice;
     char nama_mhs[61]; 
 	char NIM[10];
-    char UKM[20];
     
-
     do {
         display_menu();
         printf("Masukkan Pilihan: ");
@@ -42,9 +40,12 @@ int main(){
                 break;
             case 3:
             	MenuEditHimpunan(&POLBAN, &DKM, &KEWIRAUSAHAAN, &BADMINTON, &BASKET, &VOLI, &POLBAN_CHESS, &JFP, &ROBOTIK, &FELLAS, &USF); break;
-            case 4 : search(POLBAN, DKM,  KEWIRAUSAHAAN,  BADMINTON,  BASKET,  VOLI,  POLBAN_CHESS,  JFP,  ROBOTIK,  FELLAS,  USF, nama_mhs, NIM); break;
-            case 5 : MenuDisplayHimpunan(POLBAN, DKM,  KEWIRAUSAHAAN,  BADMINTON,  BASKET,  VOLI,  POLBAN_CHESS,  JFP,  ROBOTIK,  FELLAS,  USF); break;
-            case 6 : PanduanPenggunaan()                                                                                                                                            ; TampilkanPanduan(); break;
+            case 4 : 
+                search(POLBAN, DKM,  KEWIRAUSAHAAN,  BADMINTON,  BASKET,  VOLI,  POLBAN_CHESS,  JFP,  ROBOTIK,  FELLAS,  USF, nama_mhs, NIM); break;
+            case 5 : 
+                MenuDisplayHimpunan(POLBAN, DKM,  KEWIRAUSAHAAN,  BADMINTON,  BASKET,  VOLI,  POLBAN_CHESS,  JFP,  ROBOTIK,  FELLAS,  USF); break;
+            case 6 : 
+                PanduanPenggunaan()                                                                                                                                            ; TampilkanPanduan(); break;
             //case 7 : display_UKM(DKM);
             //case 8 : DeleteFromUKMFile("Banteng Harisantoso", "221524036", "DKM");
             //case 9 : DisplayHistory();
@@ -52,8 +53,6 @@ int main(){
 
         printf("\n");
     } while (choice != 99);
-
-	system("pause");
     return 0;
 }
 	

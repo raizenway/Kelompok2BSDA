@@ -11,12 +11,16 @@ CARA MENGGUNAKAN
 2. Setelah program berhasil dijalankan, maka pengguna akan ditampilkan dengan display menu.
 3. Dalam display menu, pengguna dapat melakukan beberapa fitur, diantaranya :
 	 [1] Buat Himpunan
-	     Pada menu ini pengguna dapat menambahkan anggota mahasiswa POLBAN sebagai superset, dan juga dapat menambahkan anggota pada UKM POLBAN sebagai subset.
+	     Pada menu ini pengguna dapat menambahkan anggota mahasiswa POLBAN sebagai
+	     superset, dan juga dapat menambahkan anggota pada UKM POLBAN sebagai subset.
 	 [2] Operasi Himpunan
-	     Pada operasi himpunan, pengguna dapat menampilkan operasi himpunan seperti irisan, gabungan, selisih, dan komplemen sesuai kebutuhan.
+	     Pada operasi himpunan, pengguna dapat menampilkan operasi himpunan seperti
+	     irisan, gabungan, selisih, dan komplemen sesuai kebutuhan.
 	 [3] Edit Daftar Himpunan
 	     Pada menu ini, pengguna dapat mengubah atau menghapus anggota superset maupun anggota subset
 	 [4] Cari Anggota Himpunan
-	     Pada menu ini pengguna dapat memasukkan nama dan NIM dari mahasiswa, kemudian program akan menampilkan mahasiswa tergabung dalam UKM apa saja.
+	     Pada menu ini pengguna dapat memasukkan nama dan NIM dari mahasiswa,
+	     kemudian program akan menampilkan mahasiswa tergabung dalam UKM apa saja.
 	 [5] Tampilkan Daftar Himpunan
-	     Pada operasi himpunan, pengguna dapat memilih untuk melihat anggota himpunan secara HISTORY, CURRENT, dan menampilkan GUIDE atau panduan penggunaan aplikasi.
+	     Pada operasi himpunan, pengguna dapat memilih untuk melihat anggota himpunan
+	     secara HISTORY, CURRENT, dan menampilkan GUIDE atau panduan penggunaan aplikasi.

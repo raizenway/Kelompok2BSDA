@@ -147,23 +147,27 @@ void add_membersub(subset_list *H1, char nama_mhs[], char NIM[], char UKM[])
    
 
 void display_membersuper(superset_list S) {
+    int i = 1;
     alamatsuper P;
     P = S.first_super;
     printf("\nMahasiswa yang terdaftar di POLBAN adalah : \n");
     while (P != NULL) {
-        printf("%s (%s)\n", P->member_sp, P->id_member);
+        printf("%d. %s - %s\n", i, P->id_member, P->member_sp);
         P = P->next_sp;
+        i++;
     }
     system("pause");
 }
 
 void display_membersubset(subset_list H){
+    int i = 1;
     alamatsub P;
     P = H.first_sub;
     printf("Mahasiswa yang terdaftar di %s :\n", P->nama_sub);
     while(P != NULL) {
-        printf("%s (%s)\n", P->member_sub, P->id_sub);
+        printf("%d. %s - %s\n", i, P->id_sub, P->member_sub);
         P = P->next_sub;
+        i++;
     }
     system("pause");
 }
@@ -177,59 +181,121 @@ void MenuDisplayHimpunan(superset_list POLBAN, subset_list DKM, subset_list KEWI
                   Setelahnya, akan menampilkan anggota sesuai opsi yang dipilih
 =======================================================================================================================*/ 
     bool valid = false;
-    alamatsub H;
-    
-    while (!valid) {
-        int opsi = ListUKM();
+    int menu = 0;
 
-        if (opsi == 1) {
-            display_membersubset(DKM);
-            valid = true;
-        } else if (opsi == 2) {
-            display_membersubset(KEWIRAUSAHAAN);
-            valid = true;
-        } else if (opsi == 3) {
-            display_membersubset(BADMINTON);
-            valid = true;
-        } else if (opsi == 4) {
-            display_membersubset(BASKET);
-            valid = true;
-        } else if (opsi == 5) {
-            display_membersubset(VOLI);
-            valid = true;
-        } else if (opsi == 6) {
-            display_membersubset(POLBAN_CHESS);
-            valid = true;
-        } else if (opsi == 7) {
-            display_membersubset(JFP);
-            valid = true;
-        } else if (opsi == 8) {
-            display_membersubset(ROBOTIK);
-            valid = true;
-        } else if (opsi == 9) {
-            display_membersubset(FELLAS);
-            valid = true;
-        } else if (opsi == 10) {
-            display_membersubset(USF);
-            valid = true;
+    while (!valid) {
+        system("cls");
+        printf("=========================================\n");
+        printf("|\t[5] Display Himpunan\t\t|\n");
+        printf("=========================================\n");
+        printf("| Menu: \t\t\t\t|\n");
+        printf("| [1] Display Mahasiswa POLBAN \t\t|\n");
+        printf("| [2] Display Anggota UKM POLBAN \t|\n");
+        printf("| [99] Back \t\t\t\t|\n");
+        printf("=========================================\n");
+        scanf("%d", &menu);
+
+        if(menu == 1){
+            if(IsSuperEmpty(POLBAN)){
+                printf("\nTidak ada mahasiswa yang terdata.\n"); system("pause");
+                valid = true;
+            }else{
+                display_membersuper(POLBAN);
+                valid = true;
+            }
+            
+        }else if(menu == 2){
+            int opsi = ListUKM();
+
+            if (opsi == 1) {
+                if(IsSubEmpty(DKM)){
+                    printf("Tidak ada mahasiswa yang terdata di %s", DKM.first_sub->nama_sub); system("pause");
+                    valid = true;
+                }else{
+                    display_membersubset(DKM);
+                    valid = true;
+                }
+                
+            } else if (opsi == 2) {
+                if(IsSubEmpty(KEWIRAUSAHAAN)){
+                    printf("Tidak ada mahasiswa yang terdata di %s", KEWIRAUSAHAAN.first_sub->nama_sub);system("pause");
+                    valid = true;
+                }else{
+                    display_membersubset(KEWIRAUSAHAAN);
+                    valid = true;
+                }
+            } else if (opsi == 3) {
+                if(IsSubEmpty(BADMINTON)){
+                    printf("Tidak ada mahasiswa yang terdata di %s", BADMINTON.first_sub->nama_sub);system("pause");
+                    valid = true;
+                }else{
+                    display_membersubset(BADMINTON);
+                    valid = true;
+                }
+            } else if (opsi == 4) {
+                if(IsSubEmpty(BASKET)){
+                    printf("Tidak ada mahasiswa yang terdata di %s", BASKET.first_sub->nama_sub);system("pause");
+                    valid = true;
+                }else{
+                    display_membersubset(BASKET);
+                    valid = true;
+                }
+            } else if (opsi == 5) {
+                if(IsSubEmpty(VOLI)){
+                    printf("Tidak ada mahasiswa yang terdata di %s", VOLI.first_sub->nama_sub);system("pause");
+                    valid = true;
+                }else{
+                    display_membersubset(VOLI);
+                    valid = true;
+                }
+            } else if (opsi == 6) {
+                if(IsSubEmpty(POLBAN_CHESS)){
+                    printf("Tidak ada mahasiswa yang terdata di %s", POLBAN_CHESS.first_sub->nama_sub);system("pause");
+                    valid = true;
+                }else{
+                    display_membersubset(POLBAN_CHESS);
+                    valid = true;
+                }
+            } else if (opsi == 7) {
+                if(IsSubEmpty(JFP)){
+                    printf("Tidak ada mahasiswa yang terdata di %s", JFP.first_sub->nama_sub);system("pause");
+                    valid = true;
+                }else{
+                    display_membersubset(JFP);
+                    valid = true;
+                }
+            } else if (opsi == 8) {
+                if(IsSubEmpty(ROBOTIK)){
+                    printf("Tidak ada mahasiswa yang terdata di %s", ROBOTIK.first_sub->nama_sub);system("pause");
+                    valid = true;
+                }else{
+                    display_membersubset(ROBOTIK);
+                    valid = true;
+                }
+            } else if (opsi == 9) {
+                if(IsSubEmpty(FELLAS)){
+                    printf("Tidak ada mahasiswa yang terdata di %s", FELLAS.first_sub->nama_sub);system("pause");
+                    valid = true;
+                }else{
+                    display_membersubset(FELLAS);
+                    valid = true;
+                }
+            } else if (opsi == 10) {
+                if(IsSubEmpty(USF)){
+                    printf("Tidak ada mahasiswa yang terdata di %s", USF.first_sub->nama_sub);system("pause");
+                    valid = true;
+                }else{
+                    display_membersubset(USF);
+                    valid = true;
+                }
+            }
+        }else if(menu == 99){
+            valid = true; break;
+        } else{
+            printf("Masukkan opsi yang valid!\n"); system("pause");
         }
+        
     }  
-    printf("\n\nApakah kamu ingin menampilkan seluruh mahasiswa POLBAN?\n1. Ya\n2. Tidak\n");
-    
-    int opsi = 0;
-    do {
-    printf("Masukkan opsi (1-2): ");
-    scanf("%d", &opsi);
-    if(opsi == 1) {
-        display_membersuper(POLBAN);
-        break;
-    } else if(opsi == 2) {
-        break;
-    } else {
-        printf("Opsi tidak valid!\n");
-    }
-    } while((opsi != 1) || (opsi != 2));
-    
     
 }
 
@@ -307,7 +373,7 @@ void MenuEditHimpunan(superset_list* POLBAN, subset_list* DKM, subset_list* KEWI
 =======================================================================================================================*/
 
     int opsi;
-    system("cls");
+        system("cls");
         printf("=========================================\n");
         printf("|\t[1] Edit Himpunan\t\t|\n");
         printf("=========================================\n");
@@ -315,19 +381,18 @@ void MenuEditHimpunan(superset_list* POLBAN, subset_list* DKM, subset_list* KEWI
         printf("| [1] Hapus Mahasiswa POLBAN \t\t|\n");
         printf("| [2] Hapus Anggota UKM POLBAN \t\t|\n");
         printf("| [3] Edit Mahasiswa POLBAN \t\t|\n");
-        printf("| [4] Edit Anggota UKM POLBAN \t\t|\n");
         printf("| [99] Back \t\t\t\t|\n");
         printf("=========================================\n");
     scanf("%d", &opsi);
     switch (opsi){
         case 1:
-            Penghentian_Studi(POLBAN);
+            Penghentian_Studi(POLBAN); break;
             break;
         case 2: 
-            MenuEditSub(*POLBAN, DKM, KEWIRAUSAHAAN, BADMINTON, BASKET, VOLI, POLBAN_CHESS, JFP, ROBOTIK, FELLAS, USF);
+            MenuEditSub(*POLBAN, DKM, KEWIRAUSAHAAN, BADMINTON, BASKET, VOLI, POLBAN_CHESS, JFP, ROBOTIK, FELLAS, USF); break;
             break;
         case 3:
-            MenuEditMahasiswa(POLBAN, DKM, KEWIRAUSAHAAN, BADMINTON, BASKET, VOLI, POLBAN_CHESS, JFP, ROBOTIK, FELLAS, USF);
+            MenuEditMahasiswa(POLBAN, DKM, KEWIRAUSAHAAN, BADMINTON, BASKET, VOLI, POLBAN_CHESS, JFP, ROBOTIK, FELLAS, USF); break;
         case 99 :
             break;
     }
@@ -1583,15 +1648,15 @@ void PanduanPenggunaan(){
     fprintf(fp, "%s", "2. Setelah program berhasil dijalankan, maka pengguna akan ditampilkan dengan display menu.\n");
     fprintf(fp, "%s", "3. Dalam display menu, pengguna dapat melakukan beberapa fitur, diantaranya :\n");
     fprintf(fp, "%s", "\t [1] Buat Himpunan\n");
-    fprintf(fp, "%s", "\t     Pada menu ini pengguna dapat menambahkan anggota mahasiswa POLBAN sebagai superset, dan juga dapat menambahkan anggota pada UKM POLBAN sebagai subset.\n");
+    fprintf(fp, "%s", "\t     Pada menu ini pengguna dapat menambahkan anggota mahasiswa POLBAN sebagai\n\t     superset, dan juga dapat menambahkan anggota pada UKM POLBAN sebagai subset.\n");
     fprintf(fp, "%s", "\t [2] Operasi Himpunan\n");
-    fprintf(fp, "%s", "\t     Pada operasi himpunan, pengguna dapat menampilkan operasi himpunan seperti irisan, gabungan, selisih, dan komplemen sesuai kebutuhan.\n");
+    fprintf(fp, "%s", "\t     Pada operasi himpunan, pengguna dapat menampilkan operasi himpunan seperti\n\t     irisan, gabungan, selisih, dan komplemen sesuai kebutuhan.\n");
     fprintf(fp, "%s", "\t [3] Edit Daftar Himpunan\n");
     fprintf(fp, "%s", "\t     Pada menu ini, pengguna dapat mengubah atau menghapus anggota superset maupun anggota subset\n");
     fprintf(fp, "%s", "\t [4] Cari Anggota Himpunan\n");
-    fprintf(fp, "%s", "\t     Pada menu ini pengguna dapat memasukkan nama dan NIM dari mahasiswa, kemudian program akan menampilkan mahasiswa tergabung dalam UKM apa saja.\n");
+    fprintf(fp, "%s", "\t     Pada menu ini pengguna dapat memasukkan nama dan NIM dari mahasiswa,\n\t     kemudian program akan menampilkan mahasiswa tergabung dalam UKM apa saja.\n");
     fprintf(fp, "%s", "\t [5] Tampilkan Daftar Himpunan\n");
-    fprintf(fp, "%s", "\t     Pada operasi himpunan, pengguna dapat memilih untuk melihat anggota himpunan secara HISTORY, CURRENT, dan menampilkan GUIDE atau panduan penggunaan aplikasi.\n");
+    fprintf(fp, "%s", "\t     Pada operasi himpunan, pengguna dapat memilih untuk melihat anggota himpunan\n\t     secara HISTORY, CURRENT, dan menampilkan GUIDE atau panduan penggunaan aplikasi.\n");
 
     fclose(fp);
 
@@ -2106,12 +2171,13 @@ void MenuEditMahasiswa(superset_list* POLBAN, subset_list* DKM, subset_list* KEW
             printf("Nama Asal\t:"); printf("%s\n", nama_mhs);
             printf("NIM Asal\t:"); printf("%s\n", NIM);
             printf("\n");
-            printf("Nama Baru\t:"); printf("%s\n", nama_baru);
-            printf("NIM Baru\t:"); printf("%s\n", NIM_baru);
+            printf("Nama Baru\t: "); printf("%s\n", nama_baru);
+            printf("NIM Baru\t: "); printf("%s\n", NIM_baru);
             printf("\nLanjutkan perubahan?\n1. Ya\n2. Tidak\n99. Back\n");
             scanf("%d", &opsi);
             if(opsi == 1){
-                EditMahasiswaPOLBAN(nama_mhs, NIM, POLBAN);
+                EditMahasiswaPOLBAN(nama_mhs, NIM, nama_baru, NIM_baru, POLBAN);
+                 system("pause");
                 valid = true;
             } else if(opsi == 2){
                 MenuEditHimpunan(POLBAN, DKM, KEWIRAUSAHAAN, BADMINTON,  BASKET, VOLI, POLBAN_CHESS, JFP, ROBOTIK, FELLAS, USF);
@@ -2139,9 +2205,18 @@ void MenuEditMahasiswa(superset_list* POLBAN, subset_list* DKM, subset_list* KEW
     }
     } 
 }  
-
-void EditMahasiswaPOLBAN(char nama_mhs[], char NIM[], superset_list* POLBAN){
-    printf("hai");
-    system("pause");
+void EditMahasiswaPOLBAN(char nama_mhs[], char NIM[], char nama_baru[], char NIM_baru[], superset_list* S){
+    alamatsuper P;
+	P = S->first_super;
+    while (P != NULL) {
+        if (strcmp(P->member_sp, nama_mhs) == 0 && strcmp(P->id_member, NIM) == 0) {
+            strcpy(P->member_sp, nama_baru);
+            strcpy(P->id_member, NIM_baru);
+            //EditAnggotaUKM();
+        }
+        P = P->next_sp;
+    }
+    printf("Berhasil mengedit informasi mahasiswa\n");
 }
+
 
