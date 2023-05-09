@@ -22,10 +22,11 @@ int main(){
     create_sub(&VOLI); create_sub(&POLBAN_CHESS);
     create_sub(&JFP); create_sub(&ROBOTIK);
     create_sub(&FELLAS); create_sub(&USF);
-    int choice, opsi, operasi;
+    int choice;
     char nama_mhs[61]; 
 	char NIM[10];
     char UKM[20];
+    
 
     do {
         display_menu();
@@ -40,10 +41,10 @@ int main(){
                 MenuOperasi(POLBAN, &H1, &H2, DKM,  KEWIRAUSAHAAN,  BADMINTON,  BASKET,  VOLI,  POLBAN_CHESS,  JFP,  ROBOTIK,  FELLAS,  USF);
                 break;
             case 3:
-            	MenuEditHimpunan(&POLBAN, &DKM, &KEWIRAUSAHAAN, &BADMINTON, &BASKET, &VOLI, &POLBAN_CHESS, &JFP, &ROBOTIK, &FELLAS, &USF, nama_mhs, NIM); break;
+            	MenuEditHimpunan(&POLBAN, &DKM, &KEWIRAUSAHAAN, &BADMINTON, &BASKET, &VOLI, &POLBAN_CHESS, &JFP, &ROBOTIK, &FELLAS, &USF); break;
             case 4 : search(POLBAN, DKM,  KEWIRAUSAHAAN,  BADMINTON,  BASKET,  VOLI,  POLBAN_CHESS,  JFP,  ROBOTIK,  FELLAS,  USF, nama_mhs, NIM); break;
-            case 5 : MenuDisplayHimpunan(POLBAN, DKM,  KEWIRAUSAHAAN,  BADMINTON,  BASKET,  VOLI,  POLBAN_CHESS,  JFP,  ROBOTIK,  FELLAS,  USF, nama_mhs, NIM); break;
-            case 6 : PanduanPenggunaan(); TampilkanPanduan(); break;
+            case 5 : MenuDisplayHimpunan(POLBAN, DKM,  KEWIRAUSAHAAN,  BADMINTON,  BASKET,  VOLI,  POLBAN_CHESS,  JFP,  ROBOTIK,  FELLAS,  USF); break;
+            case 6 : PanduanPenggunaan()                                                                                                                                            ; TampilkanPanduan(); break;
             //case 7 : display_UKM(DKM);
             //case 8 : DeleteFromUKMFile("Banteng Harisantoso", "221524036", "DKM");
             //case 9 : DisplayHistory();

@@ -47,7 +47,7 @@ void add_membersub(subset_list *H1, char nama_mhs[], char NIM[], char UKM[]);
 void Seleksi_MemberSuper(superset_list *S);
 void del_membersuper(superset_list *S, char nama_mhs[], char NIM[]);
 void del_membersub(subset_list *H1, char nama_mhs[], char NIM[]);
-void Penghentian_Studi(superset_list *S, char nama_mhs[], char NIM[]);
+void Penghentian_Studi(superset_list *S);
 void irisan(subset_list H1, subset_list H2);
 void gabungan(subset_list H1, subset_list H2); 
 void komplemen(superset_list S, subset_list H1 );
@@ -62,8 +62,8 @@ int  ListUKM();
 void addnama(char* nama_mhs); 
 void addnim(char* NIM); 
 void MenuBuatHimpunan(superset_list* POLBAN, subset_list* DKM, subset_list* KEWIRAUSAHAAN, subset_list* BADMINTON, subset_list* BASKET, subset_list* VOLI, subset_list* POLBAN_CHESS, subset_list* JFP, subset_list* ROBOTIK, subset_list* FELLAS, subset_list* USF);
-void MenuEditHimpunan(superset_list* POLBAN, subset_list* DKM, subset_list* KEWIRAUSAHAAN, subset_list* BADMINTON, subset_list* BASKET, subset_list* VOLI, subset_list* POLBAN_CHESS, subset_list* JFP, subset_list* ROBOTIK, subset_list* FELLAS, subset_list* USF, char nama_mhs[], char NIM[]);
-void MenuDisplayHimpunan(superset_list POLBAN, subset_list DKM, subset_list KEWIRAUSAHAAN, subset_list BADMINTON, subset_list BASKET, subset_list VOLI, subset_list POLBAN_CHESS, subset_list JFP, subset_list ROBOTIK, subset_list FELLAS, subset_list USF, char nama_mhs[], char NIM[]);
+void MenuEditHimpunan(superset_list* POLBAN, subset_list* DKM, subset_list* KEWIRAUSAHAAN, subset_list* BADMINTON, subset_list* BASKET, subset_list* VOLI, subset_list* POLBAN_CHESS, subset_list* JFP, subset_list* ROBOTIK, subset_list* FELLAS, subset_list* USF);
+void MenuDisplayHimpunan(superset_list POLBAN, subset_list DKM, subset_list KEWIRAUSAHAAN, subset_list BADMINTON, subset_list BASKET, subset_list VOLI, subset_list POLBAN_CHESS, subset_list JFP, subset_list ROBOTIK, subset_list FELLAS, subset_list USF);
 void MenuOperasi(superset_list S, subset_list* H1, subset_list* H2, subset_list DKM, subset_list KEWIRAUSAHAAN, subset_list BADMINTON, subset_list BASKET, subset_list VOLI, subset_list POLBAN_CHESS, subset_list JFP, subset_list ROBOTIK, subset_list FELLAS, subset_list USF);
 void EkstrakList(subset_list* H, subset_list DKM, subset_list KEWIRAUSAHAAN, subset_list BADMINTON, subset_list BASKET, subset_list VOLI, subset_list POLBAN_CHESS, subset_list JFP, subset_list ROBOTIK, subset_list FELLAS, subset_list USF);
 void CopyList(subset_list* H, subset_list SC); 
@@ -81,7 +81,7 @@ void PanduanPenggunaan();
 void TampilkanPanduan();
 
 
-//void EditMahasiswaPOLBAN(char nama_mhs[], char NIM[], superset_list* POLBAN);
+void EditMahasiswaPOLBAN(char nama_mhs[], char NIM[], superset_list* POLBAN);
 //void EditAnggotaUKM(char nama_mhs[], char NIM[], subset_list H);
 //void EditFilePOLBAN(char nama_mhs[], char NIM[], superset_list S);
 //void EditFileUKM(char nama_mhs[], char NIM[], char UKM[]);
