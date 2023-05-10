@@ -22,69 +22,6 @@ Mochammad Fathur Rabbani (221524045) telah dikeluarkan dari KEWIRAUSAHAAN
 
 Banteng Harisantoso (221524036) telah dikeluarkan dari POLBAN!
 
-<<<<<<< HEAD
-Salsabil (1) telah resmi menjadi mahasiswa POLBAN
-
-Hari (2) telah resmi menjadi mahasiswa POLBAN
-
-Bob (3) telah resmi menjadi mahasiswa POLBAN
-
-Salsabil Khoirunisa (221524058) telah bergabung dengan DKM
-
-Salsabil (1) telah bergabung dengan DKM
-
-Bob (3) telah bergabung dengan KEWIRAUSAHAAN
-
-Hari (2) telah bergabung dengan KEWIRAUSAHAAN
-
-Salsabil (1) telah bergabung dengan KEWIRAUSAHAAN
-
-Hari (2) telah bergabung dengan DKM
-
-Naia (4) telah resmi menjadi mahasiswa POLBAN
-
-Asri (5) telah resmi menjadi mahasiswa POLBAN
-
-Niqa (6) telah resmi menjadi mahasiswa POLBAN
-
-Naia (4) telah bergabung dengan DKM
-
-Farhan (7) telah resmi menjadi mahasiswa POLBAN
-
-Farhan (7) telah bergabung dengan DKM
-
-Naia (4) telah bergabung dengan KEWIRAUSAHAAN
-
-Asri (5) telah bergabung dengan KEWIRAUSAHAAN
-
-Salsabil Khoirunisa (221524058) telah bergabung dengan USF
-
-Banteng Harisantoso (221524036) telah bergabung dengan USF
-
-Mochammad Fathur Rabbani (221524045) telah bergabung dengan USF
-
-Salsabil Khoirunisa (221524058) telah bergabung dengan FELLAS
-
-Farhann (221524099) telah resmi menjadi mahasiswa POLBAN
-
-Farhann (221524099) telah bergabung dengan FELLAS
-
-Farhannn (99) telah resmi menjadi mahasiswa POLBAN
-
-Farhannn (99) telah bergabung dengan FELLAS
-
-Dinda (23) telah resmi menjadi mahasiswa POLBAN
-
-Dinda (23) telah bergabung dengan FELLAS
-
-Niqa (221524054) telah resmi menjadi mahasiswa POLBAN
-
-Niqa (221524054) telah bergabung dengan FELLAS
-
-Banteng Harisantoso (221524036) telah dikeluarkan dari USF
-
-Salsabil Khoirunisa (221524058) telah dikeluarkan dari POLBAN!
-=======
 Banteng Harisantoso (221524036) telah dikeluarkan dari POLBAN!
 
 Banteng Harisantoso (221524036) telah dikeluarkan dari POLBAN!
@@ -114,5 +51,22 @@ Ujang -> Banteng Harisantoso
 (Update) 696969 -> 221524036 
 
 (Add) Ucup (221524036) telah resmi menjadi mahasiswa POLBAN
->>>>>>> 9b4e250274b3fedc0c92ed5d4caeb592e2fc1069
+
+Muhamad Fahri Yuwan Dwi Putra (221524057) telah dikeluarkan dari POLBAN!
+
+
+Muhamad Fahri Yuwan Dwi Putra (221524057) telah dikeluarkan dari POLBAN!
+
+
+(Update) Banteng Harisantoso -> Ganteng Harisantoso
+
+(Update) 221524036 -> 221524036 
+
+(Update) Ganteng Harisantoso -> Banteng Harisantoso
+
+(Update) 221524036 -> 221524036 
+
+(Add) Muhamad Fahri Yuwan Dwi Putra (221524047) telah resmi menjadi mahasiswa POLBAN
+
+(Add) Bob Manuel (221524038) telah resmi menjadi mahasiswa POLBAN
 
