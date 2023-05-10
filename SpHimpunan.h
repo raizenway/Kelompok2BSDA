@@ -34,7 +34,7 @@ typedef struct {
 
 /*============================ METHOD ============================*/
 void create_super (superset_list *S);
-/void create_sub (subset_list *H1);
+void create_sub (subset_list *H1);
 bool IsSuperEmpty (superset_list S);
 bool IsSubEmpty (subset_list H1);
 bool IsExistSuper(superset_list S, char nama_mhs[], char NIM[]);

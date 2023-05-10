@@ -1138,7 +1138,7 @@ void del_membersub(subset_list *H1, char nama_mhs[], char NIM[])
                 Q->next_sub = P->next_sub;
             }
             free(P);
-            printf("Anggota %s bernama %s (%s) telah dihapus!\n", P->nama_sub, nama_mhs, NIM);
+            //printf("Anggota %s bernama %s (%s) telah dihapus!\n", P->nama_sub, nama_mhs, NIM);
             return;
         }
         Q = P;
@@ -1188,7 +1188,7 @@ void Penghentian_Studi(superset_list *S, subset_list* DKM, subset_list* KEWIRAUS
                     DeleteInAllUKM(DKM, KEWIRAUSAHAAN, BADMINTON, BASKET, VOLI, POLBAN_CHESS, JFP,ROBOTIK, FELLAS, USF, nama_mhs, NIM);
                     printf("\n\nMahasiswa %s dengan NIM telah dihapus dari daftar anggota POLBAN.\n", nama_mhs, NIM);
                     char pesan[100];
-                    sprintf(pesan, "%s (%s) telah dikeluarkan dari POLBAN!\n", nama_mhs, NIM);
+                    sprintf(pesan, "(Delete) %s (%s) telah dikeluarkan dari POLBAN!\n", nama_mhs, NIM);
                     WriteHistory(pesan);
                     system("pause");
                     return;
@@ -1210,7 +1210,7 @@ void Penghentian_Studi(superset_list *S, subset_list* DKM, subset_list* KEWIRAUS
                     DeleteInAllUKM(DKM, KEWIRAUSAHAAN, BADMINTON, BASKET, VOLI, POLBAN_CHESS, JFP,ROBOTIK, FELLAS, USF, nama_mhs, NIM);
                     printf("\n\nMahasiswa %s dengan NIM telah dihapus dari daftar anggota POLBAN.\n", nama_mhs, NIM);
                     char pesan[100];
-                    sprintf(pesan, "%s (%s) telah dikeluarkan dari POLBAN!\n", nama_mhs, NIM);
+                    sprintf(pesan, "(Delete) %s (%s) telah dikeluarkan dari POLBAN!\n", nama_mhs, NIM);
                     WriteHistory(pesan);
                     system("pause");
                     return;
@@ -1232,7 +1232,7 @@ void Penghentian_Studi(superset_list *S, subset_list* DKM, subset_list* KEWIRAUS
                     DeleteInAllUKM(DKM, KEWIRAUSAHAAN, BADMINTON, BASKET, VOLI, POLBAN_CHESS, JFP,ROBOTIK, FELLAS, USF, nama_mhs, NIM);
                     printf("\n\nMahasiswa %s dengan NIM telah dihapus dari daftar anggota POLBAN.\n", nama_mhs, NIM);
                     char pesan[100];
-                    sprintf(pesan, "%s (%s) telah dikeluarkan dari POLBAN!\n", nama_mhs, NIM);
+                    sprintf(pesan, "(Delete) %s (%s) telah dikeluarkan dari POLBAN!\n", nama_mhs, NIM);
                     WriteHistory(pesan);
                     system("pause");
                     return;
@@ -1254,7 +1254,7 @@ void Penghentian_Studi(superset_list *S, subset_list* DKM, subset_list* KEWIRAUS
                     DeleteInAllUKM(DKM, KEWIRAUSAHAAN, BADMINTON, BASKET, VOLI, POLBAN_CHESS, JFP,ROBOTIK, FELLAS, USF, nama_mhs, NIM);
                     printf("\n\nMahasiswa %s dengan NIM telah dihapus dari daftar anggota POLBAN.\n", nama_mhs, NIM);
                     char pesan[100];
-                    sprintf(pesan, "%s (%s) telah dikeluarkan dari POLBAN!\n", nama_mhs, NIM);
+                    sprintf(pesan, "(Delete) %s (%s) telah dikeluarkan dari POLBAN!\n", nama_mhs, NIM);
                     WriteHistory(pesan);
                     system("pause");
                     return;
@@ -1276,7 +1276,7 @@ void Penghentian_Studi(superset_list *S, subset_list* DKM, subset_list* KEWIRAUS
                     DeleteInAllUKM(DKM, KEWIRAUSAHAAN, BADMINTON, BASKET, VOLI, POLBAN_CHESS, JFP,ROBOTIK, FELLAS, USF, nama_mhs, NIM);
                     printf("\n\nMahasiswa %s dengan NIM telah dihapus dari daftar anggota POLBAN.\n", nama_mhs, NIM);
                     char pesan[100];
-                    sprintf(pesan, "%s (%s) telah dikeluarkan dari POLBAN!\n", nama_mhs, NIM);
+                    sprintf(pesan, "(Delete) %s (%s) telah dikeluarkan dari POLBAN!\n", nama_mhs, NIM);
                     WriteHistory(pesan);
                     system("pause");
                     return;
@@ -1298,7 +1298,7 @@ void Penghentian_Studi(superset_list *S, subset_list* DKM, subset_list* KEWIRAUS
                     DeleteInAllUKM(DKM, KEWIRAUSAHAAN, BADMINTON, BASKET, VOLI, POLBAN_CHESS, JFP,ROBOTIK, FELLAS, USF, nama_mhs, NIM);
                     printf("\n\nMahasiswa %s dengan NIM telah dihapus dari daftar anggota POLBAN.\n", nama_mhs, NIM);
                     char pesan[100];
-                    sprintf(pesan, "%s (%s) telah dikeluarkan dari POLBAN!\n", nama_mhs, NIM);
+                    sprintf(pesan, "(Delete) %s (%s) telah dikeluarkan dari POLBAN!\n", nama_mhs, NIM);
                     WriteHistory(pesan);
                     system("pause");
                     return;
@@ -1320,7 +1320,7 @@ void Penghentian_Studi(superset_list *S, subset_list* DKM, subset_list* KEWIRAUS
                     DeleteInAllUKM(DKM, KEWIRAUSAHAAN, BADMINTON, BASKET, VOLI, POLBAN_CHESS, JFP,ROBOTIK, FELLAS, USF, nama_mhs, NIM);
                     printf("\n\nMahasiswa %s dengan NIM telah dihapus dari daftar anggota POLBAN.\n", nama_mhs, NIM);
                     char pesan[100];
-                    sprintf(pesan, "%s (%s) telah dikeluarkan dari POLBAN!\n", nama_mhs, NIM);
+                    sprintf(pesan, "(Delete) %s (%s) telah dikeluarkan dari POLBAN!\n", nama_mhs, NIM);
                     WriteHistory(pesan);
                     system("pause");
                     return;
@@ -1342,7 +1342,7 @@ void Penghentian_Studi(superset_list *S, subset_list* DKM, subset_list* KEWIRAUS
                     DeleteInAllUKM(DKM, KEWIRAUSAHAAN, BADMINTON, BASKET, VOLI, POLBAN_CHESS, JFP,ROBOTIK, FELLAS, USF, nama_mhs, NIM);
                     printf("\n\nMahasiswa %s dengan NIM telah dihapus dari daftar anggota POLBAN.\n", nama_mhs, NIM);
                     char pesan[100];
-                    sprintf(pesan, "%s (%s) telah dikeluarkan dari POLBAN!\n", nama_mhs, NIM);
+                    sprintf(pesan, "(Delete) %s (%s) telah dikeluarkan dari POLBAN!\n", nama_mhs, NIM);
                     WriteHistory(pesan);
                     system("pause");
                     return;
@@ -1807,6 +1807,7 @@ void display_menu() {
         printf("| [4] Cari Anggota Himpunan \t\t|\n");
         printf("| [5] Tampilkan Daftar Himpunan \t|\n");
         printf("| [6] Panduan Pengguna \t\t\t|\n");
+        printf("| [7] Riwayat Aktivitas \t\t\t|\n");
         printf("| [99] Exit \t\t\t\t|\n");
         printf("=========================================\n");
 
@@ -2266,7 +2267,7 @@ void DeleteFromUKMFile(char nama_mhs[], char NIM[], char UKM[]){
     if(found == 1){
         remove(nama_file);
         rename("temp.txt", nama_file);
-        printf("Mahasiswa bernama %s dengan NIM %s sudah berhasil dihapus dari database.\n", nama_mhs, NIM); system("pause");
+        printf("Mahasiswa bernama %s dengan NIM %s sudah berhasil dihapus dari database %s.txt\n", nama_mhs, NIM, UKM); system("pause");
     } else{
         remove("temp.txt");
         printf("Tidak ada mahasiswa bernama %s dengan NIM %s", nama_mhs, NIM); system("pause");

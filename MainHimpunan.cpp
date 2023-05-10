@@ -45,7 +45,9 @@ int main(){
             case 5 : 
                 MenuDisplayHimpunan(POLBAN, DKM,  KEWIRAUSAHAAN,  BADMINTON,  BASKET,  VOLI,  POLBAN_CHESS,  JFP,  ROBOTIK,  FELLAS,  USF); break;
             case 6 : 
-                PanduanPenggunaan(); TampilkanPanduan(); system("pause"); break;                                                                                                                                            ; TampilkanPanduan(); break;
+                PanduanPenggunaan(); TampilkanPanduan(); system("pause"); break;
+            case 7 :
+                DisplayHistory(); break;                                                                                                                                           ; TampilkanPanduan(); break;
            }
 
         printf("\n");
