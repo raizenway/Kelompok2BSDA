@@ -34,7 +34,7 @@ typedef struct {
 
 /*============================ METHOD ============================*/
 void create_super (superset_list *S);
-void create_sub (subset_list *H1);
+/void create_sub (subset_list *H1);
 bool IsSuperEmpty (superset_list S);
 bool IsSubEmpty (subset_list H1);
 bool IsExistSuper(superset_list S, char nama_mhs[], char NIM[]);
@@ -58,7 +58,7 @@ void display_membersubset(subset_list H);
 void display_search(superset_list S, subset_list DKM, subset_list KEWIRAUSAHAAN, subset_list BADMINTON, subset_list BASKET, subset_list VOLI, subset_list POLBAN_CHESS, subset_list JFP, subset_list ROBOTIK, subset_list FELLAS, subset_list USF, char nama_mhs[], char NIM[]);
 void MenuAddSub(superset_list POLBAN, subset_list* DKM, subset_list* KEWIRAUSAHAAN, subset_list* BADMINTON, subset_list* BASKET, subset_list* VOLI, subset_list* POLBAN_CHESS, subset_list* JFP, subset_list* ROBOTIK, subset_list* FELLAS, subset_list* USF);
 void MenuEditSub(superset_list POLBAN, subset_list* DKM, subset_list* KEWIRAUSAHAAN, subset_list* BADMINTON, subset_list* BASKET, subset_list* VOLI, subset_list* POLBAN_CHESS, subset_list* JFP, subset_list* ROBOTIK, subset_list* FELLAS, subset_list* USF);
-int  ListUKM(); 
+int  ListUKM();
 void addnama(char* nama_mhs); 
 void addnim(char* NIM); 
 void MenuBuatHimpunan(superset_list* POLBAN, subset_list* DKM, subset_list* KEWIRAUSAHAAN, subset_list* BADMINTON, subset_list* BASKET, subset_list* VOLI, subset_list* POLBAN_CHESS, subset_list* JFP, subset_list* ROBOTIK, subset_list* FELLAS, subset_list* USF);

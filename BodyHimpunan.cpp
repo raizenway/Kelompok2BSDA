@@ -2560,6 +2560,5 @@ bool IsNIMTaken(char NIM[], char NIM_baru[], superset_list S){
             P = P->next_sp;
         }
     }
-
     return false;
 }
