@@ -1,0 +1,20 @@
+
+(Add) Bob (221524038) telah resmi menjadi mahasiswa POLBAN
+
+(Add) Banteng Harisantoso (221524036) telah bergabung dengan DKM
+
+(Add) Bob (221524038) telah bergabung dengan USF
+
+(Delete) Bob (221524038) telah dikeluarkan dari POLBAN!
+
+
+(Update) Banteng Harisantoso -> Ganteng Harisantoso
+
+(Update) 221524036 -> 221524036 
+
+(Update) Ganteng Harisantoso -> Banteng Harisantoso
+
+(Update) 221524036 -> 221524036 
+
+(Delete) Banteng Harisantoso (221524036) telah dikeluarkan dari DKM
+

@@ -28,7 +28,7 @@ int main(){
     
     do {
         display_menu();
-        printf("Masukkan Pilihan: ");
+        printf("\t\t\tMasukkan Pilihan: ");
         scanf("%d", &choice);
 
         switch (choice) {

@@ -509,10 +509,10 @@ void Seleksi_MemberSuper(superset_list *S)
                                     printf(" Nama\t\t: %.*s.\n", 20, nama_mhs);
                                     printf(" NIM\t\t: %s\n\n", NIM);
                                     WritePOLBAN(nama_mhs, NIM);
-                                    //menulis history
+                                    //menulis Log
                                     char pesan[100];
                                     sprintf(pesan, "(Add) %s (%s) telah resmi menjadi mahasiswa POLBAN", nama_mhs, NIM);
-                                    WriteHistory(pesan);
+                                    WriteLog(pesan);
                                     system("pause");
                                 }
                                 syarat = false;
@@ -591,7 +591,7 @@ while(!valid){
                 WriteUKM(opsi, nama_mhs, NIM);
                 char pesan[100];
                 sprintf(pesan, "(Add) %s (%s) telah bergabung dengan DKM", nama_mhs, NIM);
-                WriteHistory(pesan);
+                WriteLog(pesan);
             }
             else{
                 printf("\nTidak ada mahasiswa tersebut!\n");
@@ -615,7 +615,7 @@ while(!valid){
                 WriteUKM(opsi, nama_mhs, NIM);
                 char pesan[100];
                 sprintf(pesan, "(Add) %s (%s) telah bergabung dengan KEWIRAUSAHAAN", nama_mhs, NIM);
-                WriteHistory(pesan);
+                WriteLog(pesan);
             }
             else{
                 printf("\nTidak ada mahasiswa tersebut!\n");
@@ -639,7 +639,7 @@ while(!valid){
                 WriteUKM(opsi, nama_mhs, NIM);
                 char pesan[100];
                 sprintf(pesan, "(Add) %s (%s) telah bergabung dengan BADMINTON", nama_mhs, NIM);
-                WriteHistory(pesan);
+                WriteLog(pesan);
             }
             else{
                 printf("\nTidak ada mahasiswa tersebut!\n");
@@ -663,7 +663,7 @@ while(!valid){
                 WriteUKM(opsi, nama_mhs, NIM);
                 char pesan[100];
                 sprintf(pesan, "(Add) %s (%s) telah bergabung dengan BASKET", nama_mhs, NIM);
-                WriteHistory(pesan);
+                WriteLog(pesan);
             }
             else{
                 printf("\nTidak ada mahasiswa tersebut!\n");
@@ -687,7 +687,7 @@ while(!valid){
                 WriteUKM(opsi, nama_mhs, NIM);
                 char pesan[100];
                 sprintf(pesan, "(Add) %s (%s) telah bergabung dengan VOLI", nama_mhs, NIM);
-                WriteHistory(pesan);
+                WriteLog(pesan);
             }
             else{
                 printf("\nTidak ada mahasiswa tersebut!\n");
@@ -711,7 +711,7 @@ while(!valid){
                 WriteUKM(opsi, nama_mhs, NIM);
                 char pesan[100];
                 sprintf(pesan, "(Add) %s (%s) telah bergabung dengan POLBAN CHESS", nama_mhs, NIM);
-                WriteHistory(pesan);
+                WriteLog(pesan);
             }            
             else{
                 printf("\nTidak ada mahasiswa tersebut!\n");
@@ -735,7 +735,7 @@ while(!valid){
                 WriteUKM(opsi, nama_mhs, NIM);
                 char pesan[100];
                 sprintf(pesan, "(Add) %s (%s) telah bergabung dengan JFP", nama_mhs, NIM);
-                WriteHistory(pesan);
+                WriteLog(pesan);
             }   
             else{
                 printf("\nTidak ada mahasiswa tersebut!\n");
@@ -759,7 +759,7 @@ while(!valid){
                 WriteUKM(opsi, nama_mhs, NIM);
                 char pesan[100];
                 sprintf(pesan, "(Add) %s (%s) telah bergabung dengan ROBOTIK", nama_mhs, NIM);
-                WriteHistory(pesan);
+                WriteLog(pesan);
             }
             else{
                 printf("\nTidak ada mahasiswa tersebut!\n");
@@ -783,7 +783,7 @@ while(!valid){
                 WriteUKM(opsi, nama_mhs, NIM);
                 char pesan[100];
                 sprintf(pesan, "(Add) %s (%s) telah bergabung dengan FELLAS", nama_mhs, NIM);
-                WriteHistory(pesan);
+                WriteLog(pesan);
             }
             else{
                 printf("\nTidak ada mahasiswa tersebut!\n");
@@ -807,7 +807,7 @@ while(!valid){
                 WriteUKM(opsi, nama_mhs, NIM);
                 char pesan[100];
                 sprintf(pesan, "(Add) %s (%s) telah bergabung dengan USF", nama_mhs, NIM);
-                WriteHistory(pesan);
+                WriteLog(pesan);
             }
             else{
                 printf("\nTidak ada mahasiswa tersebut!\n");
@@ -848,7 +848,7 @@ while(!valid){
                 DeleteFromUKMFile(nama_mhs, NIM, "DKM");
                 char pesan[100];
                 sprintf(pesan, "(Delete) %s (%s) telah dikeluarkan dari DKM", nama_mhs, NIM);
-                WriteHistory(pesan);
+                WriteLog(pesan);
             }
             else{
                 printf("\nTidak ada mahasiswa tersebut!\n");
@@ -868,7 +868,7 @@ while(!valid){
                 DeleteFromUKMFile(nama_mhs, NIM, "KEWIRAUSAHAAN");
                 char pesan[100];
                 sprintf(pesan, "(Delete) %s (%s) telah dikeluarkan dari KEWIRAUSAHAAN", nama_mhs, NIM);
-                WriteHistory(pesan);
+                WriteLog(pesan);
             }
             else{
                 printf("\nTidak ada mahasiswa tersebut!\n");
@@ -888,7 +888,7 @@ while(!valid){
                 DeleteFromUKMFile(nama_mhs, NIM, "BADMINTON");
                 char pesan[100];
                 sprintf(pesan, "(Delete) %s (%s) telah dikeluarkan dari BADMINTON", nama_mhs, NIM);
-                WriteHistory(pesan);
+                WriteLog(pesan);
             }
             else{
                 printf("\nTidak ada mahasiswa tersebut!\n");
@@ -908,7 +908,7 @@ while(!valid){
                 DeleteFromUKMFile(nama_mhs, NIM, "BASKET");
                 char pesan[100];
                 sprintf(pesan, "(Delete) %s (%s) telah dikeluarkan dari BASKET", nama_mhs, NIM);
-                WriteHistory(pesan);
+                WriteLog(pesan);
             }
             else{
                 printf("\nTidak ada mahasiswa tersebut!\n");
@@ -928,7 +928,7 @@ while(!valid){
                 DeleteFromUKMFile(nama_mhs, NIM, "VOLI");
                 char pesan[100];
                 sprintf(pesan, "(Delete) %s (%s) telah dikeluarkan dari VOLI", nama_mhs, NIM);
-                WriteHistory(pesan);
+                WriteLog(pesan);
             }
             else{
                 printf("\nTidak ada mahasiswa tersebut!\n");
@@ -948,7 +948,7 @@ while(!valid){
                 DeleteFromUKMFile(nama_mhs, NIM, "POLBAN_CHESS");
                 char pesan[100];
                 sprintf(pesan, "(Delete) %s (%s) telah dikeluarkan dari POLBAN CHESS", nama_mhs, NIM);
-                WriteHistory(pesan);
+                WriteLog(pesan);
             }       
             else{
                 printf("\nTidak ada mahasiswa tersebut!\n");
@@ -968,7 +968,7 @@ while(!valid){
                 DeleteFromUKMFile(nama_mhs, NIM, "JFP");
                 char pesan[100];
                 sprintf(pesan, "(Delete) %s (%s) telah dikeluarkan dari JFP", nama_mhs, NIM);
-                WriteHistory(pesan);
+                WriteLog(pesan);
             }
             else{
                 printf("\nTidak ada mahasiswa tersebut!\n");
@@ -988,7 +988,7 @@ while(!valid){
                 DeleteFromUKMFile(nama_mhs, NIM, "ROBOTIK");
                 char pesan[100];
                 sprintf(pesan, "(Delete) %s (%s) telah dikeluarkan dari ROBOTIK", nama_mhs, NIM);
-                WriteHistory(pesan);
+                WriteLog(pesan);
             }
             else{
                 printf("\nTidak ada mahasiswa tersebut!\n");
@@ -1008,7 +1008,7 @@ while(!valid){
                 DeleteFromUKMFile(nama_mhs, NIM, "FELLAS");
                 char pesan[100];
                 sprintf(pesan, "(Delete) %s (%s) telah dikeluarkan dari FELLAS", nama_mhs, NIM);
-                WriteHistory(pesan);
+                WriteLog(pesan);
             }
             else{
                 printf("\nTidak ada mahasiswa tersebut!\n");
@@ -1029,7 +1029,7 @@ while(!valid){
                 DeleteFromUKMFile(nama_mhs, NIM, "USF");
                 char pesan[100];
                 sprintf(pesan, "%s (%s) telah dikeluarkan dari USF", nama_mhs, NIM);
-                WriteHistory(pesan);
+                WriteLog(pesan);
             }
             else{
                 printf("\nTidak ada mahasiswa tersebut!\n");
@@ -1189,7 +1189,7 @@ void Penghentian_Studi(superset_list *S, subset_list* DKM, subset_list* KEWIRAUS
                     printf("\n\nMahasiswa %s dengan NIM telah dihapus dari daftar anggota POLBAN.\n", nama_mhs, NIM);
                     char pesan[100];
                     sprintf(pesan, "(Delete) %s (%s) telah dikeluarkan dari POLBAN!\n", nama_mhs, NIM);
-                    WriteHistory(pesan);
+                    WriteLog(pesan);
                     system("pause");
                     return;
             }  else if (strcmp(jawaban, "tidak") == 0) {
@@ -1211,7 +1211,7 @@ void Penghentian_Studi(superset_list *S, subset_list* DKM, subset_list* KEWIRAUS
                     printf("\n\nMahasiswa %s dengan NIM telah dihapus dari daftar anggota POLBAN.\n", nama_mhs, NIM);
                     char pesan[100];
                     sprintf(pesan, "(Delete) %s (%s) telah dikeluarkan dari POLBAN!\n", nama_mhs, NIM);
-                    WriteHistory(pesan);
+                    WriteLog(pesan);
                     system("pause");
                     return;
             } else if (strcmp(jawaban, "tidak") == 0) {
@@ -1233,7 +1233,7 @@ void Penghentian_Studi(superset_list *S, subset_list* DKM, subset_list* KEWIRAUS
                     printf("\n\nMahasiswa %s dengan NIM telah dihapus dari daftar anggota POLBAN.\n", nama_mhs, NIM);
                     char pesan[100];
                     sprintf(pesan, "(Delete) %s (%s) telah dikeluarkan dari POLBAN!\n", nama_mhs, NIM);
-                    WriteHistory(pesan);
+                    WriteLog(pesan);
                     system("pause");
                     return;
             } else if (strcmp(jawaban, "tidak") == 0) {
@@ -1255,7 +1255,7 @@ void Penghentian_Studi(superset_list *S, subset_list* DKM, subset_list* KEWIRAUS
                     printf("\n\nMahasiswa %s dengan NIM telah dihapus dari daftar anggota POLBAN.\n", nama_mhs, NIM);
                     char pesan[100];
                     sprintf(pesan, "(Delete) %s (%s) telah dikeluarkan dari POLBAN!\n", nama_mhs, NIM);
-                    WriteHistory(pesan);
+                    WriteLog(pesan);
                     system("pause");
                     return;
             } else if (strcmp(jawaban, "tidak") == 0) {
@@ -1277,7 +1277,7 @@ void Penghentian_Studi(superset_list *S, subset_list* DKM, subset_list* KEWIRAUS
                     printf("\n\nMahasiswa %s dengan NIM telah dihapus dari daftar anggota POLBAN.\n", nama_mhs, NIM);
                     char pesan[100];
                     sprintf(pesan, "(Delete) %s (%s) telah dikeluarkan dari POLBAN!\n", nama_mhs, NIM);
-                    WriteHistory(pesan);
+                    WriteLog(pesan);
                     system("pause");
                     return;
             } else if (strcmp(jawaban, "tidak") == 0) {
@@ -1299,7 +1299,7 @@ void Penghentian_Studi(superset_list *S, subset_list* DKM, subset_list* KEWIRAUS
                     printf("\n\nMahasiswa %s dengan NIM telah dihapus dari daftar anggota POLBAN.\n", nama_mhs, NIM);
                     char pesan[100];
                     sprintf(pesan, "(Delete) %s (%s) telah dikeluarkan dari POLBAN!\n", nama_mhs, NIM);
-                    WriteHistory(pesan);
+                    WriteLog(pesan);
                     system("pause");
                     return;
             } else if (strcmp(jawaban, "tidak") == 0) {
@@ -1321,7 +1321,7 @@ void Penghentian_Studi(superset_list *S, subset_list* DKM, subset_list* KEWIRAUS
                     printf("\n\nMahasiswa %s dengan NIM telah dihapus dari daftar anggota POLBAN.\n", nama_mhs, NIM);
                     char pesan[100];
                     sprintf(pesan, "(Delete) %s (%s) telah dikeluarkan dari POLBAN!\n", nama_mhs, NIM);
-                    WriteHistory(pesan);
+                    WriteLog(pesan);
                     system("pause");
                     return;
             } else if (strcmp(jawaban, "tidak") == 0) {
@@ -1343,7 +1343,7 @@ void Penghentian_Studi(superset_list *S, subset_list* DKM, subset_list* KEWIRAUS
                     printf("\n\nMahasiswa %s dengan NIM telah dihapus dari daftar anggota POLBAN.\n", nama_mhs, NIM);
                     char pesan[100];
                     sprintf(pesan, "(Delete) %s (%s) telah dikeluarkan dari POLBAN!\n", nama_mhs, NIM);
-                    WriteHistory(pesan);
+                    WriteLog(pesan);
                     system("pause");
                     return;
             } else if (strcmp(jawaban, "tidak") == 0) {
@@ -1772,7 +1772,7 @@ void PanduanPenggunaan(){
     fprintf(fp, "%s", "\t [4] Cari Anggota Himpunan\n");
     fprintf(fp, "%s", "\t     Pada menu ini pengguna dapat memasukkan nama dan NIM dari mahasiswa,\n\t     kemudian program akan menampilkan mahasiswa tergabung dalam UKM apa saja.\n");
     fprintf(fp, "%s", "\t [5] Tampilkan Daftar Himpunan\n");
-    fprintf(fp, "%s", "\t     Pada operasi himpunan, pengguna dapat memilih untuk melihat anggota himpunan\n\t     secara HISTORY, CURRENT, dan menampilkan GUIDE atau panduan penggunaan aplikasi.\n");
+    fprintf(fp, "%s", "\t     Pada operasi himpunan, pengguna dapat memilih untuk melihat anggota himpunan\n\t     secara Log, CURRENT, dan menampilkan GUIDE atau panduan penggunaan aplikasi.\n");
 
     fclose(fp);
 
@@ -1797,19 +1797,40 @@ void TampilkanPanduan(){
 
 void display_menu() {
         system("cls");
-    	printf("=========================================\n");
-        printf("|\t   PROGRAM HIMPUNAN\t        |\n");
-        printf("=========================================\n");
-        printf("| Menu: \t\t\t\t|\n");
-        printf("| [1] Pendataan Mahasiswa \t\t|\n");
-        printf("| [2] Operasi Himpunan \t\t\t|\n");
-        printf("| [3] Edit Daftar Himpunan \t\t|\n");
-        printf("| [4] Cari Anggota Himpunan \t\t|\n");
-        printf("| [5] Tampilkan Daftar Himpunan \t|\n");
-        printf("| [6] Panduan Pengguna \t\t\t|\n");
-        printf("| [7] Riwayat Aktivitas \t\t\t|\n");
-        printf("| [99] Exit \t\t\t\t|\n");
-        printf("=========================================\n");
+        printf("___\n");
+printf("\\ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n");
+printf(" \\ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n");
+printf("  \\ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n");
+printf("   || $$$$\t\t\t\t\t\t\t\t\t\t$$$$\n");
+printf("   || $$$$\t\t\t\t\t\t\t\t\t\t  $$$$\n");
+printf("   || $$$$	 _________    ._______    .___        ._______     ..____    .___    .__    $$$$\n");
+printf("   || $$$$	/ /       \\  //       \\  //   |      //       \\   .//    \\   ||   \\ ||  |   $$$$\n");
+printf("   || $$$$	| | .____  | ||  ___   | ||   |      ||  ___  .| .//  __  \\  ||    \\||  |   $$$$\n");
+printf("   || $$$$	| | |   \\\\ | || |  .|| | ||   |      || |  || .| ||  | || .| ||     \\|  |   $$$$\n");
+printf("   || $$$$	| | |___// | || |  .|| | ||   |      || |__|| .| ||  |_|| .| ||         |   $$$$\n");
+printf("   || $$$$	| |  _____/  || |  .|| | ||   |      ||  ___  /  ||  .__  .| ||  |\\     |   $$$$\n");
+printf("   || $$$$	| | |        || |  .|| | ||   |      || |  || \\  ||  |  | .| ||  | \\    |   $$$$\n");
+printf("   || $$$$	| | |        || |  .|| | ||   |      || |__|| .| ||  |  | .| ||  |  \\   |   $$$$\n");
+printf("   || $$$$	| | |        ||  \\_.// | ||   \\_____ ||       .| ||  |  | .| ||  |   \\  |   $$$$\n");
+printf("   || $$$$	|_|_|        .\\\\______/  .\\\\________| \\\\______/  ||_/   |__| ||__|  .|__|   $$$$\n");
+printf("   || $$$$\t\t\t\t\t\t\t\t\t\t  $$$$\n");
+printf("   || $$$$\t\t\t\t\t\t\t\t\t\t$$$$\n");
+printf("  // $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n");
+printf(" // $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n");
+printf("//_$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n");
+    	printf("\t\t\t=========================================\n");
+        printf("\t\t\t|\t   PROGRAM HIMPUNAN\t        |\n");
+        printf("\t\t\t=========================================\n");
+        printf("\t\t\t| Menu: \t\t\t\t|\n");
+        printf("\t\t\t| [1] Pendataan Mahasiswa \t\t|\n");
+        printf("\t\t\t| [2] Operasi Himpunan \t\t\t|\n");
+        printf("\t\t\t| [3] Edit Daftar Himpunan \t\t|\n");
+        printf("\t\t\t| [4] Cari Anggota Himpunan \t\t|\n");
+        printf("\t\t\t| [5] Tampilkan Daftar Himpunan \t|\n");
+        printf("\t\t\t| [6] Panduan Pengguna \t\t\t|\n");
+        printf("\t\t\t| [7] Riwayat Aktivitas \t\t|\n");
+        printf("\t\t\t| [99] Exit \t\t\t\t|\n");
+        printf("\t\t\t=========================================\n");
 
 }
 
@@ -2274,8 +2295,8 @@ void DeleteFromUKMFile(char nama_mhs[], char NIM[], char UKM[]){
     }
 }
 
-void WriteHistory(char kalimat[]){
-    FILE *fp = fopen("HISTORI.txt", "a+");
+void WriteLog(char kalimat[]){
+    FILE *fp = fopen("Log.txt", "a+");
 
     if(fp == NULL){
         printf("File tidak bisa dibuka atau tidak ditemukan!\n");
@@ -2286,8 +2307,8 @@ void WriteHistory(char kalimat[]){
     fclose(fp);
 }
 
-void DisplayHistory(){
-    FILE *fp = fopen("HISTORI.txt", "r+");
+void DisplayLog(){
+    FILE *fp = fopen("Log.txt", "r+");
     if(fp == NULL){
         printf("File tidak ada atau tidak dapat dibuka!\n");
         exit(EXIT_FAILURE);
@@ -2349,8 +2370,8 @@ void MenuEditMahasiswa(superset_list* POLBAN, subset_list* DKM, subset_list* KEW
                 EditInAllUKM(*DKM, *KEWIRAUSAHAAN, *BADMINTON,  *BASKET, *VOLI, *POLBAN_CHESS, *JFP, *ROBOTIK, *FELLAS, *USF, nama_mhs, NIM, nama_baru, NIM_baru);
                 //Menampilkan pesan
                 char pesan[100];
-                sprintf(pesan, "(Update) %s -> %s", nama_mhs, nama_baru); WriteHistory(pesan);
-                sprintf(pesan, "(Update) %s -> %s ", NIM, NIM_baru); WriteHistory(pesan);
+                sprintf(pesan, "(Update) %s -> %s", nama_mhs, nama_baru); WriteLog(pesan);
+                sprintf(pesan, "(Update) %s -> %s ", NIM, NIM_baru); WriteLog(pesan);
                 valid = true;
             // Kembali
             } else if(opsi == 2){
