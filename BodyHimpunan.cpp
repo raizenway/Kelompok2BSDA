@@ -15,27 +15,57 @@
 /********** BODY SUB PROGRAM ***********/
 
 //pembentukan list superset
-void create_super (superset_list *S){
+void create_super (superset_list *S)
+/*  AUTHOR      : Bob Manuel
+    IS          : Struktur data Superset telah dibentuk, variabel S sudah di deklarasikan
+    FS          : Subvariabel first_super berhasil atau gagal menunjuk ke NULL
+    DESKRIPSI   : Prosedur untuk membuat list S
+=======================================================================================================================*/
+{
     S->first_super = NULL;
 }
 
-//pembentukan list subset-1
-void create_sub (subset_list *H1){
+//pembentukan list subset
+void create_sub (subset_list *H1)
+/*  AUTHOR      : Bob Manuel
+    IS          : Struktur data Subset telah dibentuk, variabel H1 sudah di deklarasikan
+    FS          : Subvariabel first_sub berhasil atau gagal menunjuk ke NULL
+    DESKRIPSI   : Prosedur untuk membuat list H1
+=======================================================================================================================*/
+{
     H1->first_sub = NULL;
 }
 
 //mengecek apakah superset kosong
-bool IsSuperEmpty (superset_list S){
+bool IsSuperEmpty (superset_list S)
+/*  AUTHOR      : Bob Manuel
+    IS          : Menerima list S
+    FS          : Diketahui jika list S kosong atau tidak (True berarti kosong, False berarti terisi)
+    DESKRIPSI   : Fungsi untuk mengetahui jika satu list super kosong atau terisi
+=======================================================================================================================*/
+{
     return (S.first_super == NULL);
 }
 
 //mengecek apakah subset-1 kosong
-bool IsSubEmpty (subset_list H1){
+bool IsSubEmpty (subset_list H1)
+/*  AUTHOR      : Bob Manuel
+    IS          : Menerima list H1
+    FS          : Diketahui jika list H1 kosong atau tidak (True berarti kosong, False berarti terisi)
+    DESKRIPSI   : Fungsi untuk mengetahui jika satu list sub kosong atau terisi
+=======================================================================================================================*/
+{
     return (H1.first_sub == NULL);
 }
 
 // Memeriksa apakah mahasiswa dengan nama dan NIM yang diberikan sudah terdaftar dalam list super
-bool IsExistSuper(superset_list S, char nama_mhs[], char NIM[]) {
+bool IsExistSuper(superset_list S, char nama_mhs[], char NIM[])
+/*  AUTHOR      : Bob Manuel
+    IS          : Menerima list S, nama dan NIM
+    FS          : Diketahui jika satu mahasiswa sudah ada dalam list atau belum (True berarti ada, False berarti tidak ada)
+    DESKRIPSI   : Fungsi untuk mengetahui jika terdapat mahasiswa di list S
+=======================================================================================================================*/
+{
     alamatsuper P;
 	P = S.first_super;
     while (P != NULL) {
@@ -47,7 +77,13 @@ bool IsExistSuper(superset_list S, char nama_mhs[], char NIM[]) {
     return false;
 }
 
-bool IsExistSub(subset_list H1, char nama_mhs[], char NIM[]){
+bool IsExistSub(subset_list H1, char nama_mhs[], char NIM[])
+/*  AUTHOR      : Bob Manuel
+    IS          : Menerima list H1, nama dan NIM
+    FS          : Diketahui jika satu mahasiswa sudah ada dalam list atau belum (True berarti ada, False berarti tidak ada)
+    DESKRIPSI   : Fungsi untuk mengetahui jika terdapat mahasiswa di list H1
+=======================================================================================================================*/
+{
     alamatsub P;
     P = H1.first_sub;
     while (P != NULL) {
@@ -60,7 +96,13 @@ bool IsExistSub(subset_list H1, char nama_mhs[], char NIM[]){
 }
 
 //mengecek apakah proses alokasi berhasil atau gagal karena memori yang kurang
-bool IsFull() {
+bool IsFull()
+/*  AUTHOR      : Bob Manuel
+    IS          : Tidak diketahui penuh kosongnya memori
+    FS          : Diketahui jika memori penuh atau kosong (True berarti penuh, False berarti kosong)
+    DESKRIPSI   : Fungsi untuk mengetahui jika terdapat mahasiswa di list S
+=======================================================================================================================*/
+{
     alamatsuper bantu;
     bantu = (alamatsuper) malloc (sizeof(elmtsuper));
     
@@ -152,7 +194,13 @@ void add_membersub(subset_list *H1, char nama_mhs[], char NIM[], char UKM[])
 }
    
 
-void display_membersuper(superset_list S) {
+void display_membersuper(superset_list S) 
+/*  AUTHOR      : Bob Manuel
+    IS          : List S sudah terbentuk
+    FS          : Menampilkan mahasiswa yang ada di list S (POLBAN)
+    DESKRIPSI   : Prosedur untuk menampilkan mahasiswa di POLBAN
+========================================================================================================================*/
+{
     int i = 1;
     alamatsuper P;
     P = S.first_super;
@@ -165,7 +213,13 @@ void display_membersuper(superset_list S) {
     system("pause");
 }
 
-void display_membersubset(subset_list H){
+void display_membersubset(subset_list H)
+/*  AUTHOR      : Bob Manuel
+    IS          : List H sudah terbentuk
+    FS          : Menampilkan mahasiswa yang ada di list H (UKM)
+    DESKRIPSI   : Prosedur untuk menampilkan mahasiswa di salah satu UKM
+========================================================================================================================*/
+{
     int i = 1;
     alamatsub P;
     P = H.first_sub;
@@ -395,7 +449,7 @@ void MenuEditHimpunan(superset_list* POLBAN, subset_list* DKM, subset_list* KEWI
             Penghentian_Studi(POLBAN, DKM, KEWIRAUSAHAAN, BADMINTON, BASKET, VOLI, POLBAN_CHESS, JFP, ROBOTIK, FELLAS, USF); break;
             break;
         case 2: 
-            MenuEditSub(*POLBAN, DKM, KEWIRAUSAHAAN, BADMINTON, BASKET, VOLI, POLBAN_CHESS, JFP, ROBOTIK, FELLAS, USF); break;
+            MenuEditSub(DKM, KEWIRAUSAHAAN, BADMINTON, BASKET, VOLI, POLBAN_CHESS, JFP, ROBOTIK, FELLAS, USF); break;
         case 3:
             MenuEditMahasiswa(POLBAN, DKM, KEWIRAUSAHAAN, BADMINTON, BASKET, VOLI, POLBAN_CHESS, JFP, ROBOTIK, FELLAS, USF); break;
         case 99 :
@@ -820,7 +874,7 @@ while(!valid){
     system("pause");
 }
 
-void MenuEditSub(superset_list POLBAN, subset_list* DKM, subset_list* KEWIRAUSAHAAN, subset_list* BADMINTON, subset_list* BASKET, subset_list* VOLI, subset_list* POLBAN_CHESS, subset_list* JFP, subset_list* ROBOTIK, subset_list* FELLAS, subset_list* USF)
+void MenuEditSub(subset_list* DKM, subset_list* KEWIRAUSAHAAN, subset_list* BADMINTON, subset_list* BASKET, subset_list* VOLI, subset_list* POLBAN_CHESS, subset_list* JFP, subset_list* ROBOTIK, subset_list* FELLAS, subset_list* USF)
 /*  AUTHOR      : Salsabil Khoirunisa
     IS          : Sudah terbentuk list subset
     FS          : Menampilkan pesan berhasil atau gagal menghapus atau mengubah data mahasiswa ke dalam himpunan.
@@ -1186,7 +1240,7 @@ void Penghentian_Studi(superset_list *S, subset_list* DKM, subset_list* KEWIRAUS
                     del_membersuper(S, nama_mhs, NIM);
                     DeleteFromPOLBANFile(nama_mhs, NIM);
                     DeleteInAllUKM(DKM, KEWIRAUSAHAAN, BADMINTON, BASKET, VOLI, POLBAN_CHESS, JFP,ROBOTIK, FELLAS, USF, nama_mhs, NIM);
-                    printf("\n\nMahasiswa %s dengan NIM telah dihapus dari daftar anggota POLBAN.\n", nama_mhs, NIM);
+                    printf("\n\nMahasiswa %s dengan NIM %s telah dihapus dari daftar anggota POLBAN.\n", nama_mhs, NIM);
                     char pesan[100];
                     sprintf(pesan, "(Delete) %s (%s) telah dikeluarkan dari POLBAN!\n", nama_mhs, NIM);
                     WriteLog(pesan);
@@ -1208,7 +1262,7 @@ void Penghentian_Studi(superset_list *S, subset_list* DKM, subset_list* KEWIRAUS
                 del_membersuper(S, nama_mhs, NIM);
                     DeleteFromPOLBANFile(nama_mhs, NIM);
                     DeleteInAllUKM(DKM, KEWIRAUSAHAAN, BADMINTON, BASKET, VOLI, POLBAN_CHESS, JFP,ROBOTIK, FELLAS, USF, nama_mhs, NIM);
-                    printf("\n\nMahasiswa %s dengan NIM telah dihapus dari daftar anggota POLBAN.\n", nama_mhs, NIM);
+                    printf("\n\nMahasiswa %s dengan NIM %s telah dihapus dari daftar anggota POLBAN.\n", nama_mhs, NIM);
                     char pesan[100];
                     sprintf(pesan, "(Delete) %s (%s) telah dikeluarkan dari POLBAN!\n", nama_mhs, NIM);
                     WriteLog(pesan);
@@ -1230,7 +1284,7 @@ void Penghentian_Studi(superset_list *S, subset_list* DKM, subset_list* KEWIRAUS
                     del_membersuper(S, nama_mhs, NIM);
                     DeleteFromPOLBANFile(nama_mhs, NIM);
                     DeleteInAllUKM(DKM, KEWIRAUSAHAAN, BADMINTON, BASKET, VOLI, POLBAN_CHESS, JFP,ROBOTIK, FELLAS, USF, nama_mhs, NIM);
-                    printf("\n\nMahasiswa %s dengan NIM telah dihapus dari daftar anggota POLBAN.\n", nama_mhs, NIM);
+                    printf("\n\nMahasiswa %s dengan NIM %s telah dihapus dari daftar anggota POLBAN.\n", nama_mhs, NIM);
                     char pesan[100];
                     sprintf(pesan, "(Delete) %s (%s) telah dikeluarkan dari POLBAN!\n", nama_mhs, NIM);
                     WriteLog(pesan);
@@ -1252,7 +1306,7 @@ void Penghentian_Studi(superset_list *S, subset_list* DKM, subset_list* KEWIRAUS
                     del_membersuper(S, nama_mhs, NIM);
                     DeleteFromPOLBANFile(nama_mhs, NIM);
                     DeleteInAllUKM(DKM, KEWIRAUSAHAAN, BADMINTON, BASKET, VOLI, POLBAN_CHESS, JFP,ROBOTIK, FELLAS, USF, nama_mhs, NIM);
-                    printf("\n\nMahasiswa %s dengan NIM telah dihapus dari daftar anggota POLBAN.\n", nama_mhs, NIM);
+                    printf("\n\nMahasiswa %s dengan NIM %s telah dihapus dari daftar anggota POLBAN.\n", nama_mhs, NIM);
                     char pesan[100];
                     sprintf(pesan, "(Delete) %s (%s) telah dikeluarkan dari POLBAN!\n", nama_mhs, NIM);
                     WriteLog(pesan);
@@ -1274,7 +1328,7 @@ void Penghentian_Studi(superset_list *S, subset_list* DKM, subset_list* KEWIRAUS
                     del_membersuper(S, nama_mhs, NIM);
                     DeleteFromPOLBANFile(nama_mhs, NIM);
                     DeleteInAllUKM(DKM, KEWIRAUSAHAAN, BADMINTON, BASKET, VOLI, POLBAN_CHESS, JFP,ROBOTIK, FELLAS, USF, nama_mhs, NIM);
-                    printf("\n\nMahasiswa %s dengan NIM telah dihapus dari daftar anggota POLBAN.\n", nama_mhs, NIM);
+                    printf("\n\nMahasiswa %s dengan NIM %s telah dihapus dari daftar anggota POLBAN.\n", nama_mhs, NIM);
                     char pesan[100];
                     sprintf(pesan, "(Delete) %s (%s) telah dikeluarkan dari POLBAN!\n", nama_mhs, NIM);
                     WriteLog(pesan);
@@ -1296,7 +1350,7 @@ void Penghentian_Studi(superset_list *S, subset_list* DKM, subset_list* KEWIRAUS
                     del_membersuper(S, nama_mhs, NIM);
                     DeleteFromPOLBANFile(nama_mhs, NIM);
                     DeleteInAllUKM(DKM, KEWIRAUSAHAAN, BADMINTON, BASKET, VOLI, POLBAN_CHESS, JFP,ROBOTIK, FELLAS, USF, nama_mhs, NIM);
-                    printf("\n\nMahasiswa %s dengan NIM telah dihapus dari daftar anggota POLBAN.\n", nama_mhs, NIM);
+                    printf("\n\nMahasiswa %s dengan NIM %s telah dihapus dari daftar anggota POLBAN.\n", nama_mhs, NIM);
                     char pesan[100];
                     sprintf(pesan, "(Delete) %s (%s) telah dikeluarkan dari POLBAN!\n", nama_mhs, NIM);
                     WriteLog(pesan);
@@ -1318,7 +1372,7 @@ void Penghentian_Studi(superset_list *S, subset_list* DKM, subset_list* KEWIRAUS
                     del_membersuper(S, nama_mhs, NIM);
                     DeleteFromPOLBANFile(nama_mhs, NIM);
                     DeleteInAllUKM(DKM, KEWIRAUSAHAAN, BADMINTON, BASKET, VOLI, POLBAN_CHESS, JFP,ROBOTIK, FELLAS, USF, nama_mhs, NIM);
-                    printf("\n\nMahasiswa %s dengan NIM telah dihapus dari daftar anggota POLBAN.\n", nama_mhs, NIM);
+                    printf("\n\nMahasiswa %s dengan NIM %s telah dihapus dari daftar anggota POLBAN.\n", nama_mhs, NIM);
                     char pesan[100];
                     sprintf(pesan, "(Delete) %s (%s) telah dikeluarkan dari POLBAN!\n", nama_mhs, NIM);
                     WriteLog(pesan);
@@ -1340,7 +1394,7 @@ void Penghentian_Studi(superset_list *S, subset_list* DKM, subset_list* KEWIRAUS
                     del_membersuper(S, nama_mhs, NIM);
                     DeleteFromPOLBANFile(nama_mhs, NIM);
                     DeleteInAllUKM(DKM, KEWIRAUSAHAAN, BADMINTON, BASKET, VOLI, POLBAN_CHESS, JFP,ROBOTIK, FELLAS, USF, nama_mhs, NIM);
-                    printf("\n\nMahasiswa %s dengan NIM telah dihapus dari daftar anggota POLBAN.\n", nama_mhs, NIM);
+                    printf("\n\nMahasiswa %s dengan NIM %s telah dihapus dari daftar anggota POLBAN.\n", nama_mhs, NIM);
                     char pesan[100];
                     sprintf(pesan, "(Delete) %s (%s) telah dikeluarkan dari POLBAN!\n", nama_mhs, NIM);
                     WriteLog(pesan);
@@ -1586,7 +1640,7 @@ void gabungan(subset_list H1, subset_list H2) {
 void  selisih(subset_list H1, subset_list H2) {
 /*  AUTHOR      : Bob Manuel
     IS          : List subset1 dan subset2 sudah terbentuk, ada kemungkinan jika subset kosong.
-    FS          : Menampilkan irisan atau anggota-anggota yang sama pada kedua himpunan yang diinputkan.
+    FS          : Menampilkan selisih atau anggota-anggota yang sama pada kedua himpunan yang diinputkan.
     DESKRIPSI   : Prosedur untuk menampilkan anggota hasil dari operasi selisih antara 2 subset
                   Jika salah satu atau kedua subset kosong, maka akan menampilkan pesan bahwa tidak terdapat hasil operasi selisih karena terdapat himpunan yang kosong.
     =======================================================================================================================*/
@@ -1649,7 +1703,14 @@ void  selisih(subset_list H1, subset_list H2) {
 }
 
 
-void komplemen(superset_list S, subset_list H1) {
+void komplemen(superset_list S, subset_list H1)
+/*  AUTHOR      : Bob Manuel
+    IS          : List super dan subset sudah terbentuk, ada kemungkinan jika subset kosong.
+    FS          : Menampilkan komplemen atau anggota-anggota yang sama pada kedua himpunan yang diinputkan.
+    DESKRIPSI   : Prosedur untuk menampilkan anggota hasil dari operasi komplemen
+                  Jika salah satu atau kedua set kosong, maka akan menampilkan pesan bahwa tidak terdapat hasil operasi komplemen karena terdapat himpunan yang kosong.
+========================================================================================================================*/
+{
     alamatsuper P;
     alamatsub Q;
     int i = 1; 
@@ -1678,7 +1739,13 @@ void komplemen(superset_list S, subset_list H1) {
     }
 }
 
-void search(superset_list S, subset_list DKM, subset_list KEWIRAUSAHAAN, subset_list BADMINTON, subset_list BASKET, subset_list VOLI, subset_list POLBAN_CHESS, subset_list JFP, subset_list ROBOTIK, subset_list FELLAS, subset_list USF, char nama_mhs[], char NIM[]){
+void search(superset_list S, subset_list DKM, subset_list KEWIRAUSAHAAN, subset_list BADMINTON, subset_list BASKET, subset_list VOLI, subset_list POLBAN_CHESS, subset_list JFP, subset_list ROBOTIK, subset_list FELLAS, subset_list USF, char nama_mhs[], char NIM[])
+/*  AUTHOR      : Salsabil Khoirunisa
+    IS          : List POLBAN dan UKM telah dibentuk
+    FS          : Berhasil mengirimkan informasi ke modul display_search
+    DESKRIPSI   : Prosedur untuk menampilkan menu pencarian mahasiswa
+========================================================================================================================*/
+{
     system("cls");
         printf("=========================================\n");
         printf("|\t[4] Cari Mahasiswa\t\t|\n");
@@ -1689,9 +1756,14 @@ void search(superset_list S, subset_list DKM, subset_list KEWIRAUSAHAAN, subset_
     display_search(S, DKM, KEWIRAUSAHAAN, BADMINTON, BASKET, VOLI, POLBAN_CHESS, JFP, ROBOTIK, FELLAS, USF, nama_mhs, NIM);
 }
 
-void display_search(superset_list S, subset_list DKM, subset_list KEWIRAUSAHAAN, subset_list BADMINTON, subset_list BASKET, subset_list VOLI, subset_list POLBAN_CHESS, subset_list JFP, subset_list ROBOTIK, subset_list FELLAS, subset_list USF, char nama_mhs[], char NIM[]) {
+void display_search(superset_list S, subset_list DKM, subset_list KEWIRAUSAHAAN, subset_list BADMINTON, subset_list BASKET, subset_list VOLI, subset_list POLBAN_CHESS, subset_list JFP, subset_list ROBOTIK, subset_list FELLAS, subset_list USF, char nama_mhs[], char NIM[])
+/*  AUTHOR      : Salsabil Khoirunisa
+    IS          : List POLBAN dan UKM sudah terbentuk, menerima nama mahasiswa beserta NIMnya
+    FS          : Berhasil atau gagal menampilkan mahasiswa yang dicari serta UKM yang diikutinya
+    DESKRIPSI   : Prosedur untuk menampilkan mahasiswa yang dicari beserta dengan UKM yang diikuti
+========================================================================================================================*/
+{
     alamatsuper P;
-    alamatsub Q;
     P = S.first_super;
     bool found = false;
 
@@ -1746,7 +1818,13 @@ void display_search(superset_list S, subset_list DKM, subset_list KEWIRAUSAHAAN,
 
 }
 
-void PanduanPenggunaan(){
+void PanduanPenggunaan()
+/*  AUTHOR      : Salsabil Khoirunisa
+    IS          : File PANDUAN.txt bisa ada atau tidak ada
+    FS          : Berhasil membuat file PANDUAN.txt
+    DESKRIPSI   : Prosedur untuk membuat file PANDUAN.txt
+=======================================================================================================================*/
+{
     FILE *fp = fopen("PANDUAN.txt", "w+");
 
     if(fp == NULL){
@@ -1778,7 +1856,13 @@ void PanduanPenggunaan(){
 
 }
 
-void TampilkanPanduan(){
+void TampilkanPanduan()
+/*  AUTHOR      : Salsabil Khoirunisa
+    IS          : File PANDUAN.txt bisa ada atau tidak ada
+    FS          : Berhasil menampilkan file PANDUAN.txt
+    DESKRIPSI   : Prosedur untuk menampilkan file PANDUAN.txt
+=======================================================================================================================*/
+{
     FILE *fp = fopen("PANDUAN.txt", "r");
 
     if(fp == NULL){
@@ -1795,7 +1879,13 @@ void TampilkanPanduan(){
     system("pause");
 }
 
-void display_menu() {
+void display_menu()
+/*  AUTHOR      : Salsabil Khoirunisa
+    IS          : Belum atau mungkin sudah menampilkan display_menu()
+    FS          : Menampilkan menu dari opsi-opsi fitur yang ada
+    DESKRIPSI   : Prosedur untuk menampilkan menu dari fitur yang tersedia
+========================================================================================================================*/
+ {
         system("cls");
         printf("___\n");
 printf("\\ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n");
@@ -2148,7 +2238,13 @@ void CopyFromFile(superset_list S, subset_list* H, char NamaUKM[])
     fclose(fp); 
 }
 
-void DeleteFromPOLBANFile(char nama_mhs[], char NIM[]){
+void DeleteFromPOLBANFile(char nama_mhs[], char NIM[])
+/*  AUTHOR      : Banteng Harisantoso
+    IS          : Menerima variabel nama_mhs dan NIM
+    FS          : Berhasil atau gagal menghapus nama-nama mahasiswa beserta nim dari file POLBAN.txt
+    DESKRIPSI   : Prosedur untuk menghapus mahasiswa dari file POLBAN.txt
+=======================================================================================================================*/
+{
     char buffer[100];
     int line = 1;
     int found = 0;
@@ -2198,7 +2294,13 @@ void DeleteFromPOLBANFile(char nama_mhs[], char NIM[]){
     system("pause");
 }
 
-void EditFilePOLBAN(char nama_mhs[], char NIM[], char nama_baru[], char NIM_baru[], superset_list *S){
+void EditFilePOLBAN(char nama_mhs[], char NIM[], char nama_baru[], char NIM_baru[])
+/*  AUTHOR      : Banteng Harisantoso
+    IS          : Menerima nama mahasiwa sebelumnya, nama baru, NIM sebelumnya, dan NIM baru,
+    FS          : Berhasil atau gagal mengedit informasi mahasiswa di file POLBAN.txt
+    DESKRIPSI   : Prosedur untuk mengedit mahasiswa di file POLBAN.txt
+=======================================================================================================================*/
+{
     char buffer[100];
     int line = 1;
     int found = 0;
@@ -2242,7 +2344,7 @@ void EditFilePOLBAN(char nama_mhs[], char NIM[], char nama_baru[], char NIM_baru
     if(found == 1){
         remove("POLBAN.txt");
         rename("temp.txt", "POLBAN.txt");
-        printf("Database telah di update\n", nama_mhs, NIM); 
+        printf("Database telah di update\n"); 
         system("pause");
     } else{
         remove("temp.txt");
@@ -2250,7 +2352,13 @@ void EditFilePOLBAN(char nama_mhs[], char NIM[], char nama_baru[], char NIM_baru
     }
 }
 
-void DeleteFromUKMFile(char nama_mhs[], char NIM[], char UKM[]){
+void DeleteFromUKMFile(char nama_mhs[], char NIM[], char UKM[])
+/*  AUTHOR      : Banteng Harisantoso
+    IS          : Menerima nama mahasiwa sebelumnya, nama baru, serta nama UKM
+    FS          : Berhasil atau gagal menghapus mahasiswa dari file UKM tertentu
+    DESKRIPSI   : Prosedur untuk menghapus mahasiswa dari file UKM tertentu
+=======================================================================================================================*/
+{
     char nama_file[100];
     char buffer[100];
     int line = 1;
@@ -2303,7 +2411,13 @@ void DeleteFromUKMFile(char nama_mhs[], char NIM[], char UKM[]){
     }
 }
 
-void WriteLog(char kalimat[]){
+void WriteLog(char kalimat[])
+/*  AUTHOR      : Banteng Harisantoso
+    IS          : Menerima pesan aktivitas
+    FS          : Berhasil atau gagal menuliskan pesan ke LOG.txt
+    DESKRIPSI   : Prosedur untuk menulis pesan ke LOG.txt
+=======================================================================================================================*/
+{
     FILE *fp = fopen("Log.txt", "a+");
 
     if(fp == NULL){
@@ -2315,7 +2429,13 @@ void WriteLog(char kalimat[]){
     fclose(fp);
 }
 
-void DisplayLog(){
+void DisplayLog()
+/*  AUTHOR      : Banteng Harisantoso
+    IS          : Menerima nama mahasiwa sebelumnya, nama baru, serta nama UKM
+    FS          : Berhasil atau gagal menampilkan LOG dari file LOG.txt
+    DESKRIPSI   : Prosedur untuk menampilkan LOG dari file LOG.txt
+=======================================================================================================================*/
+{
     FILE *fp = fopen("Log.txt", "r+");
     if(fp == NULL){
         printf("File tidak ada atau tidak dapat dibuka!\n");
@@ -2345,7 +2465,13 @@ void DisplayLog(){
     system("pause");
 }
 
-void MenuEditMahasiswa(superset_list* POLBAN, subset_list* DKM, subset_list* KEWIRAUSAHAAN, subset_list* BADMINTON, subset_list* BASKET, subset_list* VOLI, subset_list* POLBAN_CHESS, subset_list* JFP, subset_list* ROBOTIK, subset_list* FELLAS, subset_list* USF){
+void MenuEditMahasiswa(superset_list* POLBAN, subset_list* DKM, subset_list* KEWIRAUSAHAAN, subset_list* BADMINTON, subset_list* BASKET, subset_list* VOLI, subset_list* POLBAN_CHESS, subset_list* JFP, subset_list* ROBOTIK, subset_list* FELLAS, subset_list* USF)
+/*  AUTHOR      : Banteng Harisantoso
+    IS          : List UKM telah terbentuk
+    FS          : Berhasil atau gagal mengedit informasi mahasiswa
+    DESKRIPSI   : Prosedur untuk menampilkan menu edit mahasiswa
+=======================================================================================================================*/
+{
     char nama_mhs[61], nama_baru[61];
     char NIM[10], NIM_baru[10];
     bool valid = false;
@@ -2374,7 +2500,7 @@ void MenuEditMahasiswa(superset_list* POLBAN, subset_list* DKM, subset_list* KEW
             //Lanjutkan Perubahan
             if(opsi == 1){
                 update_membersuper(nama_mhs, NIM, nama_baru, NIM_baru, POLBAN);
-                EditFilePOLBAN(nama_mhs, NIM, nama_baru, NIM_baru, POLBAN);
+                EditFilePOLBAN(nama_mhs, NIM, nama_baru, NIM_baru);
                 EditInAllUKM(*DKM, *KEWIRAUSAHAAN, *BADMINTON,  *BASKET, *VOLI, *POLBAN_CHESS, *JFP, *ROBOTIK, *FELLAS, *USF, nama_mhs, NIM, nama_baru, NIM_baru);
                 //Menampilkan pesan
                 char pesan[100];
@@ -2411,7 +2537,13 @@ void MenuEditMahasiswa(superset_list* POLBAN, subset_list* DKM, subset_list* KEW
     }
     } 
 }  
-void update_membersuper(char nama_mhs[], char NIM[], char nama_baru[], char NIM_baru[], superset_list* S){
+void update_membersuper(char nama_mhs[], char NIM[], char nama_baru[], char NIM_baru[], superset_list* S)
+/*  AUTHOR      : Banteng Harisantoso
+    IS          : Menerima nama mahasiwa sebelumnya, nama baru, serta list POLBAN
+    FS          : Berhasil atau gagal mengedit mahasiswa di list POLBAN
+    DESKRIPSI   : Prosedur untuk mengedit mahasiswa di list POLBAN
+=======================================================================================================================*/
+{
     alamatsuper P;
 	P = S->first_super;
     while (P != NULL) {
@@ -2426,7 +2558,13 @@ void update_membersuper(char nama_mhs[], char NIM[], char nama_baru[], char NIM_
     printf("%s -> %s\n", NIM, NIM_baru);
 }
 
-void DeleteInAllUKM(subset_list* DKM, subset_list* KEWIRAUSAHAAN, subset_list* BADMINTON, subset_list* BASKET, subset_list* VOLI, subset_list* POLBAN_CHESS, subset_list* JFP, subset_list* ROBOTIK, subset_list* FELLAS, subset_list* USF, char nama_mhs[], char NIM[]){
+void DeleteInAllUKM(subset_list* DKM, subset_list* KEWIRAUSAHAAN, subset_list* BADMINTON, subset_list* BASKET, subset_list* VOLI, subset_list* POLBAN_CHESS, subset_list* JFP, subset_list* ROBOTIK, subset_list* FELLAS, subset_list* USF, char nama_mhs[], char NIM[])
+/*  AUTHOR      : Banteng Harisantoso
+    IS          : Menerima nama, nim, serta list UKM
+    FS          : Berhasil atau gagal menghapus mahasiswa dari semua UKM yang diikuti
+    DESKRIPSI   : Prosedur untuk menghapus mahasiswa dari semua list dan file UKM yang diikuti
+=======================================================================================================================*/
+{
     if(IsExistSub(*DKM, nama_mhs, NIM)){
         del_membersub(DKM, nama_mhs, NIM);
         DeleteFromUKMFile(nama_mhs, NIM, "DKM");
@@ -2470,7 +2608,13 @@ void DeleteInAllUKM(subset_list* DKM, subset_list* KEWIRAUSAHAAN, subset_list* B
 }
 
 
-void EditInAllUKM(subset_list DKM, subset_list KEWIRAUSAHAAN, subset_list BADMINTON, subset_list BASKET, subset_list VOLI, subset_list POLBAN_CHESS, subset_list JFP, subset_list ROBOTIK, subset_list FELLAS, subset_list USF, char nama_mhs[], char NIM[], char nama_baru[], char NIM_baru[]){
+void EditInAllUKM(subset_list DKM, subset_list KEWIRAUSAHAAN, subset_list BADMINTON, subset_list BASKET, subset_list VOLI, subset_list POLBAN_CHESS, subset_list JFP, subset_list ROBOTIK, subset_list FELLAS, subset_list USF, char nama_mhs[], char NIM[], char nama_baru[], char NIM_baru[])
+/*  AUTHOR      : Banteng Harisantoso
+    IS          : Menerima nama mahasiwa sebelumnya, nama baru, NIM sebelumnya, NIM baru, serta list UKM
+    FS          : Berhasil atau gagal mengedit mahasiswa di list dan file UKM
+    DESKRIPSI   : Prosedur untuk mengedit mahasiswa di list dan file UKM
+=======================================================================================================================*/
+{
     if(IsExistSub(DKM, nama_mhs, NIM)){
         update_membersub(nama_mhs, NIM, nama_baru, NIM_baru, DKM);
         EditFileUKM(nama_mhs, NIM, nama_baru, NIM_baru, "DKM");
@@ -2513,7 +2657,13 @@ void EditInAllUKM(subset_list DKM, subset_list KEWIRAUSAHAAN, subset_list BADMIN
     }
 }
 
-void update_membersub(char nama_mhs[], char NIM[], char nama_baru[], char NIM_baru[], subset_list H){
+void update_membersub(char nama_mhs[], char NIM[], char nama_baru[], char NIM_baru[], subset_list H)
+/*  AUTHOR      : Banteng Harisantoso
+    IS          : Menerima nama mahasiwa sebelumnya, nama baru, NIM sebelumnya, NIM baru, serta salah satu UKM
+    FS          : Berhasil atau gagal mengedit mahasiswa di list UKM tertentu
+    DESKRIPSI   : Prosedur untuk mengedit mahasiswa di list UKM tertentu
+=======================================================================================================================*/
+{
     alamatsub P;
 	P = H.first_sub;
     while (P != NULL) {
@@ -2525,7 +2675,13 @@ void update_membersub(char nama_mhs[], char NIM[], char nama_baru[], char NIM_ba
     }
 }
 
-void EditFileUKM(char nama_mhs[], char NIM[], char nama_baru[], char NIM_baru[], char UKM[]){
+void EditFileUKM(char nama_mhs[], char NIM[], char nama_baru[], char NIM_baru[], char UKM[])
+/*  AUTHOR      : Banteng Harisantoso
+    IS          : Menerima nama mahasiwa sebelumnya, nama baru, NIM sebelumnya, dan NIM baru, serta UKM
+    FS          : Berhasil atau gagal mengedit informasi mahasiswa di file UKM
+    DESKRIPSI   : Prosedur untuk mengedit mahasiswa di file UKM tertentu
+========================================================================================================================*/
+{
     char nama_file[100];
     char buffer[100];
     int line = 1;
@@ -2578,7 +2734,13 @@ void EditFileUKM(char nama_mhs[], char NIM[], char nama_baru[], char NIM_baru[],
     }
 }
 
-bool IsNIMTaken(char NIM[], char NIM_baru[], superset_list S){
+bool IsNIMTaken(char NIM[], char NIM_baru[], superset_list S)
+/*  AUTHOR      : Banteng Harisantoso
+    IS          : Menerima NIM lama, NIM baru, serta list S
+    FS          : Diketahui jika satu NIM sudah digunakan atau belum (True berarti sudah, False berarti belum)
+    DESKRIPSI   : Fungsi untuk mengetahui jika satu NIM sudah digunakan atau belum
+=======================================================================================================================*/
+{
     if(strcmp(NIM, NIM_baru) != 0){
         alamatsuper P;
         P = S.first_super;
