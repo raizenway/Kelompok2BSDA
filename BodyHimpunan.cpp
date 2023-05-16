@@ -481,11 +481,22 @@ void Seleksi_MemberSuper(superset_list *S)
         printf("| yang ingin didata? \t\t\t|\n");
         printf("=========================================\n");
         printf("Jumlah : ");
-        scanf("%d", &jumlah);
-        if((jumlah <=0)||(jumlah>=100)){
-            printf("\nJumlah tidak valid, minimal 1 mahasiswa dan maksimal 100 mahasiswa persesi!\n");
+        if (scanf("%d", &jumlah) != 1) {
+            // Input bukan integer, lakukan penanganan error
+            printf("Input tidak valid, harap masukkan bilangan bulat!\n");
+            system("pause");
+
+            // Membersihkan input yang tidak valid dari buffer
+            int c;
+            while ((c = getchar()) != '\n' && c != EOF) {}
+            
+            // Reset jumlah ke 0 agar loop terus berlanjut
+            jumlah = 0;
+        } else if (jumlah <= 0 || jumlah >= 100) {
+            printf("\nJumlah tidak valid, minimal 1 mahasiswa dan maksimal 99 mahasiswa!\n");
+            system("pause");
         }
-    } while ((jumlah <= 0)||(jumlah>=100));
+    } while (jumlah <= 0 || jumlah >= 100);
     
     
     for(int i=0;i<jumlah;i++){
@@ -630,8 +641,24 @@ while(!valid){
     printf("============================ Menu Pendataan Anggota UKM ===================================\n");
     int opsi = ListUKM();
     if(opsi==1){
+        do{
         printf("Masukkan jumlah mahasiswa yang akan bergabung dengan DKM: ");
-        scanf("%d", &jumlah);
+        if (scanf("%d", &jumlah) != 1) {
+            // Input bukan integer, lakukan penanganan error
+            printf("Input tidak valid, harap masukkan bilangan bulat!\n");
+            system("pause");
+
+            // Membersihkan input yang tidak valid dari buffer
+            int c;
+            while ((c = getchar()) != '\n' && c != EOF) {}
+            
+            // Reset jumlah ke 0 agar loop terus berlanjut
+            jumlah = 0;
+        } else if (jumlah <= 0 || jumlah >= 100) {
+            printf("\nJumlah tidak valid, minimal 1 mahasiswa\n");
+            system("pause");
+        }
+        }while(jumlah < 1);
         for(int i = 0; i < jumlah; i++){
             addnama(nama_mhs);
             addnim(NIM);
@@ -654,8 +681,24 @@ while(!valid){
         valid = true;        
         break;
     }else if(opsi==2){
+        do{
         printf("Masukkan jumlah mahasiswa yang akan bergabung dengan KEWIRAUSAHAAN: ");
-        scanf("%d", &jumlah);
+        if (scanf("%d", &jumlah) != 1) {
+            // Input bukan integer, lakukan penanganan error
+            printf("Input tidak valid, harap masukkan bilangan bulat!\n");
+            system("pause");
+
+            // Membersihkan input yang tidak valid dari buffer
+            int c;
+            while ((c = getchar()) != '\n' && c != EOF) {}
+            
+            // Reset jumlah ke 0 agar loop terus berlanjut
+            jumlah = 0;
+        } else if (jumlah <= 0 || jumlah >= 100) {
+            printf("\nJumlah tidak valid, minimal 1 mahasiswa\n");
+            system("pause");
+        }
+        }while(jumlah < 1);
         for(int i = 0; i < jumlah; i++){
             addnama(nama_mhs);
             addnim(NIM);
@@ -678,8 +721,24 @@ while(!valid){
         valid = true;
         break;
     }else if(opsi==3){
+        do{
         printf("Masukkan jumlah mahasiswa yang akan bergabung dengan BADMINTON: ");
-        scanf("%d", &jumlah);
+        if (scanf("%d", &jumlah) != 1) {
+            // Input bukan integer, lakukan penanganan error
+            printf("Input tidak valid, harap masukkan bilangan bulat!\n");
+            system("pause");
+
+            // Membersihkan input yang tidak valid dari buffer
+            int c;
+            while ((c = getchar()) != '\n' && c != EOF) {}
+            
+            // Reset jumlah ke 0 agar loop terus berlanjut
+            jumlah = 0;
+        } else if (jumlah <= 0 || jumlah >= 100) {
+            printf("\nJumlah tidak valid, minimal 1 mahasiswa\n");
+            system("pause");
+        }
+        }while(jumlah < 1);
         for(int i = 0; i < jumlah; i++){
             addnama(nama_mhs);
             addnim(NIM);
@@ -702,8 +761,24 @@ while(!valid){
         valid = true;
         break;
     }else if(opsi==4){
+       do{
         printf("Masukkan jumlah mahasiswa yang akan bergabung dengan BASKET: ");
-        scanf("%d", &jumlah);
+        if (scanf("%d", &jumlah) != 1) {
+            // Input bukan integer, lakukan penanganan error
+            printf("Input tidak valid, harap masukkan bilangan bulat!\n");
+            system("pause");
+
+            // Membersihkan input yang tidak valid dari buffer
+            int c;
+            while ((c = getchar()) != '\n' && c != EOF) {}
+            
+            // Reset jumlah ke 0 agar loop terus berlanjut
+            jumlah = 0;
+        } else if (jumlah <= 0 || jumlah >= 100) {
+            printf("\nJumlah tidak valid, minimal 1 mahasiswa\n");
+            system("pause");
+        }
+        }while(jumlah < 1);
         for(int i = 0; i < jumlah; i++){
             addnama(nama_mhs);
             addnim(NIM);
@@ -726,8 +801,24 @@ while(!valid){
         valid = true;
         break; 
     }else if(opsi==5){
-       printf("Masukkan jumlah mahasiswa yang akan bergabung dengan VOLI: ");
-        scanf("%d", &jumlah);
+       do{
+        printf("Masukkan jumlah mahasiswa yang akan bergabung dengan VOLI: ");
+        if (scanf("%d", &jumlah) != 1) {
+            // Input bukan integer, lakukan penanganan error
+            printf("Input tidak valid, harap masukkan bilangan bulat!\n");
+            system("pause");
+
+            // Membersihkan input yang tidak valid dari buffer
+            int c;
+            while ((c = getchar()) != '\n' && c != EOF) {}
+            
+            // Reset jumlah ke 0 agar loop terus berlanjut
+            jumlah = 0;
+        } else if (jumlah <= 0 || jumlah >= 100) {
+            printf("\nJumlah tidak valid, minimal 1 mahasiswa\n");
+            system("pause");
+        }
+        }while(jumlah < 1);
         for(int i = 0; i < jumlah; i++){
             addnama(nama_mhs);
             addnim(NIM);
@@ -750,8 +841,24 @@ while(!valid){
         valid = true;
         break; 
     }else if(opsi==6){
+       do{
         printf("Masukkan jumlah mahasiswa yang akan bergabung dengan POLBAN CHESS: ");
-        scanf("%d", &jumlah);
+        if (scanf("%d", &jumlah) != 1) {
+            // Input bukan integer, lakukan penanganan error
+            printf("Input tidak valid, harap masukkan bilangan bulat!\n");
+            system("pause");
+
+            // Membersihkan input yang tidak valid dari buffer
+            int c;
+            while ((c = getchar()) != '\n' && c != EOF) {}
+            
+            // Reset jumlah ke 0 agar loop terus berlanjut
+            jumlah = 0;
+        } else if (jumlah <= 0 || jumlah >= 100) {
+            printf("\nJumlah tidak valid, minimal 1 mahasiswa\n");
+            system("pause");
+        }
+        }while(jumlah < 1);
         for(int i = 0; i < jumlah; i++){
             addnama(nama_mhs);
             addnim(NIM);
@@ -774,8 +881,24 @@ while(!valid){
         valid = true;
         break;
     }else if(opsi==7){
+       do{
         printf("Masukkan jumlah mahasiswa yang akan bergabung dengan JFP: ");
-        scanf("%d", &jumlah);
+        if (scanf("%d", &jumlah) != 1) {
+            // Input bukan integer, lakukan penanganan error
+            printf("Input tidak valid, harap masukkan bilangan bulat!\n");
+            system("pause");
+
+            // Membersihkan input yang tidak valid dari buffer
+            int c;
+            while ((c = getchar()) != '\n' && c != EOF) {}
+            
+            // Reset jumlah ke 0 agar loop terus berlanjut
+            jumlah = 0;
+        } else if (jumlah <= 0 || jumlah >= 100) {
+            printf("\nJumlah tidak valid, minimal 1 mahasiswa\n");
+            system("pause");
+        }
+        }while(jumlah < 1);
         for(int i = 0; i < jumlah; i++){
             addnama(nama_mhs);
             addnim(NIM);
@@ -798,8 +921,24 @@ while(!valid){
         valid = true;
         break;
     }else if(opsi==8){
+        do{
         printf("Masukkan jumlah mahasiswa yang akan bergabung dengan ROBOTIK: ");
-        scanf("%d", &jumlah);
+        if (scanf("%d", &jumlah) != 1) {
+            // Input bukan integer, lakukan penanganan error
+            printf("Input tidak valid, harap masukkan bilangan bulat!\n");
+            system("pause");
+
+            // Membersihkan input yang tidak valid dari buffer
+            int c;
+            while ((c = getchar()) != '\n' && c != EOF) {}
+            
+            // Reset jumlah ke 0 agar loop terus berlanjut
+            jumlah = 0;
+        } else if (jumlah <= 0 || jumlah >= 100) {
+            printf("\nJumlah tidak valid, minimal 1 mahasiswa\n");
+            system("pause");
+        }
+        }while(jumlah < 1);
         for(int i = 0; i < jumlah; i++){
             addnama(nama_mhs);
             addnim(NIM);
@@ -822,8 +961,24 @@ while(!valid){
         valid = true;
         break;
     }else if(opsi==9){
-       printf("Masukkan jumlah mahasiswa yang akan bergabung dengan FELLAS: ");
-        scanf("%d", &jumlah);
+       do{
+        printf("Masukkan jumlah mahasiswa yang akan bergabung dengan FELLAS: ");
+        if (scanf("%d", &jumlah) != 1) {
+            // Input bukan integer, lakukan penanganan error
+            printf("Input tidak valid, harap masukkan bilangan bulat!\n");
+            system("pause");
+
+            // Membersihkan input yang tidak valid dari buffer
+            int c;
+            while ((c = getchar()) != '\n' && c != EOF) {}
+            
+            // Reset jumlah ke 0 agar loop terus berlanjut
+            jumlah = 0;
+        } else if (jumlah <= 0 || jumlah >= 100) {
+            printf("\nJumlah tidak valid, minimal 1 mahasiswa\n");
+            system("pause");
+        }
+        }while(jumlah < 1);
         for(int i = 0; i < jumlah; i++){
             addnama(nama_mhs);
             addnim(NIM);
@@ -846,8 +1001,24 @@ while(!valid){
         valid = true;
         break; 
     }else if(opsi==10){
+        do{
         printf("Masukkan jumlah mahasiswa yang akan bergabung dengan USF: ");
-        scanf("%d", &jumlah);
+        if (scanf("%d", &jumlah) != 1) {
+            // Input bukan integer, lakukan penanganan error
+            printf("Input tidak valid, harap masukkan bilangan bulat!\n");
+            system("pause");
+
+            // Membersihkan input yang tidak valid dari buffer
+            int c;
+            while ((c = getchar()) != '\n' && c != EOF) {}
+            
+            // Reset jumlah ke 0 agar loop terus berlanjut
+            jumlah = 0;
+        } else if (jumlah <= 0 || jumlah >= 100) {
+            printf("\nJumlah tidak valid, minimal 1 mahasiswa\n");
+            system("pause");
+        }
+        }while(jumlah < 1);
         for(int i = 0; i < jumlah; i++){
             addnama(nama_mhs);
             addnim(NIM);
@@ -892,8 +1063,24 @@ while(!valid){
     printf("============================ Menu Update Anggota UKM ===================================\n");
     int opsi = ListUKM();
     if(opsi==1){
+        do{
         printf("Masukkan jumlah mahasiswa yang akan dihapus dari UKM DKM: ");
-        scanf("%d", &jumlah);
+        if (scanf("%d", &jumlah) != 1) {
+            // Input bukan integer, lakukan penanganan error
+            printf("Input tidak valid, harap masukkan bilangan bulat!\n");
+            system("pause");
+
+            // Membersihkan input yang tidak valid dari buffer
+            int c;
+            while ((c = getchar()) != '\n' && c != EOF) {}
+            
+            // Reset jumlah ke 0 agar loop terus berlanjut
+            jumlah = 0;
+        } else if (jumlah <= 0 || jumlah >= 100) {
+            printf("\nJumlah tidak valid, minimal 1 mahasiswa\n");
+            system("pause");
+        }
+        }while(jumlah < 1);
         for(int i = 0; i < jumlah; i++){
             addnama(nama_mhs);
             addnim(NIM);
@@ -912,8 +1099,24 @@ while(!valid){
         valid = true;        
         break;
     }else if(opsi==2){
+        do{
         printf("Masukkan jumlah mahasiswa yang akan dihapus dari UKM KEWIRAUSAHAAN: ");
-        scanf("%d", &jumlah);
+        if (scanf("%d", &jumlah) != 1) {
+            // Input bukan integer, lakukan penanganan error
+            printf("Input tidak valid, harap masukkan bilangan bulat!\n");
+            system("pause");
+
+            // Membersihkan input yang tidak valid dari buffer
+            int c;
+            while ((c = getchar()) != '\n' && c != EOF) {}
+            
+            // Reset jumlah ke 0 agar loop terus berlanjut
+            jumlah = 0;
+        } else if (jumlah <= 0 || jumlah >= 100) {
+            printf("\nJumlah tidak valid, minimal 1 mahasiswa\n");
+            system("pause");
+        }
+        }while(jumlah < 1);
         for(int i = 0; i < jumlah; i++){
             addnama(nama_mhs);
             addnim(NIM);
@@ -932,8 +1135,24 @@ while(!valid){
         valid = true;
         break;
     }else if(opsi==3){
+        do{
         printf("Masukkan jumlah mahasiswa yang akan dihapus dari UKM BADMINTON: ");
-        scanf("%d", &jumlah);
+        if (scanf("%d", &jumlah) != 1) {
+            // Input bukan integer, lakukan penanganan error
+            printf("Input tidak valid, harap masukkan bilangan bulat!\n");
+            system("pause");
+
+            // Membersihkan input yang tidak valid dari buffer
+            int c;
+            while ((c = getchar()) != '\n' && c != EOF) {}
+            
+            // Reset jumlah ke 0 agar loop terus berlanjut
+            jumlah = 0;
+        } else if (jumlah <= 0 || jumlah >= 100) {
+            printf("\nJumlah tidak valid, minimal 1 mahasiswa\n");
+            system("pause");
+        }
+        }while(jumlah < 1);
         for(int i = 0; i < jumlah; i++){
             addnama(nama_mhs);
             addnim(NIM);
@@ -952,8 +1171,24 @@ while(!valid){
         valid = true;
         break;
     }else if(opsi==4){
+        do{
         printf("Masukkan jumlah mahasiswa yang akan dihapus dari UKM BASKET: ");
-        scanf("%d", &jumlah);
+        if (scanf("%d", &jumlah) != 1) {
+            // Input bukan integer, lakukan penanganan error
+            printf("Input tidak valid, harap masukkan bilangan bulat!\n");
+            system("pause");
+
+            // Membersihkan input yang tidak valid dari buffer
+            int c;
+            while ((c = getchar()) != '\n' && c != EOF) {}
+            
+            // Reset jumlah ke 0 agar loop terus berlanjut
+            jumlah = 0;
+        } else if (jumlah <= 0 || jumlah >= 100) {
+            printf("\nJumlah tidak valid, minimal 1 mahasiswa\n");
+            system("pause");
+        }
+        }while(jumlah < 1);
         for(int i = 0; i < jumlah; i++){
             addnama(nama_mhs);
             addnim(NIM);
@@ -972,8 +1207,24 @@ while(!valid){
         valid = true;
         break; 
     }else if(opsi==5){
-       printf("Masukkan jumlah mahasiswa yang akan dihapus dari UKM VOLI: ");
-        scanf("%d", &jumlah);
+       do{
+        printf("Masukkan jumlah mahasiswa yang akan dihapus dari UKM VOLI: ");
+        if (scanf("%d", &jumlah) != 1) {
+            // Input bukan integer, lakukan penanganan error
+            printf("Input tidak valid, harap masukkan bilangan bulat!\n");
+            system("pause");
+
+            // Membersihkan input yang tidak valid dari buffer
+            int c;
+            while ((c = getchar()) != '\n' && c != EOF) {}
+            
+            // Reset jumlah ke 0 agar loop terus berlanjut
+            jumlah = 0;
+        } else if (jumlah <= 0 || jumlah >= 100) {
+            printf("\nJumlah tidak valid, minimal 1 mahasiswa\n");
+            system("pause");
+        }
+        }while(jumlah < 1);
         for(int i = 0; i < jumlah; i++){
             addnama(nama_mhs);
             addnim(NIM);
@@ -992,8 +1243,24 @@ while(!valid){
         valid = true;
         break; 
     }else if(opsi==6){
+        do{
         printf("Masukkan jumlah mahasiswa yang akan dihapus dari UKM POLBAN CHESS: ");
-        scanf("%d", &jumlah);
+        if (scanf("%d", &jumlah) != 1) {
+            // Input bukan integer, lakukan penanganan error
+            printf("Input tidak valid, harap masukkan bilangan bulat!\n");
+            system("pause");
+
+            // Membersihkan input yang tidak valid dari buffer
+            int c;
+            while ((c = getchar()) != '\n' && c != EOF) {}
+            
+            // Reset jumlah ke 0 agar loop terus berlanjut
+            jumlah = 0;
+        } else if (jumlah <= 0 || jumlah >= 100) {
+            printf("\nJumlah tidak valid, minimal 1 mahasiswa\n");
+            system("pause");
+        }
+        }while(jumlah < 1);
         for(int i = 0; i < jumlah; i++){
             addnama(nama_mhs);
             addnim(NIM);
@@ -1012,8 +1279,24 @@ while(!valid){
         valid = true;
         break;
     }else if(opsi==7){
+        do{
         printf("Masukkan jumlah mahasiswa yang akan dihapus dari UKM JFP: ");
-        scanf("%d", &jumlah);
+        if (scanf("%d", &jumlah) != 1) {
+            // Input bukan integer, lakukan penanganan error
+            printf("Input tidak valid, harap masukkan bilangan bulat!\n");
+            system("pause");
+
+            // Membersihkan input yang tidak valid dari buffer
+            int c;
+            while ((c = getchar()) != '\n' && c != EOF) {}
+            
+            // Reset jumlah ke 0 agar loop terus berlanjut
+            jumlah = 0;
+        } else if (jumlah <= 0 || jumlah >= 100) {
+            printf("\nJumlah tidak valid, minimal 1 mahasiswa\n");
+            system("pause");
+        }
+        }while(jumlah < 1);
         for(int i = 0; i < jumlah; i++){
             addnama(nama_mhs);
             addnim(NIM);
@@ -1032,8 +1315,24 @@ while(!valid){
         valid = true;
         break;
     }else if(opsi==8){
+        do{
         printf("Masukkan jumlah mahasiswa yang akan dihapus dari UKM ROBOTIK: ");
-        scanf("%d", &jumlah);
+        if (scanf("%d", &jumlah) != 1) {
+            // Input bukan integer, lakukan penanganan error
+            printf("Input tidak valid, harap masukkan bilangan bulat!\n");
+            system("pause");
+
+            // Membersihkan input yang tidak valid dari buffer
+            int c;
+            while ((c = getchar()) != '\n' && c != EOF) {}
+            
+            // Reset jumlah ke 0 agar loop terus berlanjut
+            jumlah = 0;
+        } else if (jumlah <= 0 || jumlah >= 100) {
+            printf("\nJumlah tidak valid, minimal 1 mahasiswa\n");
+            system("pause");
+        }
+        }while(jumlah < 1);
         for(int i = 0; i < jumlah; i++){
             addnama(nama_mhs);
             addnim(NIM);
@@ -1052,8 +1351,24 @@ while(!valid){
         valid = true;
         break;
     }else if(opsi==9){
-       printf("Masukkan jumlah mahasiswa yang akan dihapus dari UKM FELLAS: ");
-        scanf("%d", &jumlah);
+       do{
+        printf("Masukkan jumlah mahasiswa yang akan dihapus dari UKM FELLAS: ");
+        if (scanf("%d", &jumlah) != 1) {
+            // Input bukan integer, lakukan penanganan error
+            printf("Input tidak valid, harap masukkan bilangan bulat!\n");
+            system("pause");
+
+            // Membersihkan input yang tidak valid dari buffer
+            int c;
+            while ((c = getchar()) != '\n' && c != EOF) {}
+            
+            // Reset jumlah ke 0 agar loop terus berlanjut
+            jumlah = 0;
+        } else if (jumlah <= 0 || jumlah >= 100) {
+            printf("\nJumlah tidak valid, minimal 1 mahasiswa\n");
+            system("pause");
+        }
+        }while(jumlah < 1);
         for(int i = 0; i < jumlah; i++){
             addnama(nama_mhs);
             addnim(NIM);
@@ -1073,8 +1388,24 @@ while(!valid){
         valid = true;
         break; 
     }else if(opsi==10){
+        do{
         printf("Masukkan jumlah mahasiswa yang akan dihapus dari UKM USF: ");
-        scanf("%d", &jumlah);
+        if (scanf("%d", &jumlah) != 1) {
+            // Input bukan integer, lakukan penanganan error
+            printf("Input tidak valid, harap masukkan bilangan bulat!\n");
+            system("pause");
+
+            // Membersihkan input yang tidak valid dari buffer
+            int c;
+            while ((c = getchar()) != '\n' && c != EOF) {}
+            
+            // Reset jumlah ke 0 agar loop terus berlanjut
+            jumlah = 0;
+        } else if (jumlah <= 0 || jumlah >= 100) {
+            printf("\nJumlah tidak valid, minimal 1 mahasiswa\n");
+            system("pause");
+        }
+        }while(jumlah < 1);
         for(int i = 0; i < jumlah; i++){
             addnama(nama_mhs);
             addnim(NIM);
@@ -1216,12 +1547,24 @@ void Penghentian_Studi(superset_list *S, subset_list* DKM, subset_list* KEWIRAUS
     char nama_mhs[61];
     char NIM[61];
 
-    printf("Berapa banyak mahasiswa yang ingin dihapus? ");
-    scanf("%d", &jumlah);
-    while((jumlah == 0)||(jumlah<0)){
-        printf("Jumlah tidak valid! Silahkan masukkan jumlah yang valid.\n");
-        scanf("%d", &jumlah);
-    }
+    do{
+        printf("Masukkan jumlah mahasiswa yang akan dihapus dari UKM DKM: ");
+        if (scanf("%d", &jumlah) != 1) {
+            // Input bukan integer, lakukan penanganan error
+            printf("Input tidak valid, harap masukkan bilangan bulat!\n");
+            system("pause");
+
+            // Membersihkan input yang tidak valid dari buffer
+            int c;
+            while ((c = getchar()) != '\n' && c != EOF) {}
+            
+            // Reset jumlah ke 0 agar loop terus berlanjut
+            jumlah = 0;
+        } else if (jumlah <= 0 || jumlah >= 100) {
+            printf("\nJumlah tidak valid, minimal 1 mahasiswa\n");
+            system("pause");
+        }
+        }while(jumlah < 1);
 
     for(int i=0;i<jumlah;i++){
         addnama(nama_mhs);
