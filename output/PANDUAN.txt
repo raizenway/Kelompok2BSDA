@@ -23,4 +23,4 @@ CARA MENGGUNAKAN
 	     kemudian program akan menampilkan mahasiswa tergabung dalam UKM apa saja.
 	 [5] Tampilkan Daftar Himpunan
 	     Pada operasi himpunan, pengguna dapat memilih untuk melihat anggota himpunan
-	     secara HISTORY, CURRENT, dan menampilkan GUIDE atau panduan penggunaan aplikasi.
+	     secara Log, CURRENT, dan menampilkan GUIDE atau panduan penggunaan aplikasi.
