@@ -1064,8 +1064,9 @@ while(!valid){
     int opsi = ListUKM();
     if(opsi==1){
         do{
-        printf("Masukkan jumlah mahasiswa yang akan dihapus dari UKM DKM: ");
+            printf("Masukkan jumlah mahasiswa yang akan dihapus dari UKM DKM: ");
         if (scanf("%d", &jumlah) != 1) {
+            
             // Input bukan integer, lakukan penanganan error
             printf("Input tidak valid, harap masukkan bilangan bulat!\n");
             system("pause");
