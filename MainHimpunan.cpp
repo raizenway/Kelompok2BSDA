@@ -47,7 +47,7 @@ int main(){
             case 6 : 
                 PanduanPenggunaan(); TampilkanPanduan(); system("pause"); break;
             case 7 :
-                DisplayHistory(); break;                                                                                                                                           ; TampilkanPanduan(); break;
+                DisplayLog(); break;                                                                                                                                           ; TampilkanPanduan(); break;
            }
 
         printf("\n");
