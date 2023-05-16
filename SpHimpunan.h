@@ -194,7 +194,7 @@ void MenuAddSub(superset_list POLBAN, subset_list* DKM, subset_list* KEWIRAUSAHA
     FS          : Menampilkan pesan berhasil atau gagal menambahkan mahasiswa ke dalam himp
     DESKRIPSI   : Prosedur untuk masuk ke menu penambahan mahasiswa ke pilihan UKM
 =======================================================================================================================*/
-void MenuEditSub(superset_list POLBAN, subset_list* DKM, subset_list* KEWIRAUSAHAAN, subset_list* BADMINTON, subset_list* BASKET, subset_list* VOLI, subset_list* POLBAN_CHESS, subset_list* JFP, subset_list* ROBOTIK, subset_list* FELLAS, subset_list* USF);
+void MenuEditSub(subset_list* DKM, subset_list* KEWIRAUSAHAAN, subset_list* BADMINTON, subset_list* BASKET, subset_list* VOLI, subset_list* POLBAN_CHESS, subset_list* JFP, subset_list* ROBOTIK, subset_list* FELLAS, subset_list* USF);
 /*  AUTHOR      : Salsabil Khoirunisa
     IS          : Sudah terbentuk list subset
     FS          : Menampilkan pesan berhasil atau gagal menghapus atau mengubah data mahasiswa ke dalam himpunan.
